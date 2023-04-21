@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cu7ewu4b4u125"]
+
+[ext_resource type="PackedScene" uid="uid://bdqfxq0oxphxc" path="res://map/leicester_v3.glb" id="1_3mi2l"]
+
+[node name="leicester_v3" instance=ExtResource("1_3mi2l")]
