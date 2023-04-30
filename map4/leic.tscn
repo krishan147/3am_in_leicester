@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://coq7qbcm5sweh"]
+
+[ext_resource type="PackedScene" uid="uid://vqi6bbt3heq2" path="res://map4/leic.glb" id="1_vlh15"]
+
+[node name="leic" instance=ExtResource("1_vlh15")]
+transform = Transform3D(7.767, 0, 0, 0, 7.767, 0, 0, 0, 7.767, 0, 0, 0)
