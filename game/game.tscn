@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfyb78abusg0i"]
+
+[ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
+
+[node name="game" type="Node3D"]
+
+[node name="leic" parent="." instance=ExtResource("1_baub8")]
