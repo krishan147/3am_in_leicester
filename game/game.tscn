@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfyb78abusg0i"]
+[gd_scene load_steps=3 format=3 uid="uid://dfyb78abusg0i"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
+[ext_resource type="PackedScene" uid="uid://dpv6uo6wf2xyg" path="res://player/player_main.tscn" id="2_or1ws"]
 
 [node name="game" type="Node3D"]
 
 [node name="leic" parent="." instance=ExtResource("1_baub8")]
+
+[node name="player_main" parent="." instance=ExtResource("2_or1ws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8831, 3.3454, 9.84107)

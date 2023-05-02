@@ -6,27 +6,31 @@ const JUMP_VELOCITY = 4.5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-@onready var camera = $Camera3D
+var sensitivity = 0.1
+#@onready var camera = $Camera3D
+@onready var camera_pivot = $camera_pivot
+@onready var animation_tree = $AnimationTree
+@onready var state_machine =  animation_tree["parameters/playback"]
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	print (state_machine)
+	state_machine.travel("idle")
+	
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(deg_to_rad(event.relative.x*sensitivity))
+		camera_pivot.rotate_x(deg_to_rad(-event.relative.y*sensitivity))
 
 func _physics_process(delta):
-	camera.look_at(self.position, Vector3.UP)
-	
-#	if not is_on_floor():
-#		velocity.y -= gravity * delta
-#
-#	# Handle Jump.
-#	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-#		velocity.y = JUMP_VELOCITY
-#
-#	# Get the input direction and handle the movement/deceleration.
-#	# As good practice, you should replace UI actions with custom gameplay actions.
-#	var input_dir = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-#	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-#	if direction:
-#		velocity.x = direction.x * SPEED
-#		velocity.z = direction.z * SPEED
-#	else:
-#		velocity.x = move_toward(velocity.x, 0, SPEED)
-#		velocity.z = move_toward(velocity.z, 0, SPEED)
-#
-#	move_and_slide()
+	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if direction:
+		state_machine.travel("slow_run")
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+
+	move_and_slide()
