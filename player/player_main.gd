@@ -14,7 +14,6 @@ var sensitivity = 0.1
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	print (state_machine)
 	state_machine.travel("idle")
 	
 func _input(event):
