@@ -10,11 +10,15 @@ var sensitivity = 0.1
 #@onready var camera = $Camera3D
 @onready var camera_pivot = $camera_pivot
 @onready var animation_tree = $AnimationTree
-@onready var state_machine =  animation_tree["parameters/playback"]
+#@onready var state_machine =  animation_tree.get("parameters/playback")
+@onready var animation_player = get_node("AnimationPlayer")
+
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	state_machine.travel("idle")
+	#print (animation_player)
+	#state_machine.start("slow_run")
+	
 	
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -25,7 +29,7 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
-		state_machine.travel("slow_run")
+		#state_machine.travel("slow_run")
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
 	else:
