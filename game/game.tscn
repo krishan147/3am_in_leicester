@@ -51,5 +51,14 @@ bones/44/rotation = Quaternion(0.514304, -0.267145, 0.162828, 0.798506)
 bones/45/rotation = Quaternion(0.824637, -0.556376, 0.005564, -0.101931)
 bones/46/rotation = Quaternion(-0.0105318, 0.0252369, 0.291076, 0.956309)
 
+[node name="SpringArmPivot" type="Node3D" parent="player_main"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.561491, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="player_main/SpringArmPivot"]
+
+[node name="Camera3D" type="Camera3D" parent="player_main/SpringArmPivot/SpringArm3D"]
+transform = Transform3D(1, 0, 0, 0, 0.947546, 0.319621, 0, -0.319621, 0.947546, 0, 0.96002, 1.25562)
+fov = 70.8351
+
 [editable path="player_main"]
 [editable path="player_main/player"]
