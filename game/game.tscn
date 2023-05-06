@@ -8,7 +8,7 @@
 [node name="leic" parent="." instance=ExtResource("1_baub8")]
 
 [node name="player_main" parent="." instance=ExtResource("2_or1ws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8831, 3.3454, 9.84107)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8831, 3.24989, 10.2007)
 
 [node name="player" parent="player_main" index="1"]
 transform = Transform3D(-0.25, 0, -3.7749e-08, 0, 0.25, 0, 3.7749e-08, 0, -0.25, 0, 0, 0)

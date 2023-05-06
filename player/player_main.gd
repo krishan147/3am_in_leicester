@@ -14,6 +14,8 @@ var sensitivity = 0.1
 @onready var spring_arm_3d = $SpringArmPivot/SpringArm3D
 @onready var camera3d = $SpringArmPivot/SpringArm3D/Camera3D
 @onready var camera_direction_x = null
+@onready var player = $player
+const LERP_VAL = 0.5
 
 func _ready():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -30,41 +32,26 @@ func _input(event):
 		
 		#spring_arm_3d.rotation.x = clamp(spring_arm_3d.rotation.x, -PI/4, -PI/4)
 		
-	if event is InputEventKey:
-		print (event)
+#	if event is InputEventKey:
+#		print (event)
 	
 		
 		
 
 func _physics_process(delta):
-	pass
+	var input_dir = Input.get_vector("left", "right", "forward", "backward")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = direction.rotated(Vector3.UP, spring_arm_pivot.rotation.y)
+	
+	if direction:
+		animation_player.play("slow_run")
+		velocity.x = direction.x * SPEED
+		velocity.z = direction.z * SPEED
+		
+		player.rotation.y = lerp_angle(player.rotation.y, atan2(velocity.x, velocity.z), LERP_VAL)
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.z = move_toward(velocity.z, 0, SPEED)
+		animation_player.play("idle")
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-#	var input_dir = Input.get_vector("left", "right", "forward", "backward")
-#	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-#	if direction:
-#
-#		animation_player.play("slow_run")
-#		print (camera_direction_x)
-#		#velocity.x = camera_direction_x * SPEED
-#		#velocity.x = direction.x * SPEED
-#		#velocity.z = direction.z * SPEED
-#
-#		velocity = camera_direction_x
-#
-#		print ("current velocity ", velocity)
-#
-#	else:
-#		velocity.x = move_toward(velocity.x, 0, SPEED)
-#		velocity.z = move_toward(velocity.z, 0, SPEED)
-#		animation_player.play("idle")
-#
-#	move_and_slide()
+	move_and_slide()
