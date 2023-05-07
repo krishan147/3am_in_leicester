@@ -43,6 +43,9 @@ func _physics_process(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	direction = direction.rotated(Vector3.UP, spring_arm_pivot.rotation.y)
 	
+	#if not is_on_floor():
+	#	velocity.y -= gravity * delta
+	
 	if direction:
 		animation_player.play("slow_run")
 		velocity.x = direction.x * SPEED
