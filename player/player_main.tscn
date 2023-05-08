@@ -4,12 +4,14 @@
 [ext_resource type="Script" path="res://player/player_main.gd" id="1_tlbxx"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bn65i"]
+radius = 0.3
+height = 1.8
 
 [node name="player_main" type="CharacterBody3D"]
 script = ExtResource("1_tlbxx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86677, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.56253, 0)
 shape = SubResource("CapsuleShape3D_bn65i")
 
 [node name="player" parent="." instance=ExtResource("1_obski")]
