@@ -27,6 +27,12 @@ func _input(event):
 		spring_arm_pivot.rotate_y(-event.relative.x * .005)
 		spring_arm_3d.rotate_x(-event.relative.y * .005)
 		
+	if Input.is_action_just_pressed("jump"):
+		#velocity.y = 10
+		velocity.y = 3
+		
+		
+		
 		#camera_direction_x = camera3d.transform.basis.z.normalized()
 		
 		
@@ -44,7 +50,7 @@ func _physics_process(delta):
 	direction = direction.rotated(Vector3.UP, spring_arm_pivot.rotation.y)
 	
 	#if not is_on_floor():
-	#	velocity.y -= gravity * delta
+	velocity.y -= gravity * delta
 	
 	if direction:
 		animation_player.play("slow_run")
@@ -58,3 +64,4 @@ func _physics_process(delta):
 		animation_player.play("idle")
 
 	move_and_slide()
+

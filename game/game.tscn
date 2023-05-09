@@ -1,7 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfyb78abusg0i"]
+[gd_scene load_steps=6 format=3 uid="uid://dfyb78abusg0i"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="PackedScene" uid="uid://dpv6uo6wf2xyg" path="res://player/player_main.tscn" id="2_or1ws"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_4hfuk"]
+
+[sub_resource type="Sky" id="Sky_mbr8q"]
+sky_material = SubResource("PhysicalSkyMaterial_4hfuk")
+
+[sub_resource type="Environment" id="Environment_r8iv1"]
+background_mode = 2
+sky = SubResource("Sky_mbr8q")
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.13
 
 [node name="game" type="Node3D"]
 
@@ -62,6 +73,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.561491, 0)
 [node name="Camera3D" type="Camera3D" parent="player_main/SpringArmPivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.947546, 0.319621, 0, -0.319621, 0.947546, 0, 0.96002, 1.25562)
 fov = 70.8351
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r8iv1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.629795, -0.677091, -0.380665, 0, -0.490067, 0.871685, -0.776761, 0.548983, 0.308642, 10.6105, 18.6138, -16.4717)
+light_color = Color(0.678431, 0.701961, 1, 1)
+light_energy = 0.25
 
 [editable path="player_main"]
 [editable path="player_main/player"]
