@@ -11,7 +11,6 @@ sky_material = SubResource("PhysicalSkyMaterial_4hfuk")
 [sub_resource type="Environment" id="Environment_r8iv1"]
 background_mode = 2
 sky = SubResource("Sky_mbr8q")
-volumetric_fog_enabled = true
 volumetric_fog_density = 0.13
 
 [node name="game" type="Node3D"]
