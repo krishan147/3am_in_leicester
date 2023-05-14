@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfyb78abusg0i"]
+[gd_scene load_steps=12 format=3 uid="uid://dfyb78abusg0i"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="PackedScene" uid="uid://dpv6uo6wf2xyg" path="res://player/player_main.tscn" id="2_or1ws"]
@@ -11,14 +11,34 @@ sky_material = SubResource("PhysicalSkyMaterial_4hfuk")
 [sub_resource type="Environment" id="Environment_r8iv1"]
 background_mode = 2
 sky = SubResource("Sky_mbr8q")
+fog_enabled = true
+volumetric_fog_enabled = true
 volumetric_fog_density = 0.13
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y1q7c"]
+size = Vector3(38.207, 20, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_h8o6n"]
+size = Vector3(20, 20, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hv8i8"]
+size = Vector3(100, 20, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eyd0f"]
+size = Vector3(20, 20, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ommx8"]
+size = Vector3(35, 20, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_104cr"]
+size = Vector3(9, 20, 1)
 
 [node name="game" type="Node3D"]
 
 [node name="leic" parent="." instance=ExtResource("1_baub8")]
 
 [node name="player_main" parent="." instance=ExtResource("2_or1ws")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.8831, 3.25797, 10.4247)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 72.4403, 3.25797, 5.93371)
 
 [node name="CollisionShape3D" parent="player_main" index="0"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.229668, 0)
@@ -80,6 +100,109 @@ environment = SubResource("Environment_r8iv1")
 transform = Transform3D(-0.629795, -0.677091, -0.380665, 0, -0.490067, 0.871685, -0.776761, 0.548983, 0.308642, 10.6105, 18.6138, -16.4717)
 light_color = Color(0.678431, 0.701961, 1, 1)
 light_energy = 0.25
+
+[node name="walls" type="Node3D" parent="."]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.65846)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7481, 8.29443, 17.3239)
+shape = SubResource("BoxShape3D_y1q7c")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75.0523, 7.65102, -49.2241)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.5299, 4.311, -1.19116)
+shape = SubResource("BoxShape3D_h8o6n")
+
+[node name="RigidBody3D11" type="RigidBody3D" parent="walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75.0523, 7.65102, -49.2241)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60368, 4.311, -1.19116)
+shape = SubResource("BoxShape3D_h8o6n")
+
+[node name="RigidBody3D13" type="RigidBody3D" parent="walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75.0523, 7.65102, -77.4459)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60368, 4.311, -1.19116)
+shape = SubResource("BoxShape3D_h8o6n")
+
+[node name="RigidBody3D12" type="RigidBody3D" parent="walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 75.0523, 7.65102, -26.1984)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D12"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.60368, 4.311, -1.19116)
+shape = SubResource("BoxShape3D_h8o6n")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.28086, 10.9562, -50.8716)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D3"]
+shape = SubResource("BoxShape3D_hv8i8")
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -117.792)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.2053, 2.65162, 11.7781)
+shape = SubResource("BoxShape3D_eyd0f")
+
+[node name="RigidBody3D5" type="RigidBody3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.9191, 0, -128.576)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.50615, 0, 0)
+shape = SubResource("BoxShape3D_ommx8")
+
+[node name="RigidBody3D6" type="RigidBody3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4631, 0, -9.76393)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91505, 0, 17.6287)
+shape = SubResource("BoxShape3D_104cr")
+
+[node name="RigidBody3D8" type="RigidBody3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64745, 0, -9.76393)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.1999)
+shape = SubResource("BoxShape3D_104cr")
+
+[node name="RigidBody3D9" type="RigidBody3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09893, 15.2536, -99.0684)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D9"]
+shape = SubResource("BoxShape3D_104cr")
+
+[node name="RigidBody3D10" type="RigidBody3D" parent="walls"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 33.8253, 15.2536, -124.947)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D10"]
+shape = SubResource("BoxShape3D_104cr")
+
+[node name="RigidBody3D7" type="RigidBody3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4631, 0, 4.39579)
+gravity_scale = 0.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D7"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.77252, 0, 9.8263)
+shape = SubResource("BoxShape3D_104cr")
 
 [editable path="player_main"]
 [editable path="player_main/player"]
