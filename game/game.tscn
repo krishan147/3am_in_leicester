@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dfyb78abusg0i"]
+[gd_scene load_steps=13 format=3 uid="uid://dfyb78abusg0i"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="PackedScene" uid="uid://dpv6uo6wf2xyg" path="res://player/player_main.tscn" id="2_or1ws"]
+[ext_resource type="Script" path="res://game/menu_Camera3D.gd" id="3_j8taf"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_4hfuk"]
 
@@ -91,6 +92,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.561491, 0)
 
 [node name="Camera3D" type="Camera3D" parent="player_main/SpringArmPivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.947546, 0.319621, 0, -0.319621, 0.947546, 0, 0.96002, 1.25562)
+current = true
 fov = 70.8351
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -203,6 +205,17 @@ gravity_scale = 0.0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="walls/RigidBody3D7"]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.77252, 0, 9.8263)
 shape = SubResource("BoxShape3D_104cr")
+
+[node name="menu" type="Node3D" parent="."]
+
+[node name="menu_Camera3D" type="Camera3D" parent="menu"]
+transform = Transform3D(0.967898, -0.156266, 0.196861, 0, 0.783238, 0.621722, -0.251343, -0.601764, 0.758094, 42, 10, 16)
+script = ExtResource("3_j8taf")
+
+[node name="Timer" type="Timer" parent="menu/menu_Camera3D"]
+wait_time = 0.01
+
+[connection signal="timeout" from="menu/menu_Camera3D/Timer" to="menu/menu_Camera3D" method="_on_timer_timeout"]
 
 [editable path="player_main"]
 [editable path="player_main/player"]
