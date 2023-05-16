@@ -3,8 +3,8 @@ extends Camera3D
 @onready var timer = $Timer
 @onready var z = null
 
-#func _ready():
-#	_start()
+func _ready():
+	_start()
 
 func _process(delta):
 	pass

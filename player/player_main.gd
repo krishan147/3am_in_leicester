@@ -17,7 +17,10 @@ var sensitivity = 0.1
 @onready var player = $player
 const LERP_VAL = 0.5
 
-func _ready():
+#func _ready():
+#	_start()
+	
+func _start():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	animation_player.play("idle")
 	
