@@ -22,3 +22,15 @@ func _on_close_options_pressed():
 
 func _on_exit_pressed():
 	get_tree().quit()
+
+
+func _on_volume_h_slider_value_changed(value):
+	print (value)
+
+
+func _on_volume_h_slider_2_value_changed(value):
+	print (value)
+
+
+func _on_brightness_h_slider_value_changed(value):
+	print (value)

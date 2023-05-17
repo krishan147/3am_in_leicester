@@ -297,7 +297,6 @@ text = "QUIT"
 flat = true
 
 [node name="options" type="VBoxContainer" parent="menu/menu_buttons/SubViewport"]
-visible = false
 offset_left = 500.0
 offset_top = 250.0
 offset_right = 656.0
@@ -307,10 +306,21 @@ offset_bottom = 366.0
 layout_mode = 2
 theme_override_colors/font_color = Color(0.705882, 0.705882, 0.705882, 1)
 theme_override_fonts/font = ExtResource("4_8c7no")
-text = "VOLUME"
+text = "GAME VOLUME"
 
 [node name="volume_HSlider" type="HSlider" parent="menu/menu_buttons/SubViewport/options"]
 layout_mode = 2
+value = 100.0
+
+[node name="Label3" type="Label" parent="menu/menu_buttons/SubViewport/options"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.705882, 0.705882, 0.705882, 1)
+theme_override_fonts/font = ExtResource("4_8c7no")
+text = "MUSIC VOLUME"
+
+[node name="volume_HSlider2" type="HSlider" parent="menu/menu_buttons/SubViewport/options"]
+layout_mode = 2
+value = 100.0
 
 [node name="Label2" type="Label" parent="menu/menu_buttons/SubViewport/options"]
 layout_mode = 2
@@ -320,6 +330,7 @@ text = "BRIGHTNESS"
 
 [node name="brightness_HSlider" type="HSlider" parent="menu/menu_buttons/SubViewport/options"]
 layout_mode = 2
+value = 100.0
 
 [node name="reset_game" type="Button" parent="menu/menu_buttons/SubViewport/options"]
 layout_mode = 2
@@ -355,6 +366,9 @@ flat = true
 [connection signal="timeout" from="menu/menu_Camera3D/Timer" to="menu/menu_Camera3D" method="_on_timer_timeout"]
 [connection signal="pressed" from="menu/menu_buttons/SubViewport/menu/options" to="menu" method="_on_options_pressed"]
 [connection signal="pressed" from="menu/menu_buttons/SubViewport/menu/exit" to="menu" method="_on_exit_pressed"]
+[connection signal="value_changed" from="menu/menu_buttons/SubViewport/options/volume_HSlider" to="menu" method="_on_volume_h_slider_value_changed"]
+[connection signal="value_changed" from="menu/menu_buttons/SubViewport/options/volume_HSlider2" to="menu" method="_on_volume_h_slider_2_value_changed"]
+[connection signal="value_changed" from="menu/menu_buttons/SubViewport/options/brightness_HSlider" to="menu" method="_on_brightness_h_slider_value_changed"]
 [connection signal="pressed" from="menu/menu_buttons/SubViewport/options/close_options" to="menu" method="_on_close_options_pressed"]
 
 [editable path="player_main"]
