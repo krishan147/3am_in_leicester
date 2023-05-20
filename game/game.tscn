@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://dfyb78abusg0i"]
+[gd_scene load_steps=20 format=3 uid="uid://dfyb78abusg0i"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
+[ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
 [ext_resource type="PackedScene" uid="uid://dpv6uo6wf2xyg" path="res://player/player_main.tscn" id="2_or1ws"]
 [ext_resource type="Script" path="res://menu/menu.gd" id="3_4sv8j"]
 [ext_resource type="Script" path="res://game/menu_Camera3D.gd" id="3_j8taf"]
 [ext_resource type="FontFile" uid="uid://r2ta0vfdn3to" path="res://style/TUTBUR_B.TTF" id="4_8c7no"]
+[ext_resource type="PackedScene" uid="uid://0vdon2h1kexd" path="res://enemy/enemy_main.tscn" id="6_njk3j"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_4hfuk"]
 
@@ -65,9 +67,10 @@ polygons = [PackedInt32Array(0, 3, 4), PackedInt32Array(4, 3, 1), PackedInt32Arr
 agent_max_climb = 2.0
 
 [node name="game" type="Node3D"]
+script = ExtResource("1_q42yk")
 
 [node name="player_main" parent="." instance=ExtResource("2_or1ws")]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 72.4403, 3.25797, 5.93371)
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 47.931, 3.25797, 13.3605)
 
 [node name="CollisionShape3D" parent="player_main" index="0"]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.229668, 0)
@@ -235,11 +238,11 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.7725
 shape = SubResource("BoxShape3D_104cr")
 
 [node name="menu" type="Node3D" parent="."]
+visible = false
 script = ExtResource("3_4sv8j")
 
 [node name="menu_Camera3D" type="Camera3D" parent="menu"]
 transform = Transform3D(0.967898, -0.156266, 0.196861, 0, 0.783238, 0.621722, -0.251343, -0.601764, 0.758094, 42, 10, 16)
-current = true
 script = ExtResource("3_j8taf")
 
 [node name="Timer" type="Timer" parent="menu/menu_Camera3D"]
@@ -298,6 +301,7 @@ text = "QUIT"
 flat = true
 
 [node name="options" type="VBoxContainer" parent="menu/menu_buttons/SubViewport"]
+visible = false
 offset_left = 500.0
 offset_top = 250.0
 offset_right = 656.0
@@ -363,6 +367,9 @@ theme = SubResource("Theme_yrwn4")
 theme_override_fonts/font = ExtResource("4_8c7no")
 text = "3AM IN LEICESTER"
 flat = true
+
+[node name="enemy_main" parent="." instance=ExtResource("6_njk3j")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 42.0972, 3.27551, 9.27435)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 navigation_mesh = SubResource("NavigationMesh_m7fv5")

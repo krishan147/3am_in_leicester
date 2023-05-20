@@ -31,20 +31,8 @@ func _input(event):
 		spring_arm_3d.rotate_x(-event.relative.y * .005)
 		
 	if Input.is_action_just_pressed("jump"):
-		#velocity.y = 10
 		velocity.y = 3
-		
-		
-		
-		#camera_direction_x = camera3d.transform.basis.z.normalized()
-		
-		
-		#spring_arm_3d.rotation.x = clamp(spring_arm_3d.rotation.x, -PI/4, -PI/4)
-		
-#	if event is InputEventKey:
-#		print (event)
-	
-		
+
 		
 
 func _physics_process(delta):
