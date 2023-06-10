@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx21tnfbti02o"]
+
+[ext_resource type="Script" path="res://global_options/global_options.gd" id="1_d5lgr"]
+
+[node name="global_options" type="Node3D"]
+script = ExtResource("1_d5lgr")
