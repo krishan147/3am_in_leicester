@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://dfyb78abusg0i"]
+[gd_scene load_steps=22 format=3 uid="uid://dfyb78abusg0i"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
 [ext_resource type="PackedScene" uid="uid://dpv6uo6wf2xyg" path="res://player/player_main.tscn" id="2_or1ws"]
 [ext_resource type="Script" path="res://menu/menu.gd" id="3_4sv8j"]
+[ext_resource type="FontFile" uid="uid://f7ybpfdtoada" path="res://style/TUTBUR__.TTF" id="3_58p1l"]
 [ext_resource type="Script" path="res://game/menu_Camera3D.gd" id="3_j8taf"]
 [ext_resource type="FontFile" uid="uid://r2ta0vfdn3to" path="res://style/TUTBUR_B.TTF" id="4_8c7no"]
 [ext_resource type="PackedScene" uid="uid://0vdon2h1kexd" path="res://enemy/enemy_main.tscn" id="6_njk3j"]
@@ -126,6 +127,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.561491, 0)
 [node name="Camera3D" type="Camera3D" parent="player_main/SpringArmPivot/SpringArm3D"]
 transform = Transform3D(1, 0, 0, 0, 0.947546, 0.319621, 0, -0.319621, 0.947546, 0, 0.96002, 1.25562)
 fov = 70.8351
+
+[node name="player_messages" type="Label3D" parent="player_main"]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, 0, 0.796049, 0)
+billboard = 1
+alpha_antialiasing_edge = 0.57
+text = "hello how is it going 
+i am fine how are you"
+font = ExtResource("3_58p1l")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_r8iv1")
@@ -350,10 +359,16 @@ text = "CLOSE OPTIONS"
 flat = true
 
 [node name="title_box" type="VBoxContainer" parent="menu/menu_buttons/SubViewport"]
-offset_left = 860.0
-offset_top = 590.0
-offset_right = 1121.0
-offset_bottom = 616.0
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.941
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -426.24
+offset_top = -604.16
+offset_right = -126.24
+offset_bottom = -514.16
+grow_vertical = 0
 
 [node name="title" type="Button" parent="menu/menu_buttons/SubViewport/title_box"]
 layout_mode = 2

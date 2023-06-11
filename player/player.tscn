@@ -1,9 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://7y7okrdbavwy"]
+[gd_scene load_steps=14 format=3 uid="uid://7y7okrdbavwy"]
 
 [ext_resource type="Animation" uid="uid://de3kljvw5cd42" path="res://player/running.res" id="1_wcjav"]
 [ext_resource type="Texture2D" uid="uid://c6tkpl2ijqc8v" path="res://player/PolygonOffice_Texture_01_B.png" id="2_j3rul"]
 [ext_resource type="Animation" uid="uid://b4upvfl1e0iwb" path="res://player/idle.res" id="2_yhq36"]
 [ext_resource type="Animation" uid="uid://cm4v7peqdclq4" path="res://player/slow_run.res" id="3_lad5w"]
+[ext_resource type="Animation" uid="uid://cwbkuxwomj3tf" path="res://player/Breakdance .res" id="5_m3y80"]
+[ext_resource type="Animation" uid="uid://dyph2af316s0p" path="res://player/standing_up.res" id="6_xs7i1"]
+[ext_resource type="Animation" uid="uid://dh8jrf6fwu5ka" path="res://player/dancing step.res" id="7_c32f1"]
+[ext_resource type="Animation" uid="uid://6nejpsst60w4" path="res://player/dancing_running_man.res" id="8_h3gqm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkiow"]
 resource_name = "PolygonOffice_Charaters"
@@ -159,7 +163,7 @@ bind/40/bone = -1
 bind/40/pose = Transform3D(-2.2773e-15, -0.519973, 0.854183, -1.57377e-14, 0.854183, 0.519973, -1, -1.22587e-14, -1.01284e-14, 0.0604564, -0.0283996, -0.114443)
 bind/41/name = &"ball_r"
 bind/41/bone = -1
-bind/41/pose = Transform3D(7.44462e-14, 2.35418e-43, 1, -9.57665e-15, 1, 7.12945e-28, -1, -9.57665e-15, 7.44462e-14, -0.0595125, 0.00297976, -0.114443)
+bind/41/pose = Transform3D(7.44462e-14, 0, 1, -9.57665e-15, 1, 7.12945e-28, -1, -9.57665e-15, 7.44462e-14, -0.0595125, 0.00297976, -0.114443)
 bind/42/name = &"toes_r"
 bind/42/bone = -1
 bind/42/pose = Transform3D(1, 9.0584e-15, 1.2366e-14, -9.0584e-15, 1, 1.2785e-13, -1.2366e-14, -1.2785e-13, 1, 0.114443, 0.00297976, -0.13247)
@@ -184,9 +188,13 @@ albedo_texture = ExtResource("2_j3rul")
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uson7"]
 _data = {
+"Breakdance ": ExtResource("5_m3y80"),
+"dancing step": ExtResource("7_c32f1"),
+"dancing_running_man": ExtResource("8_h3gqm"),
 "idle": ExtResource("2_yhq36"),
 "running": ExtResource("1_wcjav"),
-"slow_run": ExtResource("3_lad5w")
+"slow_run": ExtResource("3_lad5w"),
+"standing_up": ExtResource("6_xs7i1")
 }
 
 [node name="Idle" type="Node3D"]
@@ -194,7 +202,7 @@ _data = {
 [node name="RootNode" type="Node3D" parent="."]
 
 [node name="Root" type="Node3D" parent="RootNode"]
-transform = Transform3D(0.72994, 0.0512311, -0.681588, 0.00240496, 0.996988, 0.0775135, 0.683507, -0.0582194, 0.727619, -0.055, -0.0601199, 0.0560817)
+transform = Transform3D(0.72994, 0.0512311, -0.681589, 0.00240496, 0.996988, 0.0775135, 0.683507, -0.0582193, 0.727619, -0.055, -0.0601199, 0.0560817)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="RootNode/Root"]
 bones/0/name = "Pelvis"

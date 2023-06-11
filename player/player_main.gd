@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 const SPEED = 1.5
 const JUMP_VELOCITY = 4.5
 
@@ -33,8 +32,6 @@ func _input(event):
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = 3
 
-		
-
 func _physics_process(delta):
 	var input_dir = Input.get_vector("left", "right", "forward", "backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
@@ -56,3 +53,5 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+func _playStandUp():
+	animation_player.play("standing_up")
