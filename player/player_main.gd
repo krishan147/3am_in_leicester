@@ -68,4 +68,3 @@ func _on_animation_player_animation_finished(anim_name):
 		_canMove(true)
 
 
-# getup, hurry up, get the stuff

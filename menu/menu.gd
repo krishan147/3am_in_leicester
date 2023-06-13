@@ -10,6 +10,8 @@ extends Node3D
 @onready var timer_intro = $"../Timer_intro"
 @onready var player_messages = $"../player_main/player_messages"
 @onready var x_intro = 0
+@onready var game = $"../.."
+@onready var menu_ingame_container = $"../menu_ingame/SubViewportContainer"
 
 func _process(delta):
 	pass
@@ -74,10 +76,15 @@ func _on_timer_intro_timeout():
 		player_messages.text = "YOU'RE HUNGOVER!"
 		timer_intro.start()
 	elif x_intro == 3:
-		player_messages.text = "FIND THE STUFF!"
+		player_messages.text = "MAKE A BACON COB!"
 		timer_intro.start()
 	else:
 		player_messages.text = ""
 		x_intro = 0
 		timer_intro.stop()
+		game._changeLevel(0)
+		menu_ingame_container.visible = true
+		
 	x_intro = x_intro + 1
+	
+	
