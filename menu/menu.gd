@@ -7,6 +7,9 @@ extends Node3D
 @onready var fade = $"../fade"
 @onready var timer_load = $"../Timer_load"
 @onready var player = $"../player_main"
+@onready var timer_intro = $"../Timer_intro"
+@onready var player_messages = $"../player_main/player_messages"
+@onready var x_intro = 0
 
 func _process(delta):
 	pass
@@ -14,19 +17,15 @@ func _process(delta):
 func _on_options_pressed():
 	options.visible = true
 
-
 func _on_close_options_pressed():
 	options.visible = false
-
 
 func _on_exit_pressed():
 	get_tree().quit()
 
-
 func _on_volume_h_slider_value_changed(value): # all
 	vol_num = _volumeLookup(value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), vol_num)
-
 
 func _on_volume_h_slider_2_value_changed(value): # music
 	vol_num = _volumeLookup(value)
@@ -62,3 +61,23 @@ func _on_timer_load_timeout():
 	camera_player.current = true
 	player._canMove(false)
 	player._playStandUp()
+	timer_intro.start()
+
+func _on_timer_intro_timeout():
+	if x_intro == 0:
+		player_messages.text = "GET UP!"
+		timer_intro.start()
+	elif x_intro == 1:
+		player_messages.text = "HURRY!"
+		timer_intro.start()
+	elif x_intro == 2:
+		player_messages.text = "YOU'RE HUNGOVER!"
+		timer_intro.start()
+	elif x_intro == 3:
+		player_messages.text = "FIND THE STUFF!"
+		timer_intro.start()
+	else:
+		player_messages.text = ""
+		x_intro = 0
+		timer_intro.stop()
+	x_intro = x_intro + 1

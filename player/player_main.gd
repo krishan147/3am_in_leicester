@@ -63,7 +63,9 @@ func _physics_process(delta):
 func _playStandUp():
 	animation_player.play("standing_up")
 
-
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "standing_up":
 		_canMove(true)
+
+
+# getup, hurry up, get the stuff

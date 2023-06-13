@@ -13,9 +13,9 @@ dest_files=["res://.godot/imported/TUTBUR_B.TTF-9bb4160de1532bd8407f27a0441f0751
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=0
 generate_mipmaps=false
-multichannel_signed_distance_field=false
+multichannel_signed_distance_field=true
 msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
