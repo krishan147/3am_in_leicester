@@ -8,6 +8,7 @@ extends Node3D
 @onready var checkout_4 = $CanvasLayer/menu_ingame/SubViewportContainer/SubViewport/VBoxContainer/CheckBox_4
 @onready var checkout_5 = $CanvasLayer/menu_ingame/SubViewportContainer/SubViewport/VBoxContainer/CheckBox_5
 @onready var level = 0
+@onready var playing = false
 
 @onready var dict_levels = {
 	0:{
@@ -53,9 +54,11 @@ func _changeCheckboxes():
 		checkbox.visible = true
 		x = x + 1
 
+func _changePlaying(change):
+	playing = change
 
-
-
+func _getPlayingState():
+	return playing
 
 
 

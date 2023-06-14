@@ -84,6 +84,7 @@ func _on_timer_intro_timeout():
 		timer_intro.stop()
 		game._changeLevel(0)
 		menu_ingame_container.visible = true
+		game._changePlaying(true)
 		
 	x_intro = x_intro + 1
 	
