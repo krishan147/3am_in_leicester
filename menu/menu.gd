@@ -58,6 +58,7 @@ func _on_new_game_button_down():
 	timer_load.start()
 
 func _on_timer_load_timeout():
+	timer_load.stop()
 	fade.play("fade_to_normal")
 	camera_menu.current = false
 	camera_player.current = true
@@ -88,4 +89,11 @@ func _on_timer_intro_timeout():
 		
 	x_intro = x_intro + 1
 	
-	
+func _on_continue_pressed():
+	var save_data = GlobalOptions._loadGame()
+	menu_buttons.visible = false
+	self.visible = false
+	camera_menu.current = false
+	camera_player.current = true
+	player._canMove(true)
+

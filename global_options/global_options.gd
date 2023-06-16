@@ -22,6 +22,7 @@ func _loadGame():
 func _saveGameTemplate():
 	var save_dict = {
 		"player_location": 1,
+		"level":0,
 		"red_sauce": false,
 		"bacon": false,
 		"baps":false,

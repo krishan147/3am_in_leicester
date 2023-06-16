@@ -84,6 +84,7 @@ func _on_animation_player_animation_finished(anim_name):
 		_canMove(true)
 		var save_data = GlobalOptions._saveGameTemplate()
 		save_data["player_location"] = self.position
+		save_data["level"] = 0
 		GlobalOptions._saveGame(save_data)
 
 
