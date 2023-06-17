@@ -28,12 +28,9 @@ extends Node3D
 
 func _changeLevel(change):
 	level = change
-	
 	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
-	
 	for checkbox in list_checkboxes:
 		checkbox.visible = false
-		
 	_changeCheckboxes()
 
 func _ready():

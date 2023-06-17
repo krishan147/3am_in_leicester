@@ -12,6 +12,11 @@ extends Node3D
 @onready var x_intro = 0
 @onready var game = $"../.."
 @onready var menu_ingame_container = $"../menu_ingame/SubViewportContainer"
+@onready var continue_btn = $menu_buttons/SubViewport/menu/continue
+@onready var new_game_btn = $menu_buttons/SubViewport/menu/new_game
+@onready var options_btn = $menu_buttons/SubViewport/menu/options
+@onready var exit_btn = $menu_buttons/SubViewport/menu/exit
+@onready var title = $title
 
 func _process(delta):
 	pass
@@ -51,11 +56,20 @@ func _volumeLookup(dial_num):
 	
 	return dict_volume[int(dial_num)]
 
+var new_game_check = 0
+@onready var click_again = $menu_buttons/SubViewport/click_again
+
 func _on_new_game_button_down():
-	fade.play("fade_to_black")
-	menu_buttons.visible = false
-	self.visible = false
-	timer_load.start()
+	
+	if new_game_check == 0:
+		new_game_check = 1
+		click_again.visible = true
+	else:
+		fade.play("fade_to_black")
+		_disableMenu()
+		player.position = Vector3(25.5, 2.6, -50.7)
+		timer_load.start()
+		new_game_check = 0
 
 func _on_timer_load_timeout():
 	timer_load.stop()
@@ -91,9 +105,31 @@ func _on_timer_intro_timeout():
 	
 func _on_continue_pressed():
 	var save_data = GlobalOptions._loadGame()
-	menu_buttons.visible = false
-	self.visible = false
+	_disableMenu()
 	camera_menu.current = false
 	camera_player.current = true
 	player._canMove(true)
+	game._changePlaying(true)
+	menu_ingame_container.visible = true
 
+func _disableMenu():
+	self.visible = false
+	click_again.visible = false
+	menu_buttons.visible = false
+	continue_btn.disabled = true
+	new_game_btn.disabled = true
+	options_btn.disabled = true
+	exit_btn.disabled = true
+	title.visible = false
+	
+func _enableMenu():
+	self.visible = true
+	menu_buttons.visible = true
+	continue_btn.disabled = false
+	new_game_btn.disabled = false
+	options_btn.disabled = false
+	exit_btn.disabled = false
+	title.visible = true
+	
+	
+	

@@ -16,8 +16,8 @@ var sensitivity = 0.1
 @onready var player = $player
 const LERP_VAL = 0.5
 @onready var can_move = false
-@onready var menu_buttons = $"../menu/menu_buttons"
 @onready var game = $"../.."
+@onready var menu = $"../menu"
 
 #func _ready():
 #	_start()
@@ -40,13 +40,13 @@ func _input(event):
 		
 		if Input.is_action_just_pressed("esc_menu"):
 			can_move = false
-			menu_buttons.visible = true
+			menu._enableMenu()
 			game._changePlaying(false)
 			
 	elif game._getPlayingState() == false:
 		if Input.is_action_just_pressed("esc_menu"):
 			can_move = true
-			menu_buttons.visible = false
+			menu._disableMenu()
 			game._changePlaying(true)
 	else:
 		pass
