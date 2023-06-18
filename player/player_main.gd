@@ -87,11 +87,11 @@ func _on_animation_player_animation_finished(anim_name):
 		save_data["level"] = 0
 		GlobalOptions._saveGame(save_data)
 
-
-
-
 func _on_pickup_area_area_entered(area):
-	print (area)
+	match area.get_parent().name:
+		"bacon":
+			area.get_parent().collected()
+			area.get_parent()._deactivate()
 
 
 func _on_pickup_area_area_exited(area):

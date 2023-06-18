@@ -11,6 +11,9 @@ func _activate():
 	collisionshape.disabled = false
 	self.visible = true
 	rotation_activate = true
+
+func _collected():
+	pass
 	
 func _deactivate():
 	collisionshape.disabled = true

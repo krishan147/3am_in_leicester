@@ -35,7 +35,7 @@ extends Node3D
 }
 
 func _levelCompleted():
-	pass
+	level = level + 1
 
 func _changeLevel(change):
 	level = change
