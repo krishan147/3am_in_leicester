@@ -88,3 +88,11 @@ func _on_animation_player_animation_finished(anim_name):
 		GlobalOptions._saveGame(save_data)
 
 
+
+
+func _on_pickup_area_area_entered(area):
+	print (area)
+
+
+func _on_pickup_area_area_exited(area):
+	pass # Replace with function body.

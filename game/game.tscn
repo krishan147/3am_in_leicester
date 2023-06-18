@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dfyb78abusg0i"]
+[gd_scene load_steps=27 format=3 uid="uid://dfyb78abusg0i"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" path="res://game/menu_Camera3D.gd" id="3_j8taf"]
 [ext_resource type="FontFile" uid="uid://r2ta0vfdn3to" path="res://style/TUTBUR_B.TTF" id="4_8c7no"]
 [ext_resource type="PackedScene" uid="uid://0vdon2h1kexd" path="res://enemy/enemy_main.tscn" id="6_njk3j"]
+[ext_resource type="PackedScene" uid="uid://ct2xqce18w3kq" path="res://items/sandwich.tscn" id="8_817vu"]
+[ext_resource type="PackedScene" uid="uid://cioaf26i1fnlf" path="res://items/bacon.tscn" id="9_mlkwr"]
+[ext_resource type="PackedScene" uid="uid://bpkaac7culwj1" path="res://items/red_sauce.tscn" id="10_2q33q"]
+[ext_resource type="PackedScene" uid="uid://bl1g7nm8wekoa" path="res://items/bread.tscn" id="11_dp1k2"]
 
 [sub_resource type="Animation" id="Animation_qlohe"]
 length = 0.001
@@ -521,6 +525,19 @@ navigation_mesh = SubResource("NavigationMesh_m7fv5")
 [node name="music" type="AudioStreamPlayer" parent="CanvasLayer"]
 
 [node name="ambience" type="AudioStreamPlayer" parent="CanvasLayer"]
+
+[node name="items" type="Node3D" parent="CanvasLayer"]
+
+[node name="sandwich" parent="CanvasLayer/items" instance=ExtResource("8_817vu")]
+
+[node name="bacon" parent="CanvasLayer/items" instance=ExtResource("9_mlkwr")]
+transform = Transform3D(1, 0, 0, 0, 0.749834, -0.661626, 0, 0.661626, 0.749834, 32.2765, 2.92736, -47.5143)
+
+[node name="red_sauce" parent="CanvasLayer/items" instance=ExtResource("10_2q33q")]
+transform = Transform3D(0.884092, 0.467313, 0, -0.467313, 0.884092, 0, 0, 0, 1, 14.2255, 2.8303, -52.9814)
+
+[node name="bread" parent="CanvasLayer/items" instance=ExtResource("11_dp1k2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.8605, 3.19615, -51.9079)
 
 [connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/Timer_load" to="CanvasLayer/menu" method="_on_timer_load_timeout"]

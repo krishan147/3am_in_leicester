@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://cioaf26i1fnlf"]
+
+[ext_resource type="PackedScene" uid="uid://d3hyepamgecca" path="res://items_raw/SM_Bacon_A.FBX" id="1_bfuwg"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_81kdy"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_q5427"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8d8up"]
+albedo_texture = ExtResource("2_81kdy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5oajh"]
+albedo_texture = ExtResource("2_81kdy")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mwpgu"]
+radius = 0.1
+
+[node name="bacon" instance=ExtResource("1_bfuwg")]
+script = ExtResource("2_q5427")
+
+[node name="SM_Bacon_A" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8d8up")
+
+[node name="UCX_SM_Bacon_A" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5oajh")
+
+[node name="player_pickup" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_pickup" index="0"]
+shape = SubResource("SphereShape3D_mwpgu")
+disabled = true

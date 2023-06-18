@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4asbmx467u1c"]
+
+[ext_resource type="PackedScene" uid="uid://cmo5mt1cs52p7" path="res://items_raw/SM_Sandwich_Bot.FBX" id="1_14jsg"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_0f75s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3nc0r"]
+albedo_texture = ExtResource("2_0f75s")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xx4cp"]
+albedo_texture = ExtResource("2_0f75s")
+
+[node name="SM_Sandwich_Bot" instance=ExtResource("1_14jsg")]
+
+[node name="SM_Sandwich_Bot" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3nc0r")
+
+[node name="UCX_SM_Sandwich_Bot" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xx4cp")

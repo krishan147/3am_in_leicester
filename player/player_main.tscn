@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpv6uo6wf2xyg"]
+[gd_scene load_steps=5 format=3 uid="uid://dpv6uo6wf2xyg"]
 
 [ext_resource type="PackedScene" uid="uid://7y7okrdbavwy" path="res://player/player.tscn" id="1_obski"]
 [ext_resource type="Script" path="res://player/player_main.gd" id="1_tlbxx"]
@@ -6,6 +6,10 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bn65i"]
 radius = 0.3
 height = 1.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g460n"]
+height = 0.4
+radius = 0.15
 
 [node name="player_main" type="CharacterBody3D"]
 script = ExtResource("1_tlbxx")
@@ -17,48 +21,15 @@ shape = SubResource("CapsuleShape3D_bn65i")
 [node name="player" parent="." instance=ExtResource("1_obski")]
 transform = Transform3D(-1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 0, 0, 0)
 
-[node name="Root" parent="player/RootNode" index="0"]
-transform = Transform3D(0.999496, -0.0194153, -0.025119, -0.0233345, 0.0872333, -0.995915, 0.0215272, 0.995998, 0.0867364, 0.0366087, 0.00327347, -0.896744)
+[node name="pickup_area" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.222217, 0)
 
-[node name="Skeleton3D" parent="player/RootNode/Root" index="0"]
-bones/1/rotation = Quaternion(0.993255, 0.115072, 0.00918515, 0.0108676)
-bones/2/rotation = Quaternion(0.996208, 0.0867942, -0.00328423, 0.00509356)
-bones/3/rotation = Quaternion(0.992477, 0.12228, 0.00327989, 0.00506733)
-bones/4/rotation = Quaternion(-0.079388, 0.0436997, -0.0271211, 0.995516)
-bones/5/rotation = Quaternion(0.376288, 0.533093, -0.525098, 0.546344)
-bones/8/rotation = Quaternion(0.610988, 0.606832, -0.293666, 0.414981)
-bones/9/rotation = Quaternion(-0.345476, 0.0578357, -0.275809, 0.895115)
-bones/10/rotation = Quaternion(0.00126682, 0.911684, -9.39909e-05, -0.410889)
-bones/11/rotation = Quaternion(0.149141, 0.0782529, 0.183817, 0.968424)
-bones/12/rotation = Quaternion(0.0683759, -0.0539545, -0.00611493, 0.996181)
-bones/13/rotation = Quaternion(-0.0317186, 0.15418, -0.0322192, 0.987008)
-bones/15/rotation = Quaternion(0.0108408, 0.119617, 0.0429352, 0.991832)
-bones/16/rotation = Quaternion(-0.00115966, 3.17622e-07, -6.74806e-07, 0.999999)
-bones/17/rotation = Quaternion(-0.00692358, -0.000965554, 0.0247832, 0.999668)
-bones/19/rotation = Quaternion(0.00910067, 0.120529, 0.00889642, 0.992628)
-bones/20/rotation = Quaternion(0.00263834, 2.11523e-07, 1.68195e-07, 0.999997)
-bones/21/rotation = Quaternion(-0.0182669, -0.000948896, 0.0288987, 0.999415)
-bones/23/rotation = Quaternion(-0.620076, 0.637473, 0.393365, 0.233233)
-bones/24/rotation = Quaternion(-0.48192, -0.21919, -0.600125, 0.599632)
-bones/25/rotation = Quaternion(-0.00094671, -0.850851, -0.000213816, 0.525406)
-bones/26/rotation = Quaternion(0.292121, -0.118181, -0.0964785, 0.944135)
-bones/27/rotation = Quaternion(0.0749123, -0.0934996, -0.0894284, 0.988761)
-bones/28/rotation = Quaternion(-0.0379812, 0.10361, -0.030648, 0.99342)
-bones/30/rotation = Quaternion(0.0320449, 0.113266, 0.148687, 0.981853)
-bones/31/rotation = Quaternion(-0.00114315, 0.00542295, -0.169504, 0.985514)
-bones/32/rotation = Quaternion(-0.00691657, 0.00198374, -0.049599, 0.998743)
-bones/34/rotation = Quaternion(0.0356798, 0.114037, 0.141833, 0.982652)
-bones/35/rotation = Quaternion(0.00260455, 0.00292302, -0.159659, 0.987164)
-bones/36/rotation = Quaternion(-0.0319877, 0.00194716, -0.0407828, 0.998654)
-bones/38/rotation = Quaternion(0.0547277, 0.79264, -0.58791, 0.151947)
-bones/39/rotation = Quaternion(0.667531, -0.216887, 0.0658248, 0.709246)
-bones/40/rotation = Quaternion(0.917928, -0.317622, -0.00316935, -0.237728)
-bones/41/rotation = Quaternion(-3.06278e-07, -1.45751e-07, 0.380521, 0.924772)
-bones/43/rotation = Quaternion(-0.701531, 0.00681308, 0.132705, 0.700141)
-bones/44/rotation = Quaternion(0.650625, -0.117251, 0.0951296, 0.744237)
-bones/45/rotation = Quaternion(0.936513, -0.33844, -0.01273, -0.0907665)
-bones/46/rotation = Quaternion(2.04894e-07, 7.50227e-08, 0.407456, 0.913225)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pickup_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.163915, 0)
+shape = SubResource("CylinderShape3D_g460n")
 
 [connection signal="animation_finished" from="player/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="area_entered" from="pickup_area" to="." method="_on_pickup_area_area_entered"]
+[connection signal="area_exited" from="pickup_area" to="." method="_on_pickup_area_area_exited"]
 
 [editable path="player"]

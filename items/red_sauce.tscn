@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpkaac7culwj1"]
+
+[ext_resource type="PackedScene" uid="uid://ficr8jj26qfd" path="res://items_raw/SM_Ketchup.FBX" id="1_7gevl"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_s1rry"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_w76bg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qkdsv"]
+albedo_texture = ExtResource("2_w76bg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a80tt"]
+albedo_texture = ExtResource("2_w76bg")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_udfnl"]
+radius = 0.2
+
+[node name="red_sauce" instance=ExtResource("1_7gevl")]
+script = ExtResource("2_s1rry")
+
+[node name="SM_Ketchup" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qkdsv")
+
+[node name="UCX_SM_Ketchup" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_a80tt")
+
+[node name="player_pickup" type="Area3D" parent="." index="2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_pickup" index="0"]
+shape = SubResource("SphereShape3D_udfnl")
+disabled = true

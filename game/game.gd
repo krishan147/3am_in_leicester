@@ -12,26 +12,38 @@ extends Node3D
 
 @onready var dict_levels = {
 	0:{
-		"objects":["BREAD","BACON", "RED SAUCE"]
+		"item_names":["BREAD","BACON", "RED SAUCE"],
+		"items":["bread","bacon", "red_sauce"],
+		"winning_objects":["sandwich"]
 	},
 	1:{
-		"objects":["qwe","qwe", "qwe"]
+		"item_names":["BREAD","BACON", "RED SAUCE"],
+		"items":["bread","bacon", "red_sauce"],
+		"winning_objects":["sandwich"]
 	},
 	2:{
-		"objects":["qwe","qwe", "qwe"]
+		"item_names":["BREAD","BACON", "RED SAUCE"],
+		"items":["bread","bacon", "red_sauce"],
+		"winning_objects":["sandwich"]
 	},
 	3:{
-		"objects":["qwe","qwe", "qwe"]
+		"item_names":["BREAD","BACON", "RED SAUCE"],
+		"items":["bread","bacon", "red_sauce"],
+		"winning_objects":["sandwich"]
 	},
 	
 }
+
+func _levelCompleted():
+	pass
 
 func _changeLevel(change):
 	level = change
 	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
 	for checkbox in list_checkboxes:
 		checkbox.visible = false
-	_changeCheckboxes()
+	_changeCheckboxes(level)
+	_showObjects(level)
 
 func _ready():
 	fade.play("fade_to_normal")
@@ -39,10 +51,10 @@ func _ready():
 func _physics_process(delta):
 	get_tree().call_group("enemies", "_updateTargetLocation", player)
 	
-func _changeCheckboxes():
+func _changeCheckboxes(level):
 	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
-	var list_objects = dict_levels[level]["objects"]
-	var no_of_objects = len(dict_levels[level]["objects"])
+	var list_objects = dict_levels[int(level)]["item_names"]
+	var no_of_objects = len(dict_levels[int(level)]["item_names"])
 	list_checkboxes = list_checkboxes.slice(0, no_of_objects)
 	var x = 0
 	
@@ -57,7 +69,9 @@ func _changePlaying(change):
 func _getPlayingState():
 	return playing
 
-
+func _showObjects(level):
+	for object in dict_levels[int(level)]["items"]:
+		get_node("CanvasLayer/items/" + str(object))._activate()
 
 
 

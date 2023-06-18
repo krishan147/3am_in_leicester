@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct2xqce18w3kq"]
+
+[ext_resource type="PackedScene" uid="uid://b4asbmx467u1c" path="res://items/sandwich_bot.tscn" id="1_5n13u"]
+[ext_resource type="PackedScene" uid="uid://c8b5a6hxpu4hg" path="res://items/sandwich_bacon.tscn" id="2_xt3ur"]
+[ext_resource type="PackedScene" uid="uid://f0iaajes3u2q" path="res://items/sandwich_sauce.tscn" id="3_6doy7"]
+[ext_resource type="PackedScene" uid="uid://pa31vfj1ltlr" path="res://items/sandwich_top.tscn" id="4_uwvxy"]
+
+[node name="sandwich" type="Node3D"]
+
+[node name="SM_Sandwich_Bot" parent="." instance=ExtResource("1_5n13u")]
+
+[node name="SM_Sandwich_Bacon" parent="." instance=ExtResource("2_xt3ur")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0064363, -0.00399338)
+
+[node name="SM_Sandwich_Sauce" parent="." instance=ExtResource("3_6doy7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0147884)
+
+[node name="SM_Sandwich_Top" parent="." instance=ExtResource("4_uwvxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0121772, 0)

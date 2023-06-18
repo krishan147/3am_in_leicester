@@ -111,6 +111,7 @@ func _on_continue_pressed():
 	player._canMove(true)
 	game._changePlaying(true)
 	menu_ingame_container.visible = true
+	game._changeLevel(save_data["level"])
 
 func _disableMenu():
 	self.visible = false
