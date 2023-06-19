@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var collisionshape = $player_pickup/CollisionShape3D
 @onready var rotation_activate = false
+@onready var player = $"../../player_main"
 
 func _process(delta):
 	if rotation_activate == true:

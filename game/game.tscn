@@ -192,6 +192,10 @@ font_size = 10
 outline_size = 8
 uppercase = true
 
+[node name="messages_Timer" type="Timer" parent="CanvasLayer/player_main"]
+wait_time = 2.0
+one_shot = true
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer"]
 environment = SubResource("Environment_r8iv1")
 
@@ -531,18 +535,19 @@ navigation_mesh = SubResource("NavigationMesh_m7fv5")
 [node name="sandwich" parent="CanvasLayer/items" instance=ExtResource("8_817vu")]
 
 [node name="bacon" parent="CanvasLayer/items" instance=ExtResource("9_mlkwr")]
-transform = Transform3D(1, 0, 0, 0, 0.749834, -0.661626, 0, 0.661626, 0.749834, 32.2765, 2.92736, -47.5143)
+transform = Transform3D(1, 0, 0, 0, 0.749834, -0.661626, 0, 0.661626, 0.749834, 23.2583, 2.74025, -50.4474)
 
 [node name="red_sauce" parent="CanvasLayer/items" instance=ExtResource("10_2q33q")]
-transform = Transform3D(0.884092, 0.467313, 0, -0.467313, 0.884092, 0, 0, 0, 1, 14.2255, 2.8303, -52.9814)
+transform = Transform3D(0.884092, 0.467313, 0, -0.467313, 0.884092, 0, 0, 0, 1, 24.7133, 2.85703, -52.9814)
 
 [node name="bread" parent="CanvasLayer/items" instance=ExtResource("11_dp1k2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.8605, 3.19615, -51.9079)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1901, 2.83773, -51.9079)
 
 [connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/Timer_load" to="CanvasLayer/menu" method="_on_timer_load_timeout"]
 [connection signal="timeout" from="CanvasLayer/Timer_intro" to="CanvasLayer/menu" method="_on_timer_intro_timeout"]
 [connection signal="animation_finished" from="CanvasLayer/player_main/player/AnimationPlayer" to="CanvasLayer/menu" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="CanvasLayer/player_main/messages_Timer" to="CanvasLayer/player_main" method="_on_messages_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/menu/menu_Camera3D/Timer" to="CanvasLayer/menu/menu_Camera3D" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/menu/menu_buttons/SubViewport/menu/continue" to="CanvasLayer/menu" method="_on_continue_pressed"]
 [connection signal="button_down" from="CanvasLayer/menu/menu_buttons/SubViewport/menu/new_game" to="CanvasLayer/menu" method="_on_new_game_button_down"]

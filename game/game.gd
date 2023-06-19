@@ -74,9 +74,8 @@ func _showObjects(level):
 		get_node("CanvasLayer/items/" + str(object))._activate()
 
 
-
-
-
+func _itemCollectedCheck(): # tick box, message to pop up, check if we have collected all 3 items
+	pass
 
 
 

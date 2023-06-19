@@ -20,6 +20,7 @@ const LERP_VAL = 0.5
 @onready var menu = $"../menu"
 
 #func _ready():
+#	_startMessages(messages)
 #	_start()
 
 func _canMove(change):
@@ -72,10 +73,8 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.z = move_toward(velocity.z, 0, SPEED)
 			animation_player.play("idle")
-
 		move_and_slide()
 		
-
 func _playStandUp():
 	animation_player.play("standing_up")
 
@@ -90,9 +89,44 @@ func _on_animation_player_animation_finished(anim_name):
 func _on_pickup_area_area_entered(area):
 	match area.get_parent().name:
 		"bacon":
-			area.get_parent().collected()
+			game._itemCollectedCheck()
+			area.get_parent()._collected()
 			area.get_parent()._deactivate()
-
 
 func _on_pickup_area_area_exited(area):
 	pass # Replace with function body.
+
+var list_messages = []
+var x_messages = 0
+@onready var player_messages = $player_messages
+@onready var messages_timer = $messages_Timer
+
+func _startMessages(messages):
+	list_messages = messages
+	messages_timer.start()
+	player_messages.text = list_messages[x_messages]
+	x_messages = x_messages + 1
+	
+func _on_messages_timer_timeout():
+	if x_messages == len(list_messages):
+		messages_timer.stop()
+		x_messages = 0
+		list_messages = 0
+		player_messages.text = ""
+	else:
+		_startMessages(list_messages)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
