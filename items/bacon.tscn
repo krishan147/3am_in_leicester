@@ -26,4 +26,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5oajh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_pickup" index="0"]
 shape = SubResource("SphereShape3D_mwpgu")
-disabled = true

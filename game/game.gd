@@ -12,24 +12,24 @@ extends Node3D
 
 @onready var dict_levels = {
 	0:{
-		"item_names":["BREAD","BACON", "RED SAUCE"],
-		"items":["bread","bacon", "red_sauce"],
-		"winning_objects":["sandwich"]
+		"item_names":["BREAD","BACON","RED SAUCE"],
+		"items":["bread","bacon","red_sauce"],
+		"winning_item":"sandwich"
 	},
 	1:{
-		"item_names":["BREAD","BACON", "RED SAUCE"],
-		"items":["bread","bacon", "red_sauce"],
-		"winning_objects":["sandwich"]
+		"item_names":["BREAD","BACON","RED SAUCE"],
+		"items":["bread","bacon","red_sauce"],
+		"winning_item":"sandwich"
 	},
 	2:{
-		"item_names":["BREAD","BACON", "RED SAUCE"],
-		"items":["bread","bacon", "red_sauce"],
-		"winning_objects":["sandwich"]
+		"item_names":["BREAD","BACON","RED SAUCE"],
+		"items":["bread","bacon","red_sauce"],
+		"winning_item":"sandwich"
 	},
 	3:{
-		"item_names":["BREAD","BACON", "RED SAUCE"],
-		"items":["bread","bacon", "red_sauce"],
-		"winning_objects":["sandwich"]
+		"item_names":["BREAD","BACON","RED SAUCE"],
+		"items":["bread","bacon","red_sauce"],
+		"winning_item":"sandwich"
 	},
 	
 }
@@ -43,7 +43,7 @@ func _changeLevel(change):
 	for checkbox in list_checkboxes:
 		checkbox.visible = false
 	_changeCheckboxes(level)
-	_showObjects(level)
+	_showItems(level)
 
 func _ready():
 	fade.play("fade_to_normal")
@@ -69,13 +69,41 @@ func _changePlaying(change):
 func _getPlayingState():
 	return playing
 
-func _showObjects(level):
+func _showItems(level):
 	for object in dict_levels[int(level)]["items"]:
 		get_node("CanvasLayer/items/" + str(object))._activate()
 
+func _itemCollectedCheck(item_collected): # tick box, message to pop up, check if we have collected all 3 items
+	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
+	var item_num = 0
+	for item in dict_levels[int(level)]["items"]:
+		
+		if item_collected == item:
+			var collected_item_checkout = list_checkboxes[item_num]
+			collected_item_checkout.button_pressed = true
+			_itemSetCollected()
+			return 0
+		else:
+			item_num = item_num + 1
+	
 
-func _itemCollectedCheck(): # tick box, message to pop up, check if we have collected all 3 items
-	pass
+var items_collected = 0
+
+func _itemSetCollected():
+	items_collected = items_collected + 1
+	
+	if items_collected == len(dict_levels[int(level)]["items"]):
+		var winning_item = dict_levels[int(level)]["winning_item"]
+		
+
+
+
+
+
+
+
+
+
 
 
 

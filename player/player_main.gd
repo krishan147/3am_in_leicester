@@ -87,11 +87,8 @@ func _on_animation_player_animation_finished(anim_name):
 		GlobalOptions._saveGame(save_data)
 
 func _on_pickup_area_area_entered(area):
-	match area.get_parent().name:
-		"bacon":
-			game._itemCollectedCheck()
-			area.get_parent()._collected()
-			area.get_parent()._deactivate()
+	game._itemCollectedCheck(area.get_parent().name)
+	area.get_parent()._deactivate()
 
 func _on_pickup_area_area_exited(area):
 	pass # Replace with function body.

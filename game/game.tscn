@@ -533,6 +533,7 @@ navigation_mesh = SubResource("NavigationMesh_m7fv5")
 [node name="items" type="Node3D" parent="CanvasLayer"]
 
 [node name="sandwich" parent="CanvasLayer/items" instance=ExtResource("8_817vu")]
+transform = Transform3D(0.631055, -0.438523, -0.639896, 0, 0.824887, -0.565298, 0.775738, 0.356734, 0.520549, 24.2973, 3.10041, -50.6846)
 
 [node name="bacon" parent="CanvasLayer/items" instance=ExtResource("9_mlkwr")]
 transform = Transform3D(1, 0, 0, 0, 0.749834, -0.661626, 0, 0.661626, 0.749834, 23.2583, 2.74025, -50.4474)
@@ -542,6 +543,10 @@ transform = Transform3D(0.884092, 0.467313, 0, -0.467313, 0.884092, 0, 0, 0, 1, 
 
 [node name="bread" parent="CanvasLayer/items" instance=ExtResource("11_dp1k2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1901, 2.83773, -51.9079)
+
+[node name="winning_item_Timer" type="Timer" parent="CanvasLayer/items"]
+wait_time = 4.0
+autostart = true
 
 [connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/Timer_load" to="CanvasLayer/menu" method="_on_timer_load_timeout"]
@@ -556,6 +561,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1901, 2.83773, -51.9079)
 [connection signal="value_changed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/volume_HSlider" to="CanvasLayer/menu" method="_on_volume_h_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/volume_HSlider2" to="CanvasLayer/menu" method="_on_volume_h_slider_2_value_changed"]
 [connection signal="pressed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/close_options" to="CanvasLayer/menu" method="_on_close_options_pressed"]
+[connection signal="timeout" from="CanvasLayer/items/winning_item_Timer" to="CanvasLayer/items/sandwich" method="_on_winning_item_timer_timeout"]
 
 [editable path="CanvasLayer/player_main"]
 [editable path="CanvasLayer/player_main/player"]
