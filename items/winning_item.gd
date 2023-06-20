@@ -8,11 +8,7 @@ extends Node3D
 @onready var zoom_speed = 0.1
 @onready var player = $"../../player_main"
 @onready var winning_item_timer = $"../winning_item_Timer"
-
-func _input(event):
-	if Input.is_action_just_pressed("jump"):
-		_activate()
-	
+@onready var game = $"../../.."
 
 func _process(delta):
 	if rotation_activate == true:
@@ -37,6 +33,7 @@ func _activate():
 	winning_item_timer.start()
 
 func _deactivate():
+	
 	self.visible = false
 	rotation_activate = false
 	zoom_in_activate = false
@@ -47,3 +44,5 @@ func _deactivate():
 
 func _on_winning_item_timer_timeout():
 	_deactivate()
+	player._startMessages(["GET THE NEXT STUFF"])
+	game._levelCompleted()

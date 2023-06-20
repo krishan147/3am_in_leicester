@@ -14,28 +14,33 @@ extends Node3D
 	0:{
 		"item_names":["BREAD","BACON","RED SAUCE"],
 		"items":["bread","bacon","red_sauce"],
-		"winning_item":"sandwich"
+		"winning_item":"sandwich",
+		"winning_item_name":"SANDWICH"
 	},
 	1:{
-		"item_names":["BREAD","BACON","RED SAUCE"],
-		"items":["bread","bacon","red_sauce"],
-		"winning_item":"sandwich"
+		"item_names":["BOTTLE OPENER","BOTTLE","COASTER"],
+		"items":["bottle_opener","bottle","coaster"],
+		"winning_item":"drink",
+		"winning_item_name":"DRINK"
 	},
 	2:{
 		"item_names":["BREAD","BACON","RED SAUCE"],
 		"items":["bread","bacon","red_sauce"],
-		"winning_item":"sandwich"
+		"winning_item":"sandwich",
+		"winning_item_name":"SANDWICH"
 	},
 	3:{
 		"item_names":["BREAD","BACON","RED SAUCE"],
 		"items":["bread","bacon","red_sauce"],
-		"winning_item":"sandwich"
+		"winning_item":"sandwich",
+		"winning_item_name":"SANDWICH"
 	},
 	
 }
 
 func _levelCompleted():
 	level = level + 1
+	_changeLevel(level)
 
 func _changeLevel(change):
 	level = change
@@ -70,6 +75,9 @@ func _getPlayingState():
 	return playing
 
 func _showItems(level):
+	
+	print (level)
+	
 	for object in dict_levels[int(level)]["items"]:
 		get_node("CanvasLayer/items/" + str(object))._activate()
 
@@ -93,7 +101,10 @@ func _itemSetCollected():
 	items_collected = items_collected + 1
 	
 	if items_collected == len(dict_levels[int(level)]["items"]):
+		var winning_item_name = dict_levels[int(level)]["winning_item_name"]
+		player._startMessages(["YOU HAVE A " +  str(winning_item_name)])
 		var winning_item = dict_levels[int(level)]["winning_item"]
+		$CanvasLayer/items/sandwich._activate()
 		
 
 

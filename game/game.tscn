@@ -533,7 +533,8 @@ navigation_mesh = SubResource("NavigationMesh_m7fv5")
 [node name="items" type="Node3D" parent="CanvasLayer"]
 
 [node name="sandwich" parent="CanvasLayer/items" instance=ExtResource("8_817vu")]
-transform = Transform3D(0.631055, -0.438523, -0.639896, 0, 0.824887, -0.565298, 0.775738, 0.356734, 0.520549, 24.2973, 3.10041, -50.6846)
+transform = Transform3D(0.631055, -0.438523, -0.639896, 0, 0.824887, -0.565298, 0.775738, 0.356734, 0.520549, 24.2973, 5.43275, -50.6846)
+visible = false
 
 [node name="bacon" parent="CanvasLayer/items" instance=ExtResource("9_mlkwr")]
 transform = Transform3D(1, 0, 0, 0, 0.749834, -0.661626, 0, 0.661626, 0.749834, 23.2583, 2.74025, -50.4474)
@@ -545,7 +546,7 @@ transform = Transform3D(0.884092, 0.467313, 0, -0.467313, 0.884092, 0, 0, 0, 1, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1901, 2.83773, -51.9079)
 
 [node name="winning_item_Timer" type="Timer" parent="CanvasLayer/items"]
-wait_time = 4.0
+wait_time = 8.0
 autostart = true
 
 [connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
