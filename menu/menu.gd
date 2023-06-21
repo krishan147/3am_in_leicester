@@ -70,6 +70,7 @@ func _on_new_game_button_down():
 		player.position = Vector3(25.5, 2.6, -50.7)
 		timer_load.start()
 		new_game_check = 0
+		# reset save data
 
 func _on_timer_load_timeout():
 	timer_load.stop()
