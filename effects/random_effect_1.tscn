@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1i0c7x8xpxc0"]
+
+[ext_resource type="Texture2D" uid="uid://digux54twh25x" path="res://test/reddots.png" id="1_0xeoy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8wpb"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_0xeoy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6jtw0"]
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 1)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_5cruh"]
+size = Vector3(5, 5, 5)
+
+[node name="random_effect_1" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_j8wpb")
+amount = 80
+lifetime = 8.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_6jtw0")
+draw_pass_1 = SubResource("BoxMesh_5cruh")

@@ -65,12 +65,13 @@ func _on_new_game_button_down():
 		new_game_check = 1
 		click_again.visible = true
 	else:
+		var save_data_template = GlobalOptions._saveGameTemplate()
+		GlobalOptions._saveGame(save_data_template)
 		fade.play("fade_to_black")
 		_disableMenu()
 		player.position = Vector3(25.5, 2.6, -50.7)
 		timer_load.start()
 		new_game_check = 0
-		# reset save data
 
 func _on_timer_load_timeout():
 	timer_load.stop()

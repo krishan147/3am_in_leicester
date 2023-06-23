@@ -76,9 +76,8 @@ func _getPlayingState():
 
 func _showItems(level):
 	
-	print (level)
-	
 	for object in dict_levels[int(level)]["items"]:
+		
 		get_node("CanvasLayer/items/" + str(object))._activate()
 
 func _itemCollectedCheck(item_collected): # tick box, message to pop up, check if we have collected all 3 items
@@ -104,7 +103,10 @@ func _itemSetCollected():
 		var winning_item_name = dict_levels[int(level)]["winning_item_name"]
 		player._startMessages(["YOU HAVE A " +  str(winning_item_name)])
 		var winning_item = dict_levels[int(level)]["winning_item"]
+		
 		$CanvasLayer/items/sandwich._activate()
+		
+		#_levelCompleted()
 		
 
 

@@ -81,10 +81,6 @@ func _playStandUp():
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "standing_up":
 		_canMove(true)
-		var save_data = GlobalOptions._saveGameTemplate()
-		save_data["player_location"] = self.position
-		save_data["level"] = 0
-		GlobalOptions._saveGame(save_data)
 
 func _on_pickup_area_area_entered(area):
 	game._itemCollectedCheck(area.get_parent().name)

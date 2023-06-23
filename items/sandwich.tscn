@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct2xqce18w3kq"]
+[gd_scene load_steps=7 format=3 uid="uid://ct2xqce18w3kq"]
 
 [ext_resource type="PackedScene" uid="uid://b4asbmx467u1c" path="res://items/sandwich_bot.tscn" id="1_5n13u"]
 [ext_resource type="Script" path="res://items/winning_item.gd" id="1_vjn1d"]
 [ext_resource type="PackedScene" uid="uid://c8b5a6hxpu4hg" path="res://items/sandwich_bacon.tscn" id="2_xt3ur"]
 [ext_resource type="PackedScene" uid="uid://f0iaajes3u2q" path="res://items/sandwich_sauce.tscn" id="3_6doy7"]
 [ext_resource type="PackedScene" uid="uid://pa31vfj1ltlr" path="res://items/sandwich_top.tscn" id="4_uwvxy"]
+[ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="6_whvrh"]
 
 [node name="sandwich" type="Node3D"]
 transform = Transform3D(0.631055, -0.438523, -0.639896, 0, 0.824887, -0.565298, 0.775738, 0.356734, 0.520549, 0, 0, 0)
@@ -20,3 +21,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0147884)
 
 [node name="SM_Sandwich_Top" parent="." instance=ExtResource("4_uwvxy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0121772, 0)
+
+[node name="collection_effect_1" parent="." instance=ExtResource("6_whvrh")]
