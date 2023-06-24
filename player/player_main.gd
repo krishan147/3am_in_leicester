@@ -18,6 +18,10 @@ const LERP_VAL = 0.5
 @onready var can_move = false
 @onready var game = $"../.."
 @onready var menu = $"../menu"
+@onready var fade = $"../fade"
+@onready var game_over = $"../game_over"
+@onready var game_over_timer = $"../game_over_Timer"
+@onready var menu_ingame_container = $"../menu_ingame/SubViewportContainer"
 
 #func _ready():
 #	_startMessages(messages)
@@ -25,7 +29,7 @@ const LERP_VAL = 0.5
 
 func _canMove(change):
 	can_move = change
-
+	
 func _start():
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	animation_player.play("idle")
@@ -37,7 +41,8 @@ func _input(event):
 			spring_arm_3d.rotate_x(-event.relative.y * .005)
 			
 		if Input.is_action_just_pressed("jump"):
-			velocity.y = 3
+			_fallOver()
+			##velocity.y = 3
 		
 		if Input.is_action_just_pressed("esc_menu"):
 			can_move = false
@@ -109,6 +114,14 @@ func _on_messages_timer_timeout():
 	else:
 		_startMessages(list_messages)
 
+func _fallOver():
+	menu_ingame_container.visible = false
+	_canMove(false)
+	animation_player.play("fall_over")
+	game_over.visible = true
+	fade.play("fade_to_black")
+	game_over_timer.start()
+	
 
 
 

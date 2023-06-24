@@ -17,6 +17,7 @@ extends Node3D
 @onready var options_btn = $menu_buttons/SubViewport/menu/options
 @onready var exit_btn = $menu_buttons/SubViewport/menu/exit
 @onready var title = $title
+@onready var game_over = $"../game_over"
 
 func _process(delta):
 	pass
@@ -108,6 +109,7 @@ func _on_timer_intro_timeout():
 func _on_continue_pressed():
 	var save_data = GlobalOptions._loadGame()
 	_disableMenu()
+	fade.play("fade_to_normal")
 	camera_menu.current = false
 	camera_player.current = true
 	player._canMove(true)
@@ -135,4 +137,6 @@ func _enableMenu():
 	title.visible = true
 	
 	
-	
+func _on_game_over_timer_timeout():
+	game_over.visible = false
+	_enableMenu()
