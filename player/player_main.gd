@@ -41,8 +41,7 @@ func _input(event):
 			spring_arm_3d.rotate_x(-event.relative.y * .005)
 			
 		if Input.is_action_just_pressed("jump"):
-			_fallOver()
-			##velocity.y = 3
+			velocity.y = 3
 		
 		if Input.is_action_just_pressed("esc_menu"):
 			can_move = false
@@ -114,7 +113,7 @@ func _on_messages_timer_timeout():
 	else:
 		_startMessages(list_messages)
 
-func _fallOver():
+func _fallOver(): # gAME OVER
 	menu_ingame_container.visible = false
 	_canMove(false)
 	animation_player.play("fall_over")

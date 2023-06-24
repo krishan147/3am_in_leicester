@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhoe8ex6u178k"]
+
+[ext_resource type="PackedScene" uid="uid://c8qrf34g5sxc4" path="res://items_raw/SM_Bean.FBX" id="1_q7nfm"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_2grn8"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_t77fl"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_xp00p"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oknst"]
+albedo_texture = ExtResource("2_2grn8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s3a4p"]
+albedo_texture = ExtResource("2_2grn8")
+
+[node name="beans" instance=ExtResource("1_q7nfm")]
+transform = Transform3D(1, 0, 0, 0, 0.899176, 0.437587, 0, -0.437587, 0.899176, 0, 0, 0)
+script = ExtResource("2_t77fl")
+
+[node name="SM_Bean" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_oknst")
+
+[node name="UCX_SM_Bean" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_s3a4p")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_xp00p")]

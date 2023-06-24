@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://x3241p62x50m"]
+
+[ext_resource type="PackedScene" uid="uid://cmo5mt1cs52p7" path="res://items_raw/SM_Sandwich_Bot.FBX" id="1_bhxyo"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_5fibi"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_r4ays"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_8akh1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uuq62"]
+albedo_texture = ExtResource("2_5fibi")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cr4b8"]
+albedo_texture = ExtResource("2_5fibi")
+
+[node name="toast" instance=ExtResource("1_bhxyo")]
+transform = Transform3D(0.784582, -0.251633, -0.566668, 0, 0.913943, -0.405844, 0.620026, 0.318417, 0.717063, 0, 0, 0)
+script = ExtResource("2_r4ays")
+
+[node name="SM_Sandwich_Bot" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_uuq62")
+
+[node name="UCX_SM_Sandwich_Bot" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cr4b8")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_8akh1")]

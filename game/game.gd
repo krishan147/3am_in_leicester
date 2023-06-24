@@ -18,10 +18,10 @@ extends Node3D
 		"winning_item_name":"SANDWICH"
 	},
 	1:{
-		"item_names":["BOTTLE OPENER","BOTTLE","COASTER"],
-		"items":["bottle_opener","bottle","coaster"],
-		"winning_item":"drink",
-		"winning_item_name":"DRINK"
+		"item_names":["BEANS","TOAST","CHEESE"],
+		"items":["beans","toast","cheese"],
+		"winning_item":"beans_on_toast_cheese",
+		"winning_item_name":"BEANS ON TOAST WITH CHEESE"
 	},
 	2:{
 		"item_names":["BREAD","BACON","RED SAUCE"],

@@ -1,0 +1,63 @@
+[gd_scene load_steps=13 format=3 uid="uid://jvidtijpokyi"]
+
+[ext_resource type="Script" path="res://items/winning_item.gd" id="1_3rcda"]
+[ext_resource type="PackedScene" uid="uid://cmo5mt1cs52p7" path="res://items_raw/SM_Sandwich_Bot.FBX" id="1_13wcn"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_xhts8"]
+[ext_resource type="PackedScene" uid="uid://ifr5xsfl04td" path="res://items_raw/SM_Sandwich_Cheese.FBX" id="3_i0vne"]
+[ext_resource type="PackedScene" uid="uid://c1aql2rp3xyb6" path="res://items_raw/SM_Sandwich_Sauce.FBX" id="4_t4ra7"]
+[ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="6_rhwwh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmcay"]
+albedo_color = Color(0.815686, 0.505882, 0.341176, 1)
+albedo_texture = ExtResource("2_xhts8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_crweb"]
+albedo_texture = ExtResource("2_xhts8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eo4sl"]
+albedo_texture = ExtResource("2_xhts8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5spyw"]
+albedo_texture = ExtResource("2_xhts8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ejn57"]
+albedo_texture = ExtResource("2_xhts8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ooinm"]
+albedo_texture = ExtResource("2_xhts8")
+
+[node name="beans_on_toast_cheese" type="Node3D"]
+transform = Transform3D(2.75521, -0.526078, -1.06397, 0, 2.68923, -1.32968, 1.18693, 1.22119, 2.4698, 0, 0, 0)
+script = ExtResource("1_3rcda")
+
+[node name="SM_Sandwich_Bot" parent="." instance=ExtResource("1_13wcn")]
+
+[node name="SM_Sandwich_Bot" parent="SM_Sandwich_Bot/RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vmcay")
+
+[node name="UCX_SM_Sandwich_Bot" parent="SM_Sandwich_Bot/RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_crweb")
+
+[node name="SM_Sandwich_Cheese" parent="." instance=ExtResource("3_i0vne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00188626, 0)
+
+[node name="SM_Sandwich_Cheese" parent="SM_Sandwich_Cheese/RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_eo4sl")
+
+[node name="UCX_SM_Sandwich_Cheese" parent="SM_Sandwich_Cheese/RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5spyw")
+
+[node name="SM_Sandwich_Sauce" parent="." instance=ExtResource("4_t4ra7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0219959)
+
+[node name="SM_Sandwich_Sauce" parent="SM_Sandwich_Sauce/RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ejn57")
+
+[node name="UCX_SM_Sandwich_Sauce" parent="SM_Sandwich_Sauce/RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ooinm")
+
+[node name="collection_effect_1" parent="." instance=ExtResource("6_rhwwh")]
+
+[editable path="SM_Sandwich_Bot"]
+[editable path="SM_Sandwich_Cheese"]
+[editable path="SM_Sandwich_Sauce"]
