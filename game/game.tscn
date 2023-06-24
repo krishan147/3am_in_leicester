@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dfyb78abusg0i"]
+[gd_scene load_steps=29 format=3 uid="uid://dfyb78abusg0i"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cioaf26i1fnlf" path="res://items/bacon.tscn" id="9_mlkwr"]
 [ext_resource type="PackedScene" uid="uid://bpkaac7culwj1" path="res://items/red_sauce.tscn" id="10_2q33q"]
 [ext_resource type="PackedScene" uid="uid://bl1g7nm8wekoa" path="res://items/bread.tscn" id="11_dp1k2"]
+[ext_resource type="Script" path="res://random_engine/random_engine.gd" id="12_yxmj5"]
+[ext_resource type="PackedScene" uid="uid://b1i0c7x8xpxc0" path="res://effects/random_effect_1.tscn" id="13_s4y37"]
 
 [sub_resource type="Animation" id="Animation_qlohe"]
 length = 0.001
@@ -548,6 +550,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1901, 2.83773, -51.9079)
 [node name="winning_item_Timer" type="Timer" parent="CanvasLayer/items"]
 wait_time = 8.0
 one_shot = true
+
+[node name="random_engine" type="Node3D" parent="CanvasLayer"]
+script = ExtResource("12_yxmj5")
+
+[node name="random_effect_1" parent="CanvasLayer/random_engine" instance=ExtResource("13_s4y37")]
 
 [connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/Timer_load" to="CanvasLayer/menu" method="_on_timer_load_timeout"]

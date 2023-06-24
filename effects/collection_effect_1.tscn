@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxtuan3faf0ae"]
+[gd_scene load_steps=11 format=3 uid="uid://bxtuan3faf0ae"]
+
+[ext_resource type="Script" path="res://effects/collection_effect_1.gd" id="1_mu6wv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1mbq4"]
 transparency = 1
@@ -35,12 +37,68 @@ turbulence_noise_speed = Vector3(2.501, 0.849, 1.23)
 radius = 0.04
 height = 0.08
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k5mil"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(1, 0.580392, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0a4bn"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(0.1, 0.1, 0.1)
+direction = Vector3(0, 0.2, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_io7qb"]
+radius = 0.04
+height = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l2crl"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0, 0.662745, 1, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ivfpc"]
+emission_shape = 3
+emission_box_extents = Vector3(0.01, 0.01, 0.01)
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 0.5
+initial_velocity_max = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_65t4q"]
+radius = 0.04
+height = 0.08
+
 [node name="collection_effect_1" type="Node3D"]
+script = ExtResource("1_mu6wv")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_1mbq4")
 emitting = false
-amount = 125
+amount = 75
 one_shot = true
 process_material = SubResource("ParticleProcessMaterial_dxtun")
 draw_pass_1 = SubResource("SphereMesh_aw0b0")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_k5mil")
+emitting = false
+amount = 80
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_0a4bn")
+draw_pass_1 = SubResource("SphereMesh_io7qb")
+
+[node name="GPUParticles3D3" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_l2crl")
+emitting = false
+amount = 50
+one_shot = true
+process_material = SubResource("ParticleProcessMaterial_ivfpc")
+draw_pass_1 = SubResource("SphereMesh_65t4q")

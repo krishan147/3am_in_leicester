@@ -9,7 +9,7 @@ extends Node3D
 @onready var player = $"../../player_main"
 @onready var winning_item_timer = $"../winning_item_Timer"
 @onready var game = $"../../.."
-@onready var collection_effect_1 = $collection_effect_1/GPUParticles3D
+@onready var collection_effect_1 = $collection_effect_1
 
 func _process(delta):
 	if rotation_activate == true:
@@ -32,7 +32,7 @@ func _activate():
 	rotation_activate = true
 	zoom_in_activate = true
 	winning_item_timer.start()
-	collection_effect_1.emitting = true
+	collection_effect_1._activate()
 
 func _deactivate():
 	self.visible = false
