@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dfyb78abusg0i"]
+[gd_scene load_steps=33 format=3 uid="uid://diqmr355cu1re"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -7,16 +7,16 @@
 [ext_resource type="Script" path="res://game/menu_Camera3D.gd" id="3_j8taf"]
 [ext_resource type="FontFile" uid="uid://r2ta0vfdn3to" path="res://style/TUTBUR_B.TTF" id="4_8c7no"]
 [ext_resource type="PackedScene" uid="uid://0vdon2h1kexd" path="res://enemy/enemy_main.tscn" id="6_njk3j"]
-[ext_resource type="PackedScene" uid="uid://ct2xqce18w3kq" path="res://items/sandwich.tscn" id="8_817vu"]
+[ext_resource type="PackedScene" uid="uid://bcb666vhmwu0s" path="res://items/cob.tscn" id="8_kspyq"]
+[ext_resource type="PackedScene" uid="uid://c7tn3sr41fwms" path="res://items/cob_cobs.tscn" id="9_bn281"]
 [ext_resource type="PackedScene" uid="uid://cioaf26i1fnlf" path="res://items/bacon.tscn" id="9_mlkwr"]
 [ext_resource type="PackedScene" uid="uid://bpkaac7culwj1" path="res://items/red_sauce.tscn" id="10_2q33q"]
-[ext_resource type="PackedScene" uid="uid://bl1g7nm8wekoa" path="res://items/bread.tscn" id="11_dp1k2"]
-[ext_resource type="PackedScene" uid="uid://bhoe8ex6u178k" path="res://items/beans.tscn" id="12_d0ebn"]
+[ext_resource type="PackedScene" uid="uid://bhoe8ex6u178k" path="res://items/botc_beans.tscn" id="12_d0ebn"]
 [ext_resource type="Script" path="res://random_engine/random_engine.gd" id="12_yxmj5"]
 [ext_resource type="PackedScene" uid="uid://b1i0c7x8xpxc0" path="res://effects/random_effect_1.tscn" id="13_s4y37"]
-[ext_resource type="PackedScene" uid="uid://r0phk82t4iy" path="res://items/cheese.tscn" id="13_temwc"]
-[ext_resource type="PackedScene" uid="uid://x3241p62x50m" path="res://items/toast.tscn" id="14_q461m"]
-[ext_resource type="PackedScene" uid="uid://jvidtijpokyi" path="res://items/beans_on_toast_cheese.tscn" id="15_wr4as"]
+[ext_resource type="PackedScene" uid="uid://r0phk82t4iy" path="res://items/botc_cheese.tscn" id="13_temwc"]
+[ext_resource type="PackedScene" uid="uid://x3241p62x50m" path="res://items/botc_toast.tscn" id="14_q461m"]
+[ext_resource type="PackedScene" uid="uid://jvidtijpokyi" path="res://items/botc.tscn" id="15_wr4as"]
 
 [sub_resource type="Animation" id="Animation_qlohe"]
 length = 0.001
@@ -538,9 +538,12 @@ navigation_mesh = SubResource("NavigationMesh_m7fv5")
 
 [node name="items" type="Node3D" parent="CanvasLayer"]
 
-[node name="sandwich" parent="CanvasLayer/items" instance=ExtResource("8_817vu")]
-transform = Transform3D(0.631055, -0.438523, -0.639896, 0, 0.824887, -0.565298, 0.775738, 0.356734, 0.520549, 24.2973, 5.8969, -50.6846)
+[node name="cob" parent="CanvasLayer/items" instance=ExtResource("8_kspyq")]
+transform = Transform3D(0.999496, 0.0194257, 0.025104, 0, 0.790871, -0.611983, -0.0317422, 0.611674, 0.790473, 24.0104, 3.98221, -52.3798)
 visible = false
+
+[node name="cob_cobs" parent="CanvasLayer/items" instance=ExtResource("9_bn281")]
+transform = Transform3D(0.999496, 0.0194257, 0.025104, 0, 0.790871, -0.611983, -0.0317422, 0.611674, 0.790473, 24.0104, 2.7414, -52.3798)
 
 [node name="bacon" parent="CanvasLayer/items" instance=ExtResource("9_mlkwr")]
 transform = Transform3D(1, 0, 0, 0, 0.749834, -0.661626, 0, 0.661626, 0.749834, 23.2583, 2.74025, -50.4474)
@@ -550,28 +553,21 @@ visible = false
 transform = Transform3D(0.884092, 0.467313, 0, -0.467313, 0.884092, 0, 0, 0, 1, 24.7133, 2.85703, -52.9814)
 visible = false
 
-[node name="bread" parent="CanvasLayer/items" instance=ExtResource("11_dp1k2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.1901, 2.83773, -51.9079)
+[node name="botc" parent="CanvasLayer/items" instance=ExtResource("15_wr4as")]
+transform = Transform3D(2.75521, -0.526078, -1.06397, 0, 2.68923, -1.32968, 1.18693, 1.22119, 2.4698, 25.7331, 5.91649, -47.5927)
 visible = false
 
-[node name="beans" parent="CanvasLayer/items" instance=ExtResource("12_d0ebn")]
-transform = Transform3D(1, 0, 0, 0, 0.899176, 0.437587, 0, -0.437587, 0.899176, 25.1658, 2.86418, -47.548)
-visible = false
+[node name="botc_beans" parent="CanvasLayer/items" instance=ExtResource("12_d0ebn")]
+transform = Transform3D(1, 0, 0, 0, 0.899176, 0.437587, 0, -0.437587, 0.899176, 24.3188, 2.90705, -49.2479)
 
-[node name="cheese" parent="CanvasLayer/items" instance=ExtResource("13_temwc")]
-transform = Transform3D(0.940229, -0.128005, -0.31557, 0, 0.926666, -0.375885, 0.340544, 0.353418, 0.871278, 25.9127, 2.86418, -46.7913)
-visible = false
+[node name="botc_cheese" parent="CanvasLayer/items" instance=ExtResource("13_temwc")]
+transform = Transform3D(0.940229, -0.128005, -0.31557, 0, 0.926666, -0.375885, 0.340544, 0.353418, 0.871278, 25.7331, 2.94821, -47.5927)
 
-[node name="toast" parent="CanvasLayer/items" instance=ExtResource("14_q461m")]
-transform = Transform3D(0.784582, -0.251633, -0.566668, 0, 0.913943, -0.405844, 0.620026, 0.318417, 0.717063, 25.9127, 2.86418, -48.1597)
-visible = false
-
-[node name="beans_on_toast_cheese" parent="CanvasLayer/items" instance=ExtResource("15_wr4as")]
-transform = Transform3D(0.918405, -0.175359, -0.354657, 0, 0.896409, -0.443228, 0.395642, 0.407062, 0.823267, 23.515, 3.96947, -49.7514)
-visible = false
+[node name="botc_toast" parent="CanvasLayer/items" instance=ExtResource("14_q461m")]
+transform = Transform3D(0.784582, -0.251633, -0.566668, 0, 0.913943, -0.405844, 0.620026, 0.318417, 0.717063, 24.2648, 2.88499, -48.1409)
 
 [node name="winning_item_Timer" type="Timer" parent="CanvasLayer/items"]
-wait_time = 8.0
+wait_time = 5.0
 one_shot = true
 
 [node name="random_engine" type="Node3D" parent="CanvasLayer"]
@@ -636,7 +632,7 @@ one_shot = true
 [connection signal="value_changed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/volume_HSlider" to="CanvasLayer/menu" method="_on_volume_h_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/volume_HSlider2" to="CanvasLayer/menu" method="_on_volume_h_slider_2_value_changed"]
 [connection signal="pressed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/close_options" to="CanvasLayer/menu" method="_on_close_options_pressed"]
-[connection signal="timeout" from="CanvasLayer/items/winning_item_Timer" to="CanvasLayer/items/sandwich" method="_on_winning_item_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/items/winning_item_Timer" to="CanvasLayer/items/cob" method="_on_winning_item_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/game_over_Timer" to="CanvasLayer/menu" method="_on_game_over_timer_timeout"]
 
 [editable path="CanvasLayer/player_main"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyrvxnoagvnib"]
+
+[ext_resource type="PackedScene" uid="uid://cgunxg83wbwjy" path="res://items_raw/SM_Burger_Tomatoes.FBX" id="1_iep4n"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_ovqyd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_au1e6"]
+albedo_texture = ExtResource("2_ovqyd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hh4a"]
+albedo_texture = ExtResource("2_ovqyd")
+
+[node name="cob_sauce" instance=ExtResource("1_iep4n")]
+
+[node name="SM_Burger_Tomatoes" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_au1e6")
+
+[node name="UCX_SM_Burger_Tomatoes" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3hh4a")

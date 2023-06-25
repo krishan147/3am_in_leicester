@@ -1,0 +1,53 @@
+[gd_scene load_steps=12 format=3 uid="uid://bcb666vhmwu0s"]
+
+[ext_resource type="PackedScene" uid="uid://ealsnehauq05" path="res://items_raw/SM_Burger_Bun_Top.FBX" id="1_4hu7q"]
+[ext_resource type="Script" path="res://items/winning_item.gd" id="2_eqmo0"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_ldq0m"]
+[ext_resource type="PackedScene" uid="uid://bdfd8qp0sa3d7" path="res://items_raw/SM_Burger_Bun_Bottom.FBX" id="4_88ih7"]
+[ext_resource type="PackedScene" uid="uid://cu1un2u6elko5" path="res://items/cob_bacon.tscn" id="5_f5mxx"]
+[ext_resource type="PackedScene" uid="uid://cyrvxnoagvnib" path="res://items/cob_sauce.tscn" id="6_phblg"]
+[ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="7_1pq1q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2c8j"]
+albedo_texture = ExtResource("3_ldq0m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rjhh"]
+albedo_texture = ExtResource("3_ldq0m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eba15"]
+albedo_texture = ExtResource("3_ldq0m")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8iij"]
+albedo_texture = ExtResource("3_ldq0m")
+
+[node name="cob" instance=ExtResource("1_4hu7q")]
+transform = Transform3D(0.999496, 0.0194257, 0.025104, 0, 0.790871, -0.611983, -0.0317422, 0.611674, 0.790473, 0.00298326, 1.86265e-09, 0.00439364)
+script = ExtResource("2_eqmo0")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 1.86265e-09, -1.49012e-07, 1, 2.32831e-10, -0.00893265, 0.00691215)
+
+[node name="SM_Burger_Bun_Top" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q2c8j")
+
+[node name="UCX_SM_Burger_Bun_Top" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8rjhh")
+
+[node name="SM_Burger_Bun_Bottom" parent="." index="2" instance=ExtResource("4_88ih7")]
+transform = Transform3D(0.999958, 0.0091803, 1.11759e-08, -0.0091803, 0.999958, 2.98023e-08, 3.72529e-09, -5.96046e-08, 1, 7.70909e-05, -0.0324594, 0.00365225)
+
+[node name="SM_Burger_Bun_Bottom" parent="SM_Burger_Bun_Bottom/RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_eba15")
+
+[node name="UCX_SM_Burger_Bun_Bottom" parent="SM_Burger_Bun_Bottom/RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_m8iij")
+
+[node name="cob_bacon" parent="." index="3" instance=ExtResource("5_f5mxx")]
+transform = Transform3D(1, 0, 0, 0, 1, 2.98023e-08, 1.86265e-09, -2.38419e-07, 1, 0.000399176, -0.020538, -3.7672e-07)
+
+[node name="cob_sauce" parent="." index="4" instance=ExtResource("6_phblg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 1.86265e-09, -2.38419e-07, 1, 0.000151233, -0.0233063, 0.0120134)
+
+[node name="collection_effect_1" parent="." index="5" instance=ExtResource("7_1pq1q")]
+
+[editable path="SM_Burger_Bun_Bottom"]

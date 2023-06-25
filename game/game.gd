@@ -12,15 +12,15 @@ extends Node3D
 
 @onready var dict_levels = {
 	0:{
-		"item_names":["BREAD","BACON","RED SAUCE"],
-		"items":["bacon","bread","red_sauce"], # make sure list is alphabetised
-		"winning_item":"sandwich",
+		"item_names":["BACON","COB","RED SAUCE"],
+		"items":["bacon","cob_cobs","red_sauce"], # make sure list is alphabetised
+		"winning_item":"cob",
 		"winning_item_name":"BACON COB"
 	},
 	1:{
-		"item_names":["BEANS","TOAST","CHEESE"],
-		"items":["beans","cheese","toast"],
-		"winning_item":"beans_on_toast_cheese",
+		"item_names":["BEANS","CHEESE","TOAST"],
+		"items":["botc_beans","botc_cheese","botc_toast"],
+		"winning_item":"botc",
 		"winning_item_name":"BEANS ON TOAST WITH CHEESE"
 	},
 	2:{
@@ -68,6 +68,7 @@ func _physics_process(delta):
 	get_tree().call_group("enemies", "_updateTargetLocation", player)
 	
 func _changeCheckboxes(level):
+	_untickCheckBoxes()
 	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
 	var list_objects = dict_levels[int(level)]["item_names"]
 	var no_of_objects = len(dict_levels[int(level)]["item_names"])
@@ -92,7 +93,7 @@ func _showItems(level):
 func _untickCheckBoxes():
 	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
 	for collected_item_checkout in list_checkboxes:
-		collected_item_checkout.button_pressed = true
+		collected_item_checkout.button_pressed = false
 
 func _itemCollectedCheck(item_collected): # tick box, message to pop up, check if we have collected all 3 items
 	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
@@ -118,7 +119,7 @@ func _itemSetCollected():
 		player._startMessages(["YOU HAVE A " +  str(winning_item_name)])
 		var winning_item = dict_levels[int(level)]["winning_item"]
 		
-		$CanvasLayer/items/sandwich._activate()
+		get_node("CanvasLayer/items/" + winning_item)._activate()
 
 
 

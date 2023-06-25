@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=3 uid="uid://c7tn3sr41fwms"]
+
+[ext_resource type="PackedScene" uid="uid://ealsnehauq05" path="res://items_raw/SM_Burger_Bun_Top.FBX" id="1_f52op"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_bes67"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_yrgjm"]
+[ext_resource type="PackedScene" uid="uid://bdfd8qp0sa3d7" path="res://items_raw/SM_Burger_Bun_Bottom.FBX" id="4_18v55"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="5_qml21"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q2c8j"]
+albedo_texture = ExtResource("3_yrgjm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8rjhh"]
+albedo_texture = ExtResource("3_yrgjm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eba15"]
+albedo_texture = ExtResource("3_yrgjm")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8iij"]
+albedo_texture = ExtResource("3_yrgjm")
+
+[node name="cob_cobs" instance=ExtResource("1_f52op")]
+transform = Transform3D(0.999496, 0.0194257, 0.025104, 0, 0.790871, -0.611983, -0.0317422, 0.611674, 0.790473, 0.00298326, 1.86265e-09, 0.00439364)
+script = ExtResource("2_bes67")
+
+[node name="SM_Burger_Bun_Top" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_q2c8j")
+
+[node name="UCX_SM_Burger_Bun_Top" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8rjhh")
+
+[node name="SM_Burger_Bun_Bottom" parent="." index="2" instance=ExtResource("4_18v55")]
+transform = Transform3D(0.999958, 0.0091803, 1.11759e-08, -0.0091803, 0.999958, -2.98023e-08, 0, -2.98023e-08, 1, 7.70905e-05, -0.0276331, -8.23881e-05)
+
+[node name="SM_Burger_Bun_Bottom" parent="SM_Burger_Bun_Bottom/RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_eba15")
+
+[node name="UCX_SM_Burger_Bun_Bottom" parent="SM_Burger_Bun_Bottom/RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_m8iij")
+
+[node name="player_pickup" parent="." index="3" instance=ExtResource("5_qml21")]
+
+[editable path="SM_Burger_Bun_Bottom"]

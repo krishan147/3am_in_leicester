@@ -42,7 +42,6 @@ func _deactivate():
 	y = 1
 	z = 1
 
-
 func _on_winning_item_timer_timeout():
 	_deactivate()
 	game._levelCompleted()

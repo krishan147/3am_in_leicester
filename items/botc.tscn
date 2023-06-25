@@ -26,7 +26,7 @@ albedo_texture = ExtResource("2_xhts8")
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ooinm"]
 albedo_texture = ExtResource("2_xhts8")
 
-[node name="beans_on_toast_cheese" type="Node3D"]
+[node name="botc" type="Node3D"]
 transform = Transform3D(2.75521, -0.526078, -1.06397, 0, 2.68923, -1.32968, 1.18693, 1.22119, 2.4698, 0, 0, 0)
 script = ExtResource("1_3rcda")
 
