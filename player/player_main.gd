@@ -113,7 +113,7 @@ func _on_messages_timer_timeout():
 	else:
 		_startMessages(list_messages)
 
-func _fallOver(): # gAME OVER
+func _fallOver(): # GAME OVER
 	menu_ingame_container.visible = false
 	_canMove(false)
 	animation_player.play("fall_over")

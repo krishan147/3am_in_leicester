@@ -13,13 +13,13 @@ extends Node3D
 @onready var dict_levels = {
 	0:{
 		"item_names":["BREAD","BACON","RED SAUCE"],
-		"items":["bread","bacon","red_sauce"],
+		"items":["bacon","bread","red_sauce"], # make sure list is alphabetised
 		"winning_item":"sandwich",
-		"winning_item_name":"SANDWICH"
+		"winning_item_name":"BACON COB"
 	},
 	1:{
 		"item_names":["BEANS","TOAST","CHEESE"],
-		"items":["beans","toast","cheese"],
+		"items":["beans","cheese","toast"],
 		"winning_item":"beans_on_toast_cheese",
 		"winning_item_name":"BEANS ON TOAST WITH CHEESE"
 	},
@@ -38,8 +38,19 @@ extends Node3D
 	
 }
 
+var save_data = null
+var list_items_collected = []
+
 func _levelCompleted():
 	level = level + 1
+	save_data = GlobalOptions._loadGame()
+	save_data["level"] = level
+	save_data["player_position_x"] = player.position.x
+	save_data["player_position_y"] = player.position.y
+	save_data["player_position_z"] = player.position.z
+	GlobalOptions._saveGame(save_data)
+	player._startMessages(["MAKE " + dict_levels[level]["winning_item_name"]])
+	list_items_collected = []
 	_changeLevel(level)
 
 func _changeLevel(change):
@@ -75,10 +86,13 @@ func _getPlayingState():
 	return playing
 
 func _showItems(level):
-	
 	for object in dict_levels[int(level)]["items"]:
-		
 		get_node("CanvasLayer/items/" + str(object))._activate()
+		
+func _untickCheckBoxes():
+	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
+	for collected_item_checkout in list_checkboxes:
+		collected_item_checkout.button_pressed = true
 
 func _itemCollectedCheck(item_collected): # tick box, message to pop up, check if we have collected all 3 items
 	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
@@ -86,6 +100,9 @@ func _itemCollectedCheck(item_collected): # tick box, message to pop up, check i
 	for item in dict_levels[int(level)]["items"]:
 		
 		if item_collected == item:
+			
+			list_items_collected.append(item)
+			
 			var collected_item_checkout = list_checkboxes[item_num]
 			collected_item_checkout.button_pressed = true
 			_itemSetCollected()
@@ -93,25 +110,15 @@ func _itemCollectedCheck(item_collected): # tick box, message to pop up, check i
 		else:
 			item_num = item_num + 1
 	
-
-var items_collected = 0
-
 func _itemSetCollected():
-	items_collected = items_collected + 1
+	list_items_collected.sort()
 	
-	if items_collected == len(dict_levels[int(level)]["items"]):
+	if list_items_collected == dict_levels[int(level)]["items"]:
 		var winning_item_name = dict_levels[int(level)]["winning_item_name"]
 		player._startMessages(["YOU HAVE A " +  str(winning_item_name)])
 		var winning_item = dict_levels[int(level)]["winning_item"]
 		
 		$CanvasLayer/items/sandwich._activate()
-		
-		#_levelCompleted()
-		
-
-
-
-
 
 
 

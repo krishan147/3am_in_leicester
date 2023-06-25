@@ -108,7 +108,12 @@ func _on_timer_intro_timeout():
 	
 func _on_continue_pressed():
 	var save_data = GlobalOptions._loadGame()
+	
 	_disableMenu()
+	
+	player.position.x = save_data["player_position_x"]
+	player.position.y = save_data["player_position_y"]
+	player.position.z = save_data["player_position_z"]
 	fade.play("fade_to_normal")
 	camera_menu.current = false
 	camera_player.current = true

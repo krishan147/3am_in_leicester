@@ -45,5 +45,4 @@ func _deactivate():
 
 func _on_winning_item_timer_timeout():
 	_deactivate()
-	player._startMessages(["GET THE NEXT STUFF"])
 	game._levelCompleted()

@@ -21,13 +21,10 @@ func _loadGame():
 
 func _saveGameTemplate():
 	var save_dict = {
-		"player_location": 1,
+		"player_position_x": 1,
+		"player_position_y": 1,
+		"player_position_z": 1,
 		"level":0,
-		"red_sauce": false,
-		"bacon": false,
-		"baps":false,
-		"blue_crisps":false, 
-		"green_crisps":false,
-		"red_crisps":false
+		"jump_power_unlocked":0
 		}
 	return save_dict

@@ -21,3 +21,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_8d8up")
 surface_material_override/0 = SubResource("StandardMaterial3D_5oajh")
 
 [node name="player_pickup" parent="." index="2" instance=ExtResource("4_m25jq")]
+
+[editable path="player_pickup"]
