@@ -87,6 +87,7 @@ func _getPlayingState():
 	return playing
 
 func _showItems(level):
+	
 	for object in dict_levels[int(level)]["items"]:
 		get_node("CanvasLayer/items/" + str(object))._activate()
 		

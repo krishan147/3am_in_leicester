@@ -576,6 +576,9 @@ script = ExtResource("12_yxmj5")
 
 [node name="random_effect_1" parent="CanvasLayer/random_engine" instance=ExtResource("13_s4y37")]
 
+[node name="random_engine_timer" type="Timer" parent="CanvasLayer/random_engine"]
+wait_time = 75.0
+
 [node name="game_over" type="SubViewportContainer" parent="CanvasLayer"]
 visible = false
 anchors_preset = 8
@@ -634,6 +637,7 @@ one_shot = true
 [connection signal="value_changed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/volume_HSlider2" to="CanvasLayer/menu" method="_on_volume_h_slider_2_value_changed"]
 [connection signal="pressed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/close_options" to="CanvasLayer/menu" method="_on_close_options_pressed"]
 [connection signal="timeout" from="CanvasLayer/items/winning_item_Timer" to="CanvasLayer/items/cob" method="_on_winning_item_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/random_engine/random_engine_timer" to="CanvasLayer/random_engine" method="_on_random_engine_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/game_over_Timer" to="CanvasLayer/menu" method="_on_game_over_timer_timeout"]
 
 [editable path="CanvasLayer/player_main"]

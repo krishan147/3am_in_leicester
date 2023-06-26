@@ -18,6 +18,7 @@ extends Node3D
 @onready var exit_btn = $menu_buttons/SubViewport/menu/exit
 @onready var title = $title
 @onready var game_over = $"../game_over"
+@onready var random_engine_timer = $"../random_engine/random_engine_timer"
 
 func _process(delta):
 	pass
@@ -73,6 +74,7 @@ func _on_new_game_button_down():
 		player.position = Vector3(25.5, 2.6, -50.7)
 		timer_load.start()
 		new_game_check = 0
+		random_engine_timer.start()
 
 func _on_timer_load_timeout():
 	timer_load.stop()
@@ -108,9 +110,7 @@ func _on_timer_intro_timeout():
 	
 func _on_continue_pressed():
 	var save_data = GlobalOptions._loadGame()
-	
 	_disableMenu()
-	
 	player.position.x = save_data["player_position_x"]
 	player.position.y = save_data["player_position_y"]
 	player.position.z = save_data["player_position_z"]
@@ -121,6 +121,7 @@ func _on_continue_pressed():
 	game._changePlaying(true)
 	menu_ingame_container.visible = true
 	game._changeLevel(save_data["level"])
+	random_engine_timer.start()
 
 func _disableMenu():
 	self.visible = false
