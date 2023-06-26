@@ -544,6 +544,7 @@ visible = false
 
 [node name="cob_cobs" parent="CanvasLayer/items" instance=ExtResource("9_bn281")]
 transform = Transform3D(0.999496, 0.0194257, 0.025104, 0, 0.790871, -0.611983, -0.0317422, 0.611674, 0.790473, 24.0104, 2.7414, -52.3798)
+visible = false
 
 [node name="bacon" parent="CanvasLayer/items" instance=ExtResource("9_mlkwr")]
 transform = Transform3D(1, 0, 0, 0, 0.749834, -0.661626, 0, 0.661626, 0.749834, 23.2583, 2.74025, -50.4474)
