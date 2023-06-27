@@ -524,7 +524,7 @@ button_mask = 0
 text = "sandwich"
 
 [node name="enemy_main" parent="CanvasLayer" instance=ExtResource("6_njk3j")]
-transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 25.5358, 2.59216, -54.053)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 26.074, 2.59216, -58.8168)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="CanvasLayer"]
 navigation_mesh = SubResource("NavigationMesh_m7fv5")
@@ -576,7 +576,7 @@ script = ExtResource("12_yxmj5")
 [node name="random_effect_1" parent="CanvasLayer/random_engine" instance=ExtResource("13_s4y37")]
 
 [node name="random_engine_timer" type="Timer" parent="CanvasLayer/random_engine"]
-wait_time = 75.0
+wait_time = 2.0
 
 [node name="game_over" type="SubViewportContainer" parent="CanvasLayer"]
 visible = false

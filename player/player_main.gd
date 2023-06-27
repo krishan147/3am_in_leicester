@@ -87,6 +87,7 @@ func _on_animation_player_animation_finished(anim_name):
 		_canMove(true)
 
 func _on_pickup_area_area_entered(area):
+	
 	game._itemCollectedCheck(area.get_parent().name)
 	area.get_parent()._deactivate()
 
@@ -122,16 +123,7 @@ func _fallOver(): # GAME OVER
 	game_over_timer.start()
 	
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+func _on_pickup_area_body_entered(body):
+	if body.name == "enemy_main":
+		_fallOver()
+		# move the enemy away?

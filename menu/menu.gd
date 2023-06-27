@@ -142,7 +142,6 @@ func _enableMenu():
 	exit_btn.disabled = false
 	title.visible = true
 	
-	
 func _on_game_over_timer_timeout():
 	game_over.visible = false
 	_enableMenu()
