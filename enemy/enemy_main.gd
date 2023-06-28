@@ -9,6 +9,7 @@ extends CharacterBody3D
 #	start = false
 
 func _start():
+	animation_player.play("mixamocom")
 	self.visible = true
 	start = true
 
@@ -20,12 +21,16 @@ func _physics_process(delta):
 		velocity = new_velocity
 		move_and_slide()
 		
+func _stop():
+	start = false
+	animation_player.stop()
+		
 		
 func _end():
+	animation_player.stop()
 	self.visible = false
 	start = false
 	
 func _updateTargetLocation(target):
 	nav_agent.set_target_position(target.global_transform.origin)
 	look_at(target.global_transform.origin,Vector3.UP)
-	animation_player.play("mixamocom")

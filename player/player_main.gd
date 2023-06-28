@@ -22,6 +22,7 @@ const LERP_VAL = 0.5
 @onready var game_over = $"../game_over"
 @onready var game_over_timer = $"../game_over_Timer"
 @onready var menu_ingame_container = $"../menu_ingame/SubViewportContainer"
+@onready var enemy = $"../enemy_main"
 
 #func _ready():
 #	_startMessages(messages)
@@ -126,4 +127,13 @@ func _fallOver(): # GAME OVER
 func _on_pickup_area_body_entered(body):
 	if body.name == "enemy_main":
 		_fallOver()
-		# move the enemy away?
+		enemy._stop()
+		
+		
+		
+		
+		
+		
+		
+		
+		
