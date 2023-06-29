@@ -2,14 +2,14 @@ extends Node3D
 
 
 #@onready var list_random_unit = ["random_effect", "random_message", "get_chased"]
-@onready var list_random_unit = ["get_chased"]
+@onready var list_random_unit = ["random_message"]
 
 @onready var list_messages = ["YOU ARE NOT SOBER", "WHERE ARE YOU GOING?", "CAN LEND ME 36p PLEASE?", 
 "YOU WILL NEVER BE SOBER", "THERE ARE GHOSTS SOMEWHERE", "KINGS ARE FOUND IN CAR PARKS", "WHY IS THERE A SPACE CENTRE?",
 "EVERYTHING IS POINTLESS", "YOU WILL NEVER BE HAPPY", "YOU WILL NEVER SEE ANYTHING"]
 @onready var list_secs_range = range(60, 120)
 @onready var random_engine_timer = $random_engine_timer
-@onready var player = $"../player_main/player_messages"
+@onready var player = $"../player_main"
 @onready var enemy = $"../enemy_main"
 @onready var enemy_position_add = range(+3, +7)
 @onready var enemy_position_sub = range(-7, -3)
@@ -34,7 +34,9 @@ func _runRandom(random_unit):
 	if random_unit == "random_effect":
 		pass
 	elif random_unit == "random_message":
-		pass
+		list_messages.shuffle()
+		var temp_list = [list_messages[0]]
+		player._startMessages(temp_list)
 	elif random_unit == "get_chased":
 		_getChased()
 		
