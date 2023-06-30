@@ -119,7 +119,6 @@ func _itemSetCollected():
 		var winning_item_name = dict_levels[int(level)]["winning_item_name"]
 		player._startMessages(["YOU HAVE A " +  str(winning_item_name)])
 		var winning_item = dict_levels[int(level)]["winning_item"]
-		
 		get_node("CanvasLayer/items/" + winning_item)._activate()
 
 

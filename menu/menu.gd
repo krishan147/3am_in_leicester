@@ -19,6 +19,7 @@ extends Node3D
 @onready var title = $title
 @onready var game_over = $"../game_over"
 @onready var random_engine_timer = $"../random_engine/random_engine_timer"
+@onready var enemy_main = $"../enemy_main"
 
 func _process(delta):
 	pass
@@ -75,6 +76,7 @@ func _on_new_game_button_down():
 		timer_load.start()
 		new_game_check = 0
 		random_engine_timer.start()
+		enemy_main._end()
 
 func _on_timer_load_timeout():
 	timer_load.stop()
@@ -122,6 +124,7 @@ func _on_continue_pressed():
 	menu_ingame_container.visible = true
 	game._changeLevel(save_data["level"])
 	random_engine_timer.start()
+	enemy_main._end()
 
 func _disableMenu():
 	self.visible = false

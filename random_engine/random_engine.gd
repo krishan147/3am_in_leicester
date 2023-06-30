@@ -2,8 +2,7 @@ extends Node3D
 
 
 #@onready var list_random_unit = ["random_effect", "random_message", "get_chased"]
-@onready var list_random_unit = ["get_chased"]
-
+@onready var list_random_unit = ["random_effect"]
 @onready var list_messages = ["YOU ARE NOT SOBER", "WHERE ARE YOU GOING?", "CAN LEND ME 36p PLEASE?", 
 "YOU WILL NEVER BE SOBER", "THERE ARE GHOSTS SOMEWHERE", "KINGS ARE FOUND IN CAR PARKS", "WHY IS THERE A SPACE CENTRE?",
 "EVERYTHING IS POINTLESS", "YOU WILL NEVER BE HAPPY", "YOU WILL NEVER SEE ANYTHING"]
@@ -13,11 +12,14 @@ extends Node3D
 @onready var enemy = $"../enemy_main"
 @onready var enemy_position_add = range(+3, +7)
 @onready var enemy_position_sub = range(-7, -3)
-
- # remember to change wait time on timer for when 75 secs
+@onready var list_enemy_position_add_sub = enemy_position_add + enemy_position_sub
+@onready var random_effect_1 = $random_effect_1
+@onready var list_random_effects = []
 
 func _ready():
-	pass
+	list_random_effects.append(random_effect_1)
+	list_random_effects.append(random_effect_1)
+	list_random_effects.append(random_effect_1)
 
 func _process(delta):
 	pass
@@ -32,7 +34,7 @@ func _on_random_engine_timer_timeout():
 	
 func _runRandom(random_unit):
 	if random_unit == "random_effect":
-		pass
+		_randomEffect()
 	elif random_unit == "random_message":
 		list_messages.shuffle()
 		var temp_list = [list_messages[0]]
@@ -41,7 +43,14 @@ func _runRandom(random_unit):
 		_getChased()
 		
 func _randomEffect():
-	pass
+	var player_x = player.position.x
+	var player_z = player.position.z
+	list_enemy_position_add_sub.shuffle()
+	list_random_effects.shuffle()
+	list_random_effects[0].position.x = player_x + list_enemy_position_add_sub[0]
+	list_enemy_position_add_sub.shuffle()
+	list_random_effects[0].position.z = player_z + list_enemy_position_add_sub[0]
+	list_random_effects[0]._activate()
 	
 func _randomMessage():
 	list_messages.shuffle()
@@ -49,44 +58,11 @@ func _randomMessage():
 func _getChased():
 	var player_x = player.position.x
 	var player_z = player.position.z
-	var list_enemy_position_add_sub = enemy_position_add + enemy_position_sub
 	list_enemy_position_add_sub.shuffle()
 	enemy.position.x = player_x + list_enemy_position_add_sub[0]
 	list_enemy_position_add_sub.shuffle()
 	enemy.position.z = player_z + list_enemy_position_add_sub[0]
-	
 	#enemy.position.x = 26.074 # delete me  
 	#enemy.position.z = -58.817 # delete me  
-	
 	enemy._start()
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-
-func _on_enemy_chase_timer_timeout():
-	pass # Replace with function body.

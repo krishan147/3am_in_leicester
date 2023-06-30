@@ -622,6 +622,10 @@ vertical_alignment = 2
 wait_time = 4.0
 one_shot = true
 
+[node name="enemy_chase_Timer" type="Timer" parent="CanvasLayer"]
+wait_time = 30.0
+one_shot = true
+
 [connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/Timer_load" to="CanvasLayer/menu" method="_on_timer_load_timeout"]
 [connection signal="timeout" from="CanvasLayer/Timer_intro" to="CanvasLayer/menu" method="_on_timer_intro_timeout"]
@@ -638,6 +642,7 @@ one_shot = true
 [connection signal="timeout" from="CanvasLayer/items/winning_item_Timer" to="CanvasLayer/items/cob" method="_on_winning_item_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/random_engine/random_engine_timer" to="CanvasLayer/random_engine" method="_on_random_engine_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/game_over_Timer" to="CanvasLayer/menu" method="_on_game_over_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/enemy_chase_Timer" to="CanvasLayer/enemy_main" method="_on_enemy_chase_timer_timeout"]
 
 [editable path="CanvasLayer/player_main"]
 [editable path="CanvasLayer/player_main/player"]

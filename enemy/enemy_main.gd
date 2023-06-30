@@ -5,6 +5,7 @@ extends CharacterBody3D
 @onready var SPEED = 0.5
 @onready var start = false
 @onready var collisionshape = $CollisionShape3D
+@onready var enemy_chase_timer = $"../enemy_chase_Timer"
 
 #func _ready():
 #	start = false
@@ -14,6 +15,7 @@ func _start():
 	self.visible = true
 	start = true
 	collisionshape.set_deferred("disabled", false)
+	enemy_chase_timer.start()
 
 func _physics_process(delta):
 	if start == true:
@@ -37,3 +39,7 @@ func _end():
 func _updateTargetLocation(target):
 	nav_agent.set_target_position(target.global_transform.origin)
 	look_at(target.global_transform.origin,Vector3.UP)
+
+
+func _on_enemy_chase_timer_timeout():
+	_end()
