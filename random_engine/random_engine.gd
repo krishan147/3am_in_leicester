@@ -2,7 +2,7 @@ extends Node3D
 
 
 #@onready var list_random_unit = ["random_effect", "random_message", "get_chased"]
-@onready var list_random_unit = ["random_message"]
+@onready var list_random_unit = ["get_chased"]
 
 @onready var list_messages = ["YOU ARE NOT SOBER", "WHERE ARE YOU GOING?", "CAN LEND ME 36p PLEASE?", 
 "YOU WILL NEVER BE SOBER", "THERE ARE GHOSTS SOMEWHERE", "KINGS ARE FOUND IN CAR PARKS", "WHY IS THERE A SPACE CENTRE?",
@@ -55,8 +55,8 @@ func _getChased():
 	list_enemy_position_add_sub.shuffle()
 	enemy.position.z = player_z + list_enemy_position_add_sub[0]
 	
-	enemy.position.x = 26.074 # delete me  
-	enemy.position.z = -58.817 # delete me  
+	#enemy.position.x = 26.074 # delete me  
+	#enemy.position.z = -58.817 # delete me  
 	
 	enemy._start()
 		
@@ -86,3 +86,7 @@ func _getChased():
 		
 		
 		
+
+
+func _on_enemy_chase_timer_timeout():
+	pass # Replace with function body.

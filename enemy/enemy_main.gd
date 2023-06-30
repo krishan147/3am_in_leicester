@@ -4,6 +4,7 @@ extends CharacterBody3D
 @onready var animation_player = $enemy/AnimationPlayer
 @onready var SPEED = 0.5
 @onready var start = false
+@onready var collisionshape = $CollisionShape3D
 
 #func _ready():
 #	start = false
@@ -12,6 +13,7 @@ func _start():
 	animation_player.play("mixamocom")
 	self.visible = true
 	start = true
+	collisionshape.set_deferred("disabled", false)
 
 func _physics_process(delta):
 	if start == true:
@@ -30,6 +32,7 @@ func _end():
 	animation_player.stop()
 	self.visible = false
 	start = false
+	collisionshape.set_deferred("disabled", true)
 	
 func _updateTargetLocation(target):
 	nav_agent.set_target_position(target.global_transform.origin)
