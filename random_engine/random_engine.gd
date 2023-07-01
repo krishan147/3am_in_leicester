@@ -14,12 +14,14 @@ extends Node3D
 @onready var enemy_position_sub = range(-7, -3)
 @onready var list_enemy_position_add_sub = enemy_position_add + enemy_position_sub
 @onready var random_effect_1 = $random_effect_1
+@onready var random_effect_2 = $random_effect_2
+@onready var random_effect_3 = $random_effect_3
 @onready var list_random_effects = []
 
 func _ready():
-	list_random_effects.append(random_effect_1)
-	list_random_effects.append(random_effect_1)
-	list_random_effects.append(random_effect_1)
+	list_random_effects.append(random_effect_3)
+	list_random_effects.append(random_effect_3)
+	list_random_effects.append(random_effect_3)
 
 func _process(delta):
 	pass

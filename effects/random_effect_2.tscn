@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bd6hysxy64ljb"]
+
+[ext_resource type="Script" path="res://effects/random_effect_1.gd" id="1_0vuci"]
+[ext_resource type="Texture2D" uid="uid://bisnv85pq5fre" path="res://effects/smoke.png" id="2_xh5q8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8wpb"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.478431)
+albedo_texture = ExtResource("2_xh5q8")
+billboard_mode = 1
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6jtw0"]
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector3(0, 1, 0)
+gravity = Vector3(0, 0, 1)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_inmfo"]
+size = Vector2(10, 10)
+
+[node name="random_effect_2" type="Node3D"]
+script = ExtResource("1_0vuci")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+material_override = SubResource("StandardMaterial3D_j8wpb")
+emitting = false
+amount = 80
+lifetime = 12.0
+one_shot = true
+explosiveness = 1.0
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_6jtw0")
+draw_pass_1 = SubResource("QuadMesh_inmfo")
