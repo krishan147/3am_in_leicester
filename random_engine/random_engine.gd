@@ -1,8 +1,7 @@
 extends Node3D
 
 
-#@onready var list_random_unit = ["random_effect", "random_message", "get_chased"]
-@onready var list_random_unit = ["random_effect"]
+@onready var list_random_unit = ["random_effect", "random_message", "get_chased"]
 @onready var list_messages = ["YOU ARE NOT SOBER", "WHERE ARE YOU GOING?", "CAN LEND ME 36p PLEASE?", 
 "YOU WILL NEVER BE SOBER", "THERE ARE GHOSTS SOMEWHERE", "KINGS ARE FOUND IN CAR PARKS", "WHY IS THERE A SPACE CENTRE?",
 "EVERYTHING IS POINTLESS", "YOU WILL NEVER BE HAPPY", "YOU WILL NEVER SEE ANYTHING"]
@@ -16,12 +15,13 @@ extends Node3D
 @onready var random_effect_1 = $random_effect_1
 @onready var random_effect_2 = $random_effect_2
 @onready var random_effect_3 = $random_effect_3
+@onready var random_effect_4 = $random_effect_4
 @onready var list_random_effects = []
 
 func _ready():
-	list_random_effects.append(random_effect_3)
-	list_random_effects.append(random_effect_3)
-	list_random_effects.append(random_effect_3)
+	list_random_effects.append(random_effect_4)
+	list_random_effects.append(random_effect_4)
+	list_random_effects.append(random_effect_4)
 
 func _process(delta):
 	pass

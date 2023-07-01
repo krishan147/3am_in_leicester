@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://bsot7gqp585jq"]
+[gd_scene load_steps=6 format=3 uid="uid://dlk1dkiwdt85x"]
 
-[ext_resource type="Script" path="res://effects/random_effect_1.gd" id="1_q4170"]
-[ext_resource type="Texture2D" uid="uid://b6j5e5kk336wi" path="res://effects/leaf.png" id="2_0ppq7"]
+[ext_resource type="Script" path="res://effects/random_effect_1.gd" id="1_jjf78"]
+[ext_resource type="Texture2D" uid="uid://cepmhykrj0tix" path="res://effects/purple.png" id="2_6aljd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8wpb"]
 transparency = 1
 cull_mode = 2
 albedo_color = Color(1, 1, 1, 0.478431)
-albedo_texture = ExtResource("2_0ppq7")
+albedo_texture = ExtResource("2_6aljd")
 billboard_mode = 1
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6jtw0"]
@@ -16,28 +16,24 @@ emission_sphere_radius = 6.0
 direction = Vector3(0, 1, 0)
 spread = 90.0
 gravity = Vector3(0, 0, 1)
-initial_velocity_min = 5.0
-initial_velocity_max = 5.0
 angle_min = -606.3
 angle_max = 720.0
 turbulence_enabled = true
 turbulence_noise_strength = 0.0
-collision_mode = 1
-collision_friction = 0.2
-collision_bounce = 0.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_inmfo"]
-size = Vector2(0.25, 0.25)
+size = Vector2(20, 20)
 
 [node name="random_effect_3" type="Node3D"]
-script = ExtResource("1_q4170")
+script = ExtResource("1_jjf78")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_j8wpb")
 emitting = false
-amount = 100
-lifetime = 6.0
+amount = 1
+lifetime = 16.0
 one_shot = true
-trail_lifetime = 1.05
+speed_scale = 0.4
+trail_lifetime = 4.74
 process_material = SubResource("ParticleProcessMaterial_6jtw0")
 draw_pass_1 = SubResource("QuadMesh_inmfo")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://diqmr355cu1re"]
+[gd_scene load_steps=36 format=3 uid="uid://diqmr355cu1re"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://jvidtijpokyi" path="res://items/botc.tscn" id="15_wr4as"]
 [ext_resource type="PackedScene" uid="uid://bd6hysxy64ljb" path="res://effects/random_effect_2.tscn" id="18_d0k5u"]
 [ext_resource type="PackedScene" uid="uid://bsot7gqp585jq" path="res://effects/random_effect_3.tscn" id="19_ipogl"]
+[ext_resource type="PackedScene" uid="uid://dlk1dkiwdt85x" path="res://effects/random_effect_4.tscn" id="20_q8pw0"]
 
 [sub_resource type="Animation" id="Animation_qlohe"]
 length = 0.001
@@ -580,6 +581,8 @@ script = ExtResource("12_yxmj5")
 [node name="random_effect_2" parent="CanvasLayer/random_engine" instance=ExtResource("18_d0k5u")]
 
 [node name="random_effect_3" parent="CanvasLayer/random_engine" instance=ExtResource("19_ipogl")]
+
+[node name="random_effect_4" parent="CanvasLayer/random_engine" instance=ExtResource("20_q8pw0")]
 
 [node name="random_engine_timer" type="Timer" parent="CanvasLayer/random_engine"]
 wait_time = 2.0
