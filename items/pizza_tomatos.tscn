@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://dw0fnsfnu3yx"]
+
+[ext_resource type="PackedScene" uid="uid://0xkj1anqwxgg" path="res://items_raw/SM_Canned_Tomatoes.FBX" id="1_qaf88"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_5w0gc"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="3_b51st"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_y6sea"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_so66h"]
+albedo_texture = ExtResource("3_y6sea")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w2aif"]
+albedo_texture = ExtResource("3_y6sea")
+
+[node name="pizza_tomatos" instance=ExtResource("1_qaf88")]
+script = ExtResource("2_5w0gc")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.940739, -0.339132, 0, 0.339132, 0.940739, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Canned_Tomatoes" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_so66h")
+
+[node name="UCX_SM_Canned_Tomatoes" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_w2aif")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("3_b51st")]

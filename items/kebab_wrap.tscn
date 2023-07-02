@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://kwjqrfj0l50a"]
+
+[ext_resource type="PackedScene" uid="uid://cydyro2512hsj" path="res://items_raw/SM_Pizza_Base.FBX" id="1_k6tvf"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_chyxl"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_5bvwc"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_us8qi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3xtq"]
+albedo_texture = ExtResource("3_5bvwc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2sodr"]
+albedo_texture = ExtResource("3_5bvwc")
+
+[node name="kebab_wrap" instance=ExtResource("1_k6tvf")]
+script = ExtResource("2_chyxl")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.85082, -0.525457, 0, 0.525457, 0.85082, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Pizza_Base" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_n3xtq")
+
+[node name="UCX_SM_Pizza_Base" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2sodr")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_us8qi")]

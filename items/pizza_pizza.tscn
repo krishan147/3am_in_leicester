@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://bddv2oykn4dbs"]
+
+[ext_resource type="PackedScene" uid="uid://e0t3r1pavrap" path="res://items_raw/SM_Slice_Of_Pizza_Bottom.FBX" id="1_xqhbd"]
+[ext_resource type="Script" path="res://items/winning_item.gd" id="2_hlkhy"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_u05r3"]
+[ext_resource type="PackedScene" uid="uid://bc400qrbik31f" path="res://items/p_base.tscn" id="4_vjvv4"]
+[ext_resource type="PackedScene" uid="uid://dcnuiicfa173f" path="res://items/p_cheese.tscn" id="5_4toea"]
+[ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="6_oxp3u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n273a"]
+albedo_texture = ExtResource("3_u05r3")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ebiwf"]
+albedo_texture = ExtResource("3_u05r3")
+
+[node name="pizza_pizza" instance=ExtResource("1_xqhbd")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("2_hlkhy")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.884125, -0.467251, 0, 0.467251, 0.884125, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Slice_Of_Pizza_Bottom" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_n273a")
+
+[node name="UCX_SM_Slice_Of_Pizza_Bottom" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ebiwf")
+
+[node name="SM_Slice_Of_Pizza_Base" parent="RootNode" index="2" instance=ExtResource("4_vjvv4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0328932, -0.00685675, -0.0386575)
+
+[node name="SM_Slice_Of_PizzaCheese" parent="RootNode" index="3" instance=ExtResource("5_4toea")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.000446863, 0)
+
+[node name="collection_effect_1" parent="." index="2" instance=ExtResource("6_oxp3u")]

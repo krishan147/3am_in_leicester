@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqswgk074fpa7"]
+
+[ext_resource type="PackedScene" uid="uid://cob3taqno0jm2" path="res://items_raw/SM_Mustard.FBX" id="1_gmoik"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_4mewd"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_wk7l3"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="3_eyfui"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hfwfg"]
+albedo_texture = ExtResource("2_4mewd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ik5h"]
+albedo_texture = ExtResource("2_4mewd")
+
+[node name="pie_mustard" instance=ExtResource("1_gmoik")]
+script = ExtResource("2_wk7l3")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.907602, -0.419832, 0, 0.419832, 0.907602, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Mustard" parent="RootNode" index="0"]
+material_override = SubResource("StandardMaterial3D_hfwfg")
+
+[node name="UCX_SM_Mustard" parent="RootNode" index="1"]
+material_override = SubResource("StandardMaterial3D_2ik5h")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("3_eyfui")]

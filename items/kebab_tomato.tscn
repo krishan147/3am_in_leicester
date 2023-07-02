@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://d35gidaylle8v"]
+
+[ext_resource type="PackedScene" uid="uid://do1kkqmdruj7c" path="res://items_raw/SM_Tomato.FBX" id="1_qgcxf"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_sw3kg"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_w0kch"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_nj3ku"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6ksw"]
+albedo_texture = ExtResource("3_w0kch")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rql13"]
+albedo_texture = ExtResource("3_w0kch")
+
+[node name="kebab_tomato" instance=ExtResource("1_qgcxf")]
+script = ExtResource("2_sw3kg")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.951288, -0.308303, 0, 0.308303, 0.951288, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Tomato" parent="RootNode" index="0"]
+transform = Transform3D(0.999316, 0, 0.0369925, -0.0369925, 0, 0.999316, 0, -1, 0, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_c6ksw")
+
+[node name="UCX_SM_Tomato" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rql13")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_nj3ku")]

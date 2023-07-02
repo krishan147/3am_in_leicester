@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvs87fm0gthwf"]
+
+[ext_resource type="PackedScene" uid="uid://j0svcv74s81l" path="res://items_raw/SM_Cheese.FBX" id="1_qplaw"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_40mgk"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_x1csq"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_kh380"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r3yo"]
+albedo_texture = ExtResource("2_40mgk")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76cbp"]
+albedo_texture = ExtResource("2_40mgk")
+
+[node name="pizza_cheese" instance=ExtResource("1_qplaw")]
+script = ExtResource("2_x1csq")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.879034, -0.47676, 0, 0.47676, 0.879034, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Cheese" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_8r3yo")
+
+[node name="UCX_SM_Cheese" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_76cbp")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_kh380")]

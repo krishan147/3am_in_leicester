@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfc2fb376ih7p"]
+
+[ext_resource type="PackedScene" uid="uid://dq6aelmef74tq" path="res://items_raw/SM_Shawarma.FBX" id="1_mwjwb"]
+[ext_resource type="Script" path="res://items/winning_item.gd" id="2_6k68f"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_tiqao"]
+[ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="4_h65vr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raqw4"]
+albedo_texture = ExtResource("3_tiqao")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_exn3s"]
+albedo_texture = ExtResource("3_tiqao")
+
+[node name="kebab_kebab" instance=ExtResource("1_mwjwb")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+script = ExtResource("2_6k68f")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.780048, -0.625719, 0, 0.625719, 0.780048, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Shawarma" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_raqw4")
+
+[node name="UCX_SM_Shawarma" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_exn3s")
+
+[node name="collection_effect_1" parent="." index="2" instance=ExtResource("4_h65vr")]

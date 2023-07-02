@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc400qrbik31f"]
+
+[ext_resource type="PackedScene" uid="uid://dcueus1dp36j6" path="res://items_raw/SM_Slice_Of_Pizza_Base.FBX" id="1_nvlo8"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_7ilix"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7tdo"]
+albedo_texture = ExtResource("2_7ilix")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6muba"]
+albedo_texture = ExtResource("2_7ilix")
+
+[node name="SM_Slice_Of_Pizza_Base" instance=ExtResource("1_nvlo8")]
+
+[node name="SM_Slice_Of_Pizza_Base" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_y7tdo")
+
+[node name="UCX_SM_Slice_Of_Pizza_Base" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6muba")

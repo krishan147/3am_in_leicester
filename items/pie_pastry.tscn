@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://v3emi81i1scs"]
+
+[ext_resource type="PackedScene" uid="uid://brjxs6luj0yl2" path="res://items_raw/SM_Sandwich_Lettuce_Leaf.FBX" id="1_rkte2"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_w3w5e"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_wnhjy"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="3_ofehe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v11qx"]
+albedo_color = Color(1, 0.686275, 0.403922, 1)
+albedo_texture = ExtResource("2_w3w5e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jgk4w"]
+albedo_color = Color(0.556863, 0.4, 0.254902, 1)
+albedo_texture = ExtResource("2_w3w5e")
+
+[node name="pie_pastry" instance=ExtResource("1_rkte2")]
+script = ExtResource("2_wnhjy")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.869124, -0.494594, 0, 0.494594, 0.869124, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Sandwich_Lettuce_Leaf" parent="RootNode" index="0"]
+material_override = SubResource("StandardMaterial3D_v11qx")
+
+[node name="UCX_SM_Sandwich_Lettuce_Leaf" parent="RootNode" index="1"]
+material_override = SubResource("StandardMaterial3D_jgk4w")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("3_ofehe")]

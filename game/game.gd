@@ -24,18 +24,23 @@ extends Node3D
 		"winning_item_name":"BEANS ON TOAST WITH CHEESE"
 	},
 	2:{
-		"item_names":["BREAD","BACON","RED SAUCE"],
-		"items":["bread","bacon","red_sauce"],
-		"winning_item":"sandwich",
-		"winning_item_name":"SANDWICH"
+		"item_names":["MUSTARD","PASTRY","PORK"],
+		"items":["pie_mustard","pie_pastry","pie_pork"],
+		"winning_item":"pie_pie",
+		"winning_item_name":"PORK PIE & MUSTARD"
 	},
 	3:{
-		"item_names":["BREAD","BACON","RED SAUCE"],
-		"items":["bread","bacon","red_sauce"],
-		"winning_item":"sandwich",
-		"winning_item_name":"SANDWICH"
+		"item_names":["LAMB","ONION","SAUCE","TOMATOS","WRAP"],
+		"items":["kebab_lamb","kebab_onion","kebab_sauce","kebab_tomato","kebab_wrap"],
+		"winning_item":"kebab_kebab",
+		"winning_item_name":"KEBAB"
 	},
-	
+	4:{
+		"item_names":["BASE","CHEESE","TOMATOS"],
+		"items":["pizza_base","pizza_cheese","pizza_tomatos"],
+		"winning_item":"pizza_pizza",
+		"winning_item_name":"PIZZA"
+		}
 }
 
 var save_data = null
@@ -49,6 +54,10 @@ func _levelCompleted():
 	save_data["player_position_y"] = player.position.y
 	save_data["player_position_z"] = player.position.z
 	GlobalOptions._saveGame(save_data)
+	
+	print (level)
+	print (dict_levels[level]["winning_item_name"])
+	
 	player._startMessages(["MAKE " + dict_levels[level]["winning_item_name"]])
 	list_items_collected = []
 	_changeLevel(level)
