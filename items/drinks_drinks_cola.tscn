@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://0x7wa12ei7bv"]
+
+[ext_resource type="PackedScene" uid="uid://cmdialyut3m2s" path="res://items_raw/SM_Cola_1l.FBX" id="1_5wcxr"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_cod5h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5i2l2"]
+albedo_texture = ExtResource("3_cod5h")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elpsn"]
+albedo_texture = ExtResource("3_cod5h")
+
+[node name="drinks_cola" instance=ExtResource("1_5wcxr")]
+
+[node name="SM_Cola_1l" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5i2l2")
+
+[node name="UCX_SM_Cola_1l" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_elpsn")

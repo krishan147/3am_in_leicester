@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnv1gnorqht3j"]
+
+[ext_resource type="PackedScene" uid="uid://ctgmtv2xynolr" path="res://items_raw/SM_Fanta_1l.FBX" id="1_8xtbf"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_kotw4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6t8o"]
+albedo_texture = ExtResource("3_kotw4")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2rxe"]
+albedo_texture = ExtResource("3_kotw4")
+
+[node name="drinks_orange" instance=ExtResource("1_8xtbf")]
+
+[node name="SM_Fanta_1l" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_n6t8o")
+
+[node name="UCX_SM_Fanta_1l" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_a2rxe")

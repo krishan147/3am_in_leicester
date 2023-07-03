@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://cwycb51dr8p0i"]
+
+[ext_resource type="PackedScene" uid="uid://cmdialyut3m2s" path="res://items_raw/SM_Cola_1l.FBX" id="1_odfyt"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_q0hj0"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_cepej"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_65d7g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5i2l2"]
+albedo_texture = ExtResource("3_cepej")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_elpsn"]
+albedo_texture = ExtResource("3_cepej")
+
+[node name="drinks_cola" instance=ExtResource("1_odfyt")]
+script = ExtResource("2_q0hj0")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.898587, 0.438795, 0, -0.438795, 0.898587, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Cola_1l" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5i2l2")
+
+[node name="UCX_SM_Cola_1l" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_elpsn")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_65d7g")]

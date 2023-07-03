@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://diqmr355cu1re"]
+[gd_scene load_steps=54 format=3 uid="uid://diqmr355cu1re"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -34,6 +34,10 @@
 [ext_resource type="PackedScene" uid="uid://bd6hysxy64ljb" path="res://effects/random_effect_2.tscn" id="18_d0k5u"]
 [ext_resource type="PackedScene" uid="uid://bsot7gqp585jq" path="res://effects/random_effect_3.tscn" id="19_ipogl"]
 [ext_resource type="PackedScene" uid="uid://dlk1dkiwdt85x" path="res://effects/random_effect_4.tscn" id="20_q8pw0"]
+[ext_resource type="PackedScene" uid="uid://cwycb51dr8p0i" path="res://items/drinks_cola.tscn" id="30_ebvi8"]
+[ext_resource type="PackedScene" uid="uid://62pa37kxyrpn" path="res://items/drinks_drinks.tscn" id="31_rxdd4"]
+[ext_resource type="PackedScene" uid="uid://0bhnw153inb2" path="res://items/drinks_lemon.tscn" id="32_3l6se"]
+[ext_resource type="PackedScene" uid="uid://d0uu7c7lyiqpy" path="res://items/drinks_orange.tscn" id="33_5fji1"]
 
 [sub_resource type="Animation" id="Animation_qlohe"]
 length = 0.001
@@ -633,6 +637,19 @@ visible = false
 [node name="botc_toast" parent="CanvasLayer/items" instance=ExtResource("14_q461m")]
 transform = Transform3D(0.784582, -0.251633, -0.566668, 0, 0.913943, -0.405844, 0.620026, 0.318417, 0.717063, 24.2648, 2.88499, -48.1409)
 visible = false
+
+[node name="drinks_cola" parent="CanvasLayer/items" instance=ExtResource("30_ebvi8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7908, 2.88348, -51.3745)
+
+[node name="drinks_drinks" parent="CanvasLayer/items" instance=ExtResource("31_rxdd4")]
+transform = Transform3D(1.5, 0, 0, 0, 1.39371, -0.554596, 0, 0.554596, 1.39371, 17.7908, 4.51052, -52.6378)
+visible = false
+
+[node name="drinks_lemon" parent="CanvasLayer/items" instance=ExtResource("32_3l6se")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9685, 2.87918, -51.3745)
+
+[node name="drinks_orange" parent="CanvasLayer/items" instance=ExtResource("33_5fji1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7908, 2.89823, -52.3987)
 
 [node name="winning_item_Timer" type="Timer" parent="CanvasLayer/items"]
 wait_time = 5.0

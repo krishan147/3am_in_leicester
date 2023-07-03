@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cfgybmy8jo0eh"]
+
+[ext_resource type="PackedScene" uid="uid://bkjqparpn4er8" path="res://items_raw/SM_Sprite_1l.FBX" id="1_v7j7n"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_v6kdq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vu6yn"]
+albedo_texture = ExtResource("3_v6kdq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pkopq"]
+albedo_texture = ExtResource("3_v6kdq")
+
+[node name="drinks_lemon" instance=ExtResource("1_v7j7n")]
+
+[node name="SM_Sprite_1l" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vu6yn")
+
+[node name="UCX_SM_Sprite_1l" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pkopq")

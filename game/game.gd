@@ -40,6 +40,12 @@ extends Node3D
 		"items":["pizza_base","pizza_cheese","pizza_tomatos"],
 		"winning_item":"pizza_pizza",
 		"winning_item_name":"PIZZA"
+		},
+	5:{
+		"item_names":["COLA","LEMON","ORANGE"],
+		"items":["drinks_cola","drinks_lemon","drinks_orange"],
+		"winning_item":"drinks_drinks",
+		"winning_item_name":"PANDA POPS"
 		}
 }
 
