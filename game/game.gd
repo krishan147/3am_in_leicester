@@ -46,6 +46,18 @@ extends Node3D
 		"items":["drinks_cola","drinks_lemon","drinks_orange"],
 		"winning_item":"drinks_drinks",
 		"winning_item_name":"PANDA POPS"
+		},
+	6:{
+		"item_names":["MILK","SUGAR","TEA"],
+		"items":["tea_milk","tea_sugar","tea_tea"],
+		"winning_item":"tea_tea",
+		"winning_item_name":"TEA"
+		},
+	7:{
+		"item_names":["COB","BUTTER","CHIPS","RED SAUCE"], 
+		"items":["cob_bread","cob_butter","cob_chips","cob_redsauce"],
+		"winning_item":"cob_chipcob",
+		"winning_item_name":"CHIP COB"
 		}
 }
 
@@ -60,10 +72,6 @@ func _levelCompleted():
 	save_data["player_position_y"] = player.position.y
 	save_data["player_position_z"] = player.position.z
 	GlobalOptions._saveGame(save_data)
-	
-	print (level)
-	print (dict_levels[level]["winning_item_name"])
-	
 	player._startMessages(["MAKE " + dict_levels[level]["winning_item_name"]])
 	list_items_collected = []
 	_changeLevel(level)
@@ -102,7 +110,6 @@ func _getPlayingState():
 	return playing
 
 func _showItems(level):
-	
 	for object in dict_levels[int(level)]["items"]:
 		get_node("CanvasLayer/items/" + str(object))._activate()
 		
@@ -130,6 +137,9 @@ func _itemCollectedCheck(item_collected): # tick box, message to pop up, check i
 func _itemSetCollected():
 	list_items_collected.sort()
 	
+	
+	print (list_items_collected)
+	print (dict_levels[int(level)]["items"])
 	if list_items_collected == dict_levels[int(level)]["items"]:
 		var winning_item_name = dict_levels[int(level)]["winning_item_name"]
 		player._startMessages(["YOU HAVE A " +  str(winning_item_name)])

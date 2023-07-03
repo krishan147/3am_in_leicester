@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://cx6gt35adi7vq"]
+
+[ext_resource type="PackedScene" uid="uid://c1iyakdod1ql2" path="res://items_raw/SM_Sugar.FBX" id="1_iqb3x"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_gm4ql"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_ffnr2"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_u418e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjewx"]
+albedo_texture = ExtResource("3_ffnr2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p0rre"]
+albedo_texture = ExtResource("3_ffnr2")
+
+[node name="tea_sugar" instance=ExtResource("1_iqb3x")]
+transform = Transform3D(0.901998, 0.431739, 0, -0.431739, 0.901998, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("2_gm4ql")
+
+[node name="SM_Sugar" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yjewx")
+
+[node name="UCX_SM_Sugar" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p0rre")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_u418e")]

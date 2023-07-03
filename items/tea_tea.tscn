@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjso3hvhhe1eu"]
+
+[ext_resource type="PackedScene" uid="uid://d235gogxgj2s0" path="res://items_raw/SM_Item_Mug_01.obj.glb" id="1_wonmw"]
+[ext_resource type="Script" path="res://items/winning_item.gd" id="2_ns8fn"]
+[ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="3_7mt8j"]
+
+[node name="tea_tea" instance=ExtResource("1_wonmw")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 0, 0, 0)
+script = ExtResource("2_ns8fn")
+
+[node name="Asset3DLoadersceneRoot" parent="." index="0"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="collection_effect_1" parent="." index="1" instance=ExtResource("3_7mt8j")]

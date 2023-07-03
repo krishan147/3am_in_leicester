@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhqsffd1v8x2a"]
+
+[ext_resource type="PackedScene" uid="uid://bdfd8qp0sa3d7" path="res://items_raw/SM_Burger_Bun_Bottom.FBX" id="1_ubbxv"]
+[ext_resource type="PackedScene" uid="uid://c7naaq6sjr51h" path="res://items/cob_top.tscn" id="2_2oymo"]
+[ext_resource type="Script" path="res://items/winning_item.gd" id="2_26g0n"]
+[ext_resource type="PackedScene" uid="uid://cgoag1ydjaxgv" path="res://items/cob_pineapple.tscn" id="3_3ippv"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="4_v1216"]
+[ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="6_ssfv4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfag8"]
+albedo_texture = ExtResource("4_v1216")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mm3t4"]
+albedo_texture = ExtResource("4_v1216")
+
+[node name="cob_chipcob" instance=ExtResource("1_ubbxv")]
+script = ExtResource("2_26g0n")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.917269, 0.398269, 0, -0.398269, 0.917269, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Burger_Bun_Bottom" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yfag8")
+
+[node name="UCX_SM_Burger_Bun_Bottom" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_mm3t4")
+
+[node name="SM_Burger_Bun_Top" parent="RootNode" index="2" instance=ExtResource("2_2oymo")]
+transform = Transform3D(0.999964, 0.0084822, 0, -0.0084822, 0.999964, 0, 0, 0, 1, 0, 0.0268411, 0)
+
+[node name="cob_pineapple" parent="RootNode" index="3" instance=ExtResource("3_3ippv")]
+transform = Transform3D(0.25, 0, 0, 0, 1, 0, 0, 0, 1, 0.0176562, 0, 0.0203718)
+
+[node name="cob_pineapple2" parent="RootNode" index="4" instance=ExtResource("3_3ippv")]
+transform = Transform3D(0.120178, 0, 0.876878, 0, 1, 0, -0.219219, 0, 0.480713, 0.0176562, 0, 0.0203718)
+
+[node name="cob_pineapple3" parent="RootNode" index="5" instance=ExtResource("3_3ippv")]
+transform = Transform3D(-0.0732974, 0, 0.956054, 0, 1, 0, -0.239014, 0, -0.293189, 0.0330178, 0, -0.00584377)
+
+[node name="cob_pineapple4" parent="RootNode" index="6" instance=ExtResource("3_3ippv")]
+transform = Transform3D(-0.206347, 0, 0.564564, 0, 1, 0, -0.141141, 0, -0.82539, 0.00404479, 0, -0.0233216)
+
+[node name="cob_pineapple5" parent="RootNode" index="7" instance=ExtResource("3_3ippv")]
+transform = Transform3D(-0.201771, 0, -0.590437, 0, 1, 0, 0.147609, 0, -0.807084, -0.0241717, 0, -0.0233216)
+
+[node name="collection_effect_1" parent="." index="2" instance=ExtResource("6_ssfv4")]

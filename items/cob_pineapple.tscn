@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgoag1ydjaxgv"]
+
+[ext_resource type="PackedScene" uid="uid://cx8odv3kil70u" path="res://items_raw/SM_Pineapple_Slices.FBX" id="1_t64hm"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_8d34u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oxecu"]
+albedo_texture = ExtResource("2_8d34u")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rohy4"]
+albedo_texture = ExtResource("2_8d34u")
+
+[node name="cob_pineapple" instance=ExtResource("1_t64hm")]
+
+[node name="SM_Pineapple_Slices" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_oxecu")
+
+[node name="UCX_SM_Pineapple_Slices" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_rohy4")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://cyn225d5kgpqm"]
+
+[ext_resource type="PackedScene" uid="uid://dhrnsccfree0d" path="res://items_raw/SM_Bottle_1l_02.FBX" id="1_u6wol"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_euf58"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_7cc4t"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_wjfp5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ca2r1"]
+albedo_texture = ExtResource("3_7cc4t")
+
+[node name="tea_milk" instance=ExtResource("1_u6wol")]
+transform = Transform3D(0.888689, 0.45851, 0, -0.45851, 0.888689, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("2_euf58")
+
+[node name="UCX_SM_Bottle_1l_02" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ca2r1")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_wjfp5")]

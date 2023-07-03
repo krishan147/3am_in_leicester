@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://diqmr355cu1re"]
+[gd_scene load_steps=63 format=3 uid="uid://diqmr355cu1re"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -10,7 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://cfc2fb376ih7p" path="res://items/kebab_kebab.tscn" id="8_2ydcp"]
 [ext_resource type="PackedScene" uid="uid://chi4bqip6bwer" path="res://items/pizza_base.tscn" id="8_k47vj"]
 [ext_resource type="PackedScene" uid="uid://bcb666vhmwu0s" path="res://items/cob.tscn" id="8_kspyq"]
+[ext_resource type="PackedScene" uid="uid://mtcfncmkxluk" path="res://items/cob_bread.tscn" id="8_vl4tu"]
 [ext_resource type="PackedScene" uid="uid://dqswgk074fpa7" path="res://items/pie_mustard.tscn" id="8_xvciq"]
+[ext_resource type="PackedScene" uid="uid://cyn225d5kgpqm" path="res://items/tea_milk.tscn" id="8_ye3pd"]
+[ext_resource type="PackedScene" uid="uid://cx6gt35adi7vq" path="res://items/tea_sugar.tscn" id="9_0tmta"]
+[ext_resource type="PackedScene" uid="uid://dgfevb2i1r8ee" path="res://items/cob_butter.tscn" id="9_8or8i"]
 [ext_resource type="PackedScene" uid="uid://cvs87fm0gthwf" path="res://items/pizza_cheese.tscn" id="9_43tkm"]
 [ext_resource type="PackedScene" uid="uid://c7tn3sr41fwms" path="res://items/cob_cobs.tscn" id="9_bn281"]
 [ext_resource type="PackedScene" uid="uid://ofwkcrljsnm1" path="res://items/kebab_lamb.tscn" id="9_f5qks"]
@@ -20,11 +24,16 @@
 [ext_resource type="PackedScene" uid="uid://okflkrssdvh6" path="res://items/kebab_onion.tscn" id="10_blri3"]
 [ext_resource type="PackedScene" uid="uid://gtx7biy1ax6y" path="res://items/pie_pie.tscn" id="10_efmty"]
 [ext_resource type="PackedScene" uid="uid://bddv2oykn4dbs" path="res://items/pizza_pizza.tscn" id="10_fuvwj"]
+[ext_resource type="PackedScene" uid="uid://dhqsffd1v8x2a" path="res://items/cob_chipcob.tscn" id="10_hiqcj"]
+[ext_resource type="PackedScene" uid="uid://bjso3hvhhe1eu" path="res://items/tea_tea.tscn" id="10_mfcds"]
 [ext_resource type="PackedScene" uid="uid://2qy52qwrhkv0" path="res://items/pie_pork.tscn" id="11_6a1cj"]
+[ext_resource type="PackedScene" uid="uid://buc8fxk8nt8jb" path="res://items/cob_chips.tscn" id="11_6cyas"]
 [ext_resource type="PackedScene" uid="uid://dw0fnsfnu3yx" path="res://items/pizza_tomatos.tscn" id="11_dvkbv"]
+[ext_resource type="PackedScene" uid="uid://k41huytm2k3p" path="res://items/tea_teabox.tscn" id="11_fc27v"]
 [ext_resource type="PackedScene" uid="uid://c2iocakcuc5qo" path="res://items/kebab_sauce.tscn" id="11_udl1x"]
 [ext_resource type="PackedScene" uid="uid://d35gidaylle8v" path="res://items/kebab_tomato.tscn" id="12_51sq4"]
 [ext_resource type="PackedScene" uid="uid://bhoe8ex6u178k" path="res://items/botc_beans.tscn" id="12_d0ebn"]
+[ext_resource type="PackedScene" uid="uid://j4vwdyhqxvma" path="res://items/cob_redsauce.tscn" id="12_jrgxj"]
 [ext_resource type="Script" path="res://random_engine/random_engine.gd" id="12_yxmj5"]
 [ext_resource type="PackedScene" uid="uid://kwjqrfj0l50a" path="res://items/kebab_wrap.tscn" id="13_3okll"]
 [ext_resource type="PackedScene" uid="uid://b1i0c7x8xpxc0" path="res://effects/random_effect_1.tscn" id="13_s4y37"]
@@ -557,6 +566,35 @@ navigation_mesh = SubResource("NavigationMesh_m7fv5")
 [node name="ambience" type="AudioStreamPlayer" parent="CanvasLayer"]
 
 [node name="items" type="Node3D" parent="CanvasLayer"]
+
+[node name="cob_bread" parent="CanvasLayer/items" instance=ExtResource("8_vl4tu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4565, 2.73022, -50.1317)
+
+[node name="cob_butter" parent="CanvasLayer/items" instance=ExtResource("9_8or8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0431, 2.73022, -50.1317)
+
+[node name="cob_chipcob" parent="CanvasLayer/items" instance=ExtResource("10_hiqcj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4565, 3.78981, -50.1317)
+visible = false
+
+[node name="cob_chips" parent="CanvasLayer/items" instance=ExtResource("11_6cyas")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6496, 2.73022, -50.1317)
+
+[node name="cob_redsauce" parent="CanvasLayer/items" instance=ExtResource("12_jrgxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4565, 2.73022, -49.4976)
+
+[node name="tea_milk" parent="CanvasLayer/items" instance=ExtResource("8_ye3pd")]
+transform = Transform3D(0.888689, 0.45851, 0, -0.45851, 0.888689, 0, 0, 0, 1, 23.9997, 2.94254, -51.9771)
+
+[node name="tea_sugar" parent="CanvasLayer/items" instance=ExtResource("9_0tmta")]
+transform = Transform3D(0.901998, 0.431739, 0, -0.431739, 0.901998, 0, 0, 0, 1, 24.6703, 2.69001, -52.5992)
+
+[node name="tea_tea" parent="CanvasLayer/items" instance=ExtResource("10_mfcds")]
+transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 24.1705, 4.53564, -52.5992)
+visible = false
+
+[node name="tea_teabox" parent="CanvasLayer/items" instance=ExtResource("11_fc27v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8552, 2.8598, -52.5992)
 
 [node name="pizza_base" parent="CanvasLayer/items" instance=ExtResource("8_k47vj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8517, 2.83018, -50.7454)

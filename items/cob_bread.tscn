@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=3 uid="uid://mtcfncmkxluk"]
+
+[ext_resource type="PackedScene" uid="uid://ealsnehauq05" path="res://items_raw/SM_Burger_Bun_Top.FBX" id="1_rn5gp"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_eopwf"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_unwvs"]
+[ext_resource type="PackedScene" uid="uid://bdfd8qp0sa3d7" path="res://items_raw/SM_Burger_Bun_Bottom.FBX" id="3_4x28p"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_rnaxq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c33dx"]
+albedo_texture = ExtResource("2_unwvs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5de0v"]
+albedo_texture = ExtResource("2_unwvs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qc15"]
+albedo_texture = ExtResource("2_unwvs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wea4m"]
+albedo_texture = ExtResource("2_unwvs")
+
+[node name="cob_bread" instance=ExtResource("1_rn5gp")]
+script = ExtResource("2_eopwf")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.881905, -0.471428, 0, 0.471428, 0.881905, 0, 0, 0)
+
+[node name="SM_Burger_Bun_Top" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_c33dx")
+
+[node name="UCX_SM_Burger_Bun_Top" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5de0v")
+
+[node name="SM_Burger_Bun_Bottom" parent="RootNode" index="2" instance=ExtResource("3_4x28p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0258516, 0)
+
+[node name="SM_Burger_Bun_Bottom" parent="RootNode/SM_Burger_Bun_Bottom/RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6qc15")
+
+[node name="UCX_SM_Burger_Bun_Bottom" parent="RootNode/SM_Burger_Bun_Bottom/RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_wea4m")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_rnaxq")]
+
+[editable path="RootNode/SM_Burger_Bun_Bottom"]

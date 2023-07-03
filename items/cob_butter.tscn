@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgfevb2i1r8ee"]
+
+[ext_resource type="PackedScene" uid="uid://dvrttbjmw4e63" path="res://items_raw/SM_Butter.FBX" id="1_4uuh7"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_0e7fx"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_lsdtg"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_vm0qm"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ak76h"]
+albedo_texture = ExtResource("2_0e7fx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qasbq"]
+albedo_texture = ExtResource("2_0e7fx")
+
+[node name="cob_butter" instance=ExtResource("1_4uuh7")]
+script = ExtResource("2_lsdtg")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.882538, -0.470242, 0, 0.470242, 0.882538, 0, 0, 0)
+
+[node name="SM_Butter" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ak76h")
+
+[node name="UCX_SM_Butter" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qasbq")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_vm0qm")]

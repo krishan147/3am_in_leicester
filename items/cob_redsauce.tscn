@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://j4vwdyhqxvma"]
+
+[ext_resource type="PackedScene" uid="uid://ficr8jj26qfd" path="res://items_raw/SM_Ketchup.FBX" id="1_gg618"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_3je8t"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_6s166"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_01r77"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n05fj"]
+albedo_texture = ExtResource("2_3je8t")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qhdhj"]
+albedo_texture = ExtResource("2_3je8t")
+
+[node name="cob_redsauce" instance=ExtResource("1_gg618")]
+script = ExtResource("2_6s166")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.931641, -0.363381, 0, 0.363381, 0.931641, 0, 0, 0)
+
+[node name="SM_Ketchup" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_n05fj")
+
+[node name="UCX_SM_Ketchup" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_qhdhj")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_01r77")]

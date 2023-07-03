@@ -1,0 +1,26 @@
+[gd_scene load_steps=7 format=3 uid="uid://k41huytm2k3p"]
+
+[ext_resource type="PackedScene" uid="uid://jktsbjts3qab" path="res://items_raw/SM_Tea.FBX" id="1_12m8t"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_lxt72"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_ibil0"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_bijnn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l7gi8"]
+albedo_texture = ExtResource("3_ibil0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e257s"]
+albedo_texture = ExtResource("3_ibil0")
+
+[node name="tea_teabox" instance=ExtResource("1_12m8t")]
+script = ExtResource("2_lxt72")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.832061, 0.554685, 0, -0.554685, 0.832061, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Tea" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_l7gi8")
+
+[node name="UCX_SM_Tea" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_e257s")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("4_bijnn")]
