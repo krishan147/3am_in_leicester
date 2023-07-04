@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c544laer1q7ka"]
+
+[ext_resource type="PackedScene" uid="uid://d2lav6eh6e43m" path="res://items_raw/SM_Fried_Egg.FBX" id="1_7j7el"]
+
+[node name="SM_Fried_Egg" instance=ExtResource("1_7j7el")]

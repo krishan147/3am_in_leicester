@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnvvjqq2vw0dq"]
+
+[ext_resource type="PackedScene" uid="uid://d3hyepamgecca" path="res://items_raw/SM_Bacon_A.FBX" id="1_xe7ek"]
+
+[node name="SM_Bacon_A" instance=ExtResource("1_xe7ek")]

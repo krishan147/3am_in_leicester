@@ -58,6 +58,12 @@ extends Node3D
 		"items":["cob_bread","cob_butter","cob_chips","cob_redsauce"],
 		"winning_item":"cob_chipcob",
 		"winning_item_name":"CHIP COB"
+		},
+	8:{
+		"item_names":["BACON","EGG","SAUSAGE","TOMATO"], 
+		"items":["full_bacon","full_egg","full_sausage","full_tomato"],
+		"winning_item":"full_english",
+		"winning_item_name":"FULL ENGLISH"
 		}
 }
 
@@ -137,9 +143,6 @@ func _itemCollectedCheck(item_collected): # tick box, message to pop up, check i
 func _itemSetCollected():
 	list_items_collected.sort()
 	
-	
-	print (list_items_collected)
-	print (dict_levels[int(level)]["items"])
 	if list_items_collected == dict_levels[int(level)]["items"]:
 		var winning_item_name = dict_levels[int(level)]["winning_item_name"]
 		player._startMessages(["YOU HAVE A " +  str(winning_item_name)])

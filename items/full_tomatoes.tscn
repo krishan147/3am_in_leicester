@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://byy6pewupycv3"]
+
+[ext_resource type="PackedScene" uid="uid://cgunxg83wbwjy" path="res://items_raw/SM_Burger_Tomatoes.FBX" id="1_oqmb3"]
+
+[node name="SM_Burger_Tomatoes" instance=ExtResource("1_oqmb3")]
