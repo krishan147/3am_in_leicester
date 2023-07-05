@@ -1,0 +1,46 @@
+[gd_scene load_steps=12 format=3 uid="uid://br5can0seho1s"]
+
+[ext_resource type="PackedScene" uid="uid://dply7j1pgt5pa" path="res://items_raw/uploads_files_1000330_chips_bags (1).FBX" id="1_3fdad"]
+[ext_resource type="Texture2D" uid="uid://dmhty2056npuo" path="res://items_texture/chips_bag_spicy_Diffuse.jpg" id="2_3r78c"]
+[ext_resource type="Script" path="res://items/winning_item.gd" id="2_pc43a"]
+[ext_resource type="Texture2D" uid="uid://d2sfsw40j1m7v" path="res://items_texture/chips_bag_onion_Diffuse.jpg" id="3_7g7uw"]
+[ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="3_si0r4"]
+[ext_resource type="Texture2D" uid="uid://bro28hnsimx2e" path="res://items_texture/chips_bag_barbecue_Diffuse.jpg" id="4_j177g"]
+[ext_resource type="Texture2D" uid="uid://dc3utj6aebol" path="res://items_texture/chips_bag_classic_Diffuse.jpg" id="5_y155u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h14ga"]
+albedo_texture = ExtResource("2_3r78c")
+metallic = 0.51
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfa68"]
+albedo_texture = ExtResource("3_7g7uw")
+metallic = 0.46
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vlgx"]
+albedo_texture = ExtResource("4_j177g")
+metallic = 0.47
+roughness = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0l88t"]
+albedo_texture = ExtResource("5_y155u")
+metallic = 0.56
+roughness = 0.0
+
+[node name="all_crisps" instance=ExtResource("1_3fdad")]
+script = ExtResource("2_pc43a")
+
+[node name="collection_effect_1" parent="." index="0" instance=ExtResource("3_si0r4")]
+
+[node name="chips_bag_spicy" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_h14ga")
+
+[node name="chips_bag_onion" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_yfa68")
+
+[node name="chips_bag_barbecue" parent="RootNode" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5vlgx")
+
+[node name="chips_bag_classic" parent="RootNode" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0l88t")

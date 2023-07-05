@@ -61,9 +61,15 @@ extends Node3D
 		},
 	8:{
 		"item_names":["BACON","EGG","SAUSAGE","TOMATO"], 
-		"items":["full_bacon","full_egg","full_sausage","full_tomato"],
+		"items":["full_bacon","full_friedegg","full_sausage","full_tomatoes"],
 		"winning_item":"full_english",
 		"winning_item_name":"FULL ENGLISH"
+		},
+	9:{
+		"item_names":["BARBECUE","SALTED","CHEESE & ONION","SPICY"], 
+		"items":["all_barbecue","all_classic","all_onion","all_spicy"],
+		"winning_item":"all_crisps",
+		"winning_item_name":"CRISPS"
 		}
 }
 
@@ -78,9 +84,13 @@ func _levelCompleted():
 	save_data["player_position_y"] = player.position.y
 	save_data["player_position_z"] = player.position.z
 	GlobalOptions._saveGame(save_data)
-	player._startMessages(["MAKE " + dict_levels[level]["winning_item_name"]])
-	list_items_collected = []
-	_changeLevel(level)
+	
+	if level >= 11:
+		_completedGame()
+	else:
+		player._startMessages(["MAKE " + dict_levels[level]["winning_item_name"]])
+		list_items_collected = []
+		_changeLevel(level)
 
 func _changeLevel(change):
 	level = change
@@ -89,6 +99,10 @@ func _changeLevel(change):
 		checkbox.visible = false
 	_changeCheckboxes(level)
 	_showItems(level)
+	
+func _completedGame():
+	# dance, complete jump, no fog
+	pass
 
 func _ready():
 	fade.play("fade_to_normal")

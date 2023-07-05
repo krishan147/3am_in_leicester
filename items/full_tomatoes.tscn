@@ -1,5 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://byy6pewupycv3"]
+[gd_scene load_steps=7 format=3 uid="uid://byy6pewupycv3"]
 
 [ext_resource type="PackedScene" uid="uid://cgunxg83wbwjy" path="res://items_raw/SM_Burger_Tomatoes.FBX" id="1_oqmb3"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_n0lo3"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="3_4di45"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_herss"]
 
-[node name="SM_Burger_Tomatoes" instance=ExtResource("1_oqmb3")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1jvx"]
+albedo_texture = ExtResource("3_herss")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xn5mp"]
+albedo_texture = ExtResource("3_herss")
+
+[node name="full_tomatoes" instance=ExtResource("1_oqmb3")]
+script = ExtResource("2_n0lo3")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.742724, -0.669597, 0, 0.669597, 0.742724, 0, 0, 0)
+
+[node name="SM_Burger_Tomatoes" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_a1jvx")
+
+[node name="UCX_SM_Burger_Tomatoes" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_xn5mp")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("3_4di45")]

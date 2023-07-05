@@ -1,5 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://5h7ymse8ky0e"]
+[gd_scene load_steps=7 format=3 uid="uid://5h7ymse8ky0e"]
 
 [ext_resource type="PackedScene" uid="uid://c76sgj0rhp3o3" path="res://items_raw/SM_Sausage.FBX" id="1_eljuh"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_g2ucy"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="3_uhvn3"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_yyg4j"]
 
-[node name="SM_Sausage" instance=ExtResource("1_eljuh")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eo5gy"]
+albedo_texture = ExtResource("3_yyg4j")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4imfu"]
+albedo_texture = ExtResource("3_yyg4j")
+
+[node name="full_sausage" instance=ExtResource("1_eljuh")]
+script = ExtResource("2_g2ucy")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.83888, -0.544317, 0, 0.544317, 0.83888, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Sausage" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_eo5gy")
+
+[node name="UCX_SM_Sausage" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_4imfu")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("3_uhvn3")]

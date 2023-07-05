@@ -1,9 +1,46 @@
-[gd_scene load_steps=2 format=3 uid="uid://bfftvnr5px5oy"]
+[gd_scene load_steps=9 format=3 uid="uid://bfftvnr5px5oy"]
+
+[ext_resource type="PackedScene" uid="uid://b6dlbt25o4hid" path="res://items/full_full_bacon.tscn" id="1_5lfnn"]
+[ext_resource type="Script" path="res://items/winning_item.gd" id="1_a4id6"]
+[ext_resource type="PackedScene" uid="uid://kv83pe7a60c" path="res://items/full_full_friedegg.tscn" id="2_7jxjy"]
+[ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="2_orvs5"]
+[ext_resource type="PackedScene" uid="uid://c7sp2cslq23el" path="res://items/full_full_sausage.tscn" id="3_u0yqv"]
+[ext_resource type="PackedScene" uid="uid://c77hai7aqbkni" path="res://items/full_full_tomatoes.tscn" id="4_saps8"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_0sb5q"]
-height = 0.1
+radius = 0.1
+height = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jt5e"]
+albedo_color = Color(0.8, 0.811765, 0.788235, 1)
+metallic = 0.57
+roughness = 0.0
 
 [node name="full_english" type="Node3D"]
+script = ExtResource("1_a4id6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="collection_effect_1" parent="." instance=ExtResource("2_orvs5")]
+transform = Transform3D(1.07505, -0.533168, 0, 0.533168, 1.07505, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="food" type="Node3D" parent="."]
+transform = Transform3D(1.07505, -0.533168, 0, 0.533168, 1.07505, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="food"]
 mesh = SubResource("SphereMesh_0sb5q")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_7jt5e")
+
+[node name="full_bacon" parent="food" instance=ExtResource("1_5lfnn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00427612, -0.0421279)
+
+[node name="full_bacon2" parent="food" instance=ExtResource("1_5lfnn")]
+transform = Transform3D(0.999262, 0, 0.0384227, 0, 1, 0, -0.0384227, 0, 0.999262, 0, 0.00675568, -0.00567192)
+
+[node name="full_friedegg" parent="food" instance=ExtResource("2_7jxjy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0221221, 0, 0.0235216)
+
+[node name="full_sausage" parent="food" instance=ExtResource("3_u0yqv")]
+transform = Transform3D(0.225172, 0, 0.974319, 0, 1, 0, -0.974319, 0, 0.225172, 0.05142, 0.00907242, 0.0104639)
+
+[node name="full_tomatoes" parent="food" instance=ExtResource("4_saps8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0532375, 0.00379303, 0)

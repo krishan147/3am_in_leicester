@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://kv83pe7a60c"]
+
+[ext_resource type="PackedScene" uid="uid://d2lav6eh6e43m" path="res://items_raw/SM_Fried_Egg.FBX" id="1_17hen"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_ommho"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vee6w"]
+albedo_texture = ExtResource("2_ommho")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgys4"]
+albedo_texture = ExtResource("2_ommho")
+
+[node name="full_friedegg" instance=ExtResource("1_17hen")]
+
+[node name="SM_Fried_Egg" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vee6w")
+
+[node name="UCX_SM_Fried_Egg" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fgys4")

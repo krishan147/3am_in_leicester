@@ -1,5 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnvvjqq2vw0dq"]
+[gd_scene load_steps=7 format=3 uid="uid://bnvvjqq2vw0dq"]
 
 [ext_resource type="PackedScene" uid="uid://d3hyepamgecca" path="res://items_raw/SM_Bacon_A.FBX" id="1_xe7ek"]
+[ext_resource type="Script" path="res://items/item.gd" id="2_dn675"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_6biou"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="3_kgx6p"]
 
-[node name="SM_Bacon_A" instance=ExtResource("1_xe7ek")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgbik"]
+albedo_texture = ExtResource("3_6biou")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_neeeq"]
+albedo_texture = ExtResource("3_6biou")
+
+[node name="full_bacon" instance=ExtResource("1_xe7ek")]
+script = ExtResource("2_dn675")
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(0.873696, -0.486473, 0, 0.486473, 0.873696, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="SM_Bacon_A" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_dgbik")
+
+[node name="UCX_SM_Bacon_A" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_neeeq")
+
+[node name="player_pickup" parent="." index="2" instance=ExtResource("3_kgx6p")]

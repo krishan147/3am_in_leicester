@@ -1,0 +1,20 @@
+[gd_scene load_steps=6 format=3 uid="uid://cq43xh5loxmqx"]
+
+[ext_resource type="Script" path="res://items/item.gd" id="1_v4fpd"]
+[ext_resource type="PackedScene" uid="uid://71yleh7y420y" path="res://items/all_single.tscn" id="2_6ldg3"]
+[ext_resource type="Texture2D" uid="uid://d2sfsw40j1m7v" path="res://items_texture/chips_bag_onion_Diffuse.jpg" id="3_xdes1"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_vlm1u"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8du8h"]
+albedo_texture = ExtResource("3_xdes1")
+
+[node name="all_onion" type="Node3D"]
+script = ExtResource("1_v4fpd")
+
+[node name="RootNode" type="Node3D" parent="."]
+
+[node name="chips_bag_classic" parent="RootNode" instance=ExtResource("2_6ldg3")]
+transform = Transform3D(1, 0, 0, 0, -0.280466, 0.959864, 0, -0.959864, -0.280466, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_8du8h")
+
+[node name="player_pickup" parent="." instance=ExtResource("4_vlm1u")]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3ekxo5gwe7u7"]
+
+[ext_resource type="Script" path="res://items/item.gd" id="1_tew77"]
+[ext_resource type="PackedScene" uid="uid://71yleh7y420y" path="res://items/all_single.tscn" id="2_hgtdr"]
+[ext_resource type="Texture2D" uid="uid://dmhty2056npuo" path="res://items_texture/chips_bag_spicy_Diffuse.jpg" id="3_0s7o8"]
+[ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_hbact"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_af7l8"]
+albedo_texture = ExtResource("3_0s7o8")
+metallic = 0.55
+roughness = 0.0
+
+[node name="all_spicy" type="Node3D"]
+script = ExtResource("1_tew77")
+
+[node name="RootNode" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.973219, 0.22988, 0, -0.22988, 0.973219, 0, 0, 0)
+
+[node name="chips_bag_classic" parent="RootNode" instance=ExtResource("2_hgtdr")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_af7l8")
+
+[node name="player_pickup" parent="." instance=ExtResource("4_hbact")]

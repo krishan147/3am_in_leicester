@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7sp2cslq23el"]
+
+[ext_resource type="PackedScene" uid="uid://c76sgj0rhp3o3" path="res://items_raw/SM_Sausage.FBX" id="1_l3uws"]
+[ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_abhht"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ag6je"]
+albedo_texture = ExtResource("2_abhht")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_87wje"]
+albedo_texture = ExtResource("2_abhht")
+
+[node name="full_sausage" instance=ExtResource("1_l3uws")]
+
+[node name="SM_Sausage" parent="RootNode" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_ag6je")
+
+[node name="UCX_SM_Sausage" parent="RootNode" index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_87wje")
