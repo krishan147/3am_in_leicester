@@ -1,21 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://62pa37kxyrpn"]
+[gd_scene load_steps=7 format=3 uid="uid://62pa37kxyrpn"]
 
 [ext_resource type="Script" path="res://items/winning_item.gd" id="1_ym4oe"]
 [ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="2_bqua1"]
 [ext_resource type="PackedScene" uid="uid://0x7wa12ei7bv" path="res://items/drinks_drinks_cola.tscn" id="2_peq81"]
 [ext_resource type="PackedScene" uid="uid://cfgybmy8jo0eh" path="res://items/drinks_drinks_lemon.tscn" id="3_ei4w5"]
 [ext_resource type="PackedScene" uid="uid://cnv1gnorqht3j" path="res://items/drinks_drinks_orange.tscn" id="4_jm4rw"]
+[ext_resource type="PackedScene" uid="uid://bth6ca65spwm1" path="res://item_player_pickup/winning_item_timer.tscn" id="6_115wu"]
 
 [node name="drinks_drinks" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.929139, -0.36973, 0, 0.36973, 0.929139, 0, 0.0766899, 0)
 script = ExtResource("1_ym4oe")
 
-[node name="drinks_cola" parent="." instance=ExtResource("2_peq81")]
+[node name="drinks" type="Node3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 1.49012e-08, 0, -1.49012e-08, 0.5, 0, 0, 0)
+
+[node name="drinks_cola" parent="drinks" instance=ExtResource("2_peq81")]
 transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, -0.110335, 0, 0)
 
-[node name="drinks_lemon" parent="." instance=ExtResource("3_ei4w5")]
+[node name="drinks_lemon" parent="drinks" instance=ExtResource("3_ei4w5")]
 
-[node name="drinks_orange" parent="." instance=ExtResource("4_jm4rw")]
-transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.0568452, -0.000557126, -0.098211)
+[node name="drinks_orange" parent="drinks" instance=ExtResource("4_jm4rw")]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, -0.0568452, -0.000557132, -0.098211)
 
 [node name="collection_effect_1" parent="." instance=ExtResource("2_bqua1")]
+
+[node name="winning_item_Timer" parent="." instance=ExtResource("6_115wu")]
+
+[connection signal="timeout" from="winning_item_Timer" to="." method="_on_winning_item_timer_timeout"]

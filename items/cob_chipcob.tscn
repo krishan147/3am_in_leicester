@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhqsffd1v8x2a"]
+[gd_scene load_steps=10 format=3 uid="uid://dhqsffd1v8x2a"]
 
 [ext_resource type="PackedScene" uid="uid://bdfd8qp0sa3d7" path="res://items_raw/SM_Burger_Bun_Bottom.FBX" id="1_ubbxv"]
 [ext_resource type="PackedScene" uid="uid://c7naaq6sjr51h" path="res://items/cob_top.tscn" id="2_2oymo"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cgoag1ydjaxgv" path="res://items/cob_pineapple.tscn" id="3_3ippv"]
 [ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="4_v1216"]
 [ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="6_ssfv4"]
+[ext_resource type="PackedScene" uid="uid://bth6ca65spwm1" path="res://item_player_pickup/winning_item_timer.tscn" id="7_pjuoj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yfag8"]
 albedo_texture = ExtResource("4_v1216")
@@ -44,3 +45,7 @@ transform = Transform3D(-0.206347, 0, 0.564564, 0, 1, 0, -0.141141, 0, -0.82539,
 transform = Transform3D(-0.201771, 0, -0.590437, 0, 1, 0, 0.147609, 0, -0.807084, -0.0241717, 0, -0.0233216)
 
 [node name="collection_effect_1" parent="." index="2" instance=ExtResource("6_ssfv4")]
+
+[node name="winning_item_Timer" parent="." index="3" instance=ExtResource("7_pjuoj")]
+
+[connection signal="timeout" from="winning_item_Timer" to="." method="_on_winning_item_timer_timeout"]

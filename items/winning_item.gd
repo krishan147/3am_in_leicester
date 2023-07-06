@@ -7,7 +7,7 @@ extends Node3D
 @onready var z = 1
 @onready var zoom_speed = 0.1
 @onready var player = $"../../player_main"
-@onready var winning_item_timer = $"../winning_item_Timer"
+@onready var winning_item_timer = $winning_item_Timer
 @onready var game = $"../../.."
 @onready var collection_effect_1 = $collection_effect_1
 
@@ -43,5 +43,7 @@ func _deactivate():
 	z = 1
 
 func _on_winning_item_timer_timeout():
+	winning_item_timer.stop()
+	print ("ooop ", self.name)
 	_deactivate()
 	game._levelCompleted()

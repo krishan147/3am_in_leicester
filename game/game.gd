@@ -13,7 +13,7 @@ extends Node3D
 @onready var dict_levels = {
 	0:{
 		"item_names":["BACON","COB","RED SAUCE"],
-		"items":["bacon","cob_cobs","red_sauce"], # make sure list is alphabetised
+		"items":["bacon","cob_cobs","red_sauce"],
 		"winning_item":"cob",
 		"winning_item_name":"BACON COB"
 	},
@@ -88,7 +88,13 @@ func _levelCompleted():
 	if level >= 11:
 		_completedGame()
 	else:
-		player._startMessages(["MAKE " + dict_levels[level]["winning_item_name"]])
+		print (level)
+		print (dict_levels[level]["winning_item_name"])
+		
+		if dict_levels[level]["winning_item_name"] == "PANDA POPS":
+			player._startMessages(["GET PANDA POPS"])
+		else:
+			player._startMessages(["MAKE " + dict_levels[level]["winning_item_name"]])
 		list_items_collected = []
 		_changeLevel(level)
 

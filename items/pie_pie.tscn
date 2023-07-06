@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://gtx7biy1ax6y"]
+[gd_scene load_steps=9 format=3 uid="uid://gtx7biy1ax6y"]
 
 [ext_resource type="PackedScene" uid="uid://bxwrput8qe75b" path="res://items_raw/SM_Slice_Of__Pie.FBX" id="1_43bqb"]
 [ext_resource type="Script" path="res://items/winning_item.gd" id="2_2mxm0"]
 [ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="2_y0o0k"]
 [ext_resource type="PackedScene" uid="uid://dqswgk074fpa7" path="res://items/pie_mustard.tscn" id="3_xuerl"]
 [ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="4_vnwsd"]
+[ext_resource type="PackedScene" uid="uid://bth6ca65spwm1" path="res://item_player_pickup/winning_item_timer.tscn" id="6_lgiwd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iu75r"]
 albedo_texture = ExtResource("2_y0o0k")
@@ -28,3 +29,7 @@ material_override = SubResource("StandardMaterial3D_wo46g")
 transform = Transform3D(0.7, -1.04308e-08, 1.55431e-16, 1.04308e-08, 0.7, 0, -1.55431e-16, 2.31611e-24, 0.7, 0, 0.0585217, -0.0710598)
 
 [node name="collection_effect_1" parent="." index="2" instance=ExtResource("4_vnwsd")]
+
+[node name="winning_item_Timer" parent="." index="3" instance=ExtResource("6_lgiwd")]
+
+[connection signal="timeout" from="winning_item_Timer" to="." method="_on_winning_item_timer_timeout"]

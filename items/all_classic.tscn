@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://bowa672obwrr0"]
+[gd_scene load_steps=8 format=3 uid="uid://bowa672obwrr0"]
 
 [ext_resource type="Script" path="res://items/item.gd" id="1_4ligc"]
 [ext_resource type="PackedScene" uid="uid://71yleh7y420y" path="res://items/all_single.tscn" id="1_7oo5a"]
 [ext_resource type="Texture2D" uid="uid://dc3utj6aebol" path="res://items_texture/chips_bag_classic_Diffuse.jpg" id="2_kpla6"]
+[ext_resource type="PackedScene" uid="uid://bth6ca65spwm1" path="res://item_player_pickup/winning_item_timer.tscn" id="2_mpc83"]
 [ext_resource type="PackedScene" uid="uid://c6ovjnseyjj24" path="res://item_player_pickup/player_pickup.tscn" id="4_ki2x1"]
+[ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="6_hxnst"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ul1h3"]
 albedo_texture = ExtResource("2_kpla6")
 
 [node name="all_classic" type="Node3D"]
 script = ExtResource("1_4ligc")
+
+[node name="winning_item_Timer" parent="." instance=ExtResource("2_mpc83")]
 
 [node name="RootNode" type="Node3D" parent="."]
 
@@ -18,3 +22,7 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 
 material_override = SubResource("StandardMaterial3D_ul1h3")
 
 [node name="player_pickup" parent="." instance=ExtResource("4_ki2x1")]
+
+[node name="collection_effect_1" parent="." instance=ExtResource("6_hxnst")]
+
+[connection signal="timeout" from="winning_item_Timer" to="." method="_on_winning_item_timer_timeout"]

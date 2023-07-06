@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfftvnr5px5oy"]
+[gd_scene load_steps=10 format=3 uid="uid://bfftvnr5px5oy"]
 
 [ext_resource type="PackedScene" uid="uid://b6dlbt25o4hid" path="res://items/full_full_bacon.tscn" id="1_5lfnn"]
 [ext_resource type="Script" path="res://items/winning_item.gd" id="1_a4id6"]
 [ext_resource type="PackedScene" uid="uid://kv83pe7a60c" path="res://items/full_full_friedegg.tscn" id="2_7jxjy"]
 [ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="2_orvs5"]
+[ext_resource type="PackedScene" uid="uid://bth6ca65spwm1" path="res://item_player_pickup/winning_item_timer.tscn" id="3_88v08"]
 [ext_resource type="PackedScene" uid="uid://c7sp2cslq23el" path="res://items/full_full_sausage.tscn" id="3_u0yqv"]
 [ext_resource type="PackedScene" uid="uid://c77hai7aqbkni" path="res://items/full_full_tomatoes.tscn" id="4_saps8"]
 
@@ -21,6 +22,8 @@ script = ExtResource("1_a4id6")
 
 [node name="collection_effect_1" parent="." instance=ExtResource("2_orvs5")]
 transform = Transform3D(1.07505, -0.533168, 0, 0.533168, 1.07505, 0, 0, 0, 1.2, 0, 0, 0)
+
+[node name="winning_item_Timer" parent="." instance=ExtResource("3_88v08")]
 
 [node name="food" type="Node3D" parent="."]
 transform = Transform3D(1.07505, -0.533168, 0, 0.533168, 1.07505, 0, 0, 0, 1.2, 0, 0, 0)
@@ -44,3 +47,5 @@ transform = Transform3D(0.225172, 0, 0.974319, 0, 1, 0, -0.974319, 0, 0.225172, 
 
 [node name="full_tomatoes" parent="food" instance=ExtResource("4_saps8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0532375, 0.00379303, 0)
+
+[connection signal="timeout" from="winning_item_Timer" to="." method="_on_winning_item_timer_timeout"]

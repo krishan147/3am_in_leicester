@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfc2fb376ih7p"]
+[gd_scene load_steps=8 format=3 uid="uid://cfc2fb376ih7p"]
 
 [ext_resource type="PackedScene" uid="uid://dq6aelmef74tq" path="res://items_raw/SM_Shawarma.FBX" id="1_mwjwb"]
 [ext_resource type="Script" path="res://items/winning_item.gd" id="2_6k68f"]
 [ext_resource type="Texture2D" uid="uid://cu1te7q8k38o1" path="res://items_texture/T_MainTexture.PNG" id="3_tiqao"]
 [ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="4_h65vr"]
+[ext_resource type="PackedScene" uid="uid://bth6ca65spwm1" path="res://item_player_pickup/winning_item_timer.tscn" id="5_26ffp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_raqw4"]
 albedo_texture = ExtResource("3_tiqao")
@@ -25,3 +26,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_raqw4")
 surface_material_override/0 = SubResource("StandardMaterial3D_exn3s")
 
 [node name="collection_effect_1" parent="." index="2" instance=ExtResource("4_h65vr")]
+
+[node name="winning_item_Timer" parent="." index="3" instance=ExtResource("5_26ffp")]
+
+[connection signal="timeout" from="winning_item_Timer" to="." method="_on_winning_item_timer_timeout"]

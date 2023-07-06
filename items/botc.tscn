@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://jvidtijpokyi"]
+[gd_scene load_steps=14 format=3 uid="uid://jvidtijpokyi"]
 
 [ext_resource type="Script" path="res://items/winning_item.gd" id="1_3rcda"]
 [ext_resource type="PackedScene" uid="uid://cmo5mt1cs52p7" path="res://items_raw/SM_Sandwich_Bot.FBX" id="1_13wcn"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ifr5xsfl04td" path="res://items_raw/SM_Sandwich_Cheese.FBX" id="3_i0vne"]
 [ext_resource type="PackedScene" uid="uid://c1aql2rp3xyb6" path="res://items_raw/SM_Sandwich_Sauce.FBX" id="4_t4ra7"]
 [ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="6_rhwwh"]
+[ext_resource type="PackedScene" uid="uid://bth6ca65spwm1" path="res://item_player_pickup/winning_item_timer.tscn" id="7_jee1u"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vmcay"]
 albedo_color = Color(0.815686, 0.505882, 0.341176, 1)
@@ -57,6 +58,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ejn57")
 surface_material_override/0 = SubResource("StandardMaterial3D_ooinm")
 
 [node name="collection_effect_1" parent="." instance=ExtResource("6_rhwwh")]
+
+[node name="winning_item_Timer" parent="." instance=ExtResource("7_jee1u")]
+
+[connection signal="timeout" from="winning_item_Timer" to="." method="_on_winning_item_timer_timeout"]
 
 [editable path="SM_Sandwich_Bot"]
 [editable path="SM_Sandwich_Cheese"]

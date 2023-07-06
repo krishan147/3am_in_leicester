@@ -4,6 +4,9 @@ extends Node3D
 @onready var rotation_activate = false
 @onready var player = $"../../player_main"
 
+func _ready():
+	_deactivate()
+
 func _process(delta):
 	if rotation_activate == true:
 		self.rotate(Vector3(0,1,0),0.01)
@@ -18,3 +21,7 @@ func _deactivate():
 	self.visible = false
 	rotation_activate = false
 
+
+
+func _on_winning_item_timer_timeout():
+	pass # Replace with function body.

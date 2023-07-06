@@ -7,3 +7,4 @@ radius = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_mwpgu")
+disabled = true

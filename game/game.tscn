@@ -579,9 +579,11 @@ navigation_mesh = SubResource("NavigationMesh_m7fv5")
 
 [node name="all_barbecue" parent="CanvasLayer/items" instance=ExtResource("8_tgh5s")]
 transform = Transform3D(-0.697428, 0, 0.716655, 0, 1, 0, -0.716655, 0, -0.697428, 20.0019, 2.80539, -47.0225)
+visible = false
 
 [node name="all_classic" parent="CanvasLayer/items" instance=ExtResource("9_8j7xx")]
 transform = Transform3D(-0.697428, 0, 0.716655, 0, 1, 0, -0.716655, 0, -0.697428, 20.0019, 2.80539, -47.7215)
+visible = false
 
 [node name="all_crisps" parent="CanvasLayer/items" instance=ExtResource("10_7yhj7")]
 transform = Transform3D(-0.697428, 0, 0.716655, 0, 1, 0, -0.716655, 0, -0.697428, 20.0019, 4.15446, -47.2996)
@@ -589,15 +591,19 @@ visible = false
 
 [node name="all_onion" parent="CanvasLayer/items" instance=ExtResource("11_sp7ee")]
 transform = Transform3D(-0.697428, 0, 0.716655, 0, 1, 0, -0.716655, 0, -0.697428, 19.3986, 2.80539, -47.2996)
+visible = false
 
 [node name="all_spicy" parent="CanvasLayer/items" instance=ExtResource("13_5qvdo")]
 transform = Transform3D(-0.697428, 0, 0.716655, 0, 1, 0, -0.716655, 0, -0.697428, 20.3866, 2.80539, -47.4889)
+visible = false
 
 [node name="full_bacon" parent="CanvasLayer/items" instance=ExtResource("8_shr1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2154, 2.76681, -48.1455)
+visible = false
 
 [node name="full_friedegg" parent="CanvasLayer/items" instance=ExtResource("9_pvnvc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.13, 2.73875, -48.1455)
+visible = false
 
 [node name="full_english" parent="CanvasLayer/items" instance=ExtResource("10_7ptsk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.13, 3.85818, -48.1455)
@@ -605,15 +611,19 @@ visible = false
 
 [node name="full_sausage" parent="CanvasLayer/items" instance=ExtResource("11_su30m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.8566, 2.72254, -47.1144)
+visible = false
 
 [node name="full_tomatoes" parent="CanvasLayer/items" instance=ExtResource("12_b4bln")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.13, 2.69264, -46.6687)
+visible = false
 
 [node name="cob_bread" parent="CanvasLayer/items" instance=ExtResource("8_vl4tu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4565, 2.73022, -50.1317)
+visible = false
 
 [node name="cob_butter" parent="CanvasLayer/items" instance=ExtResource("9_8or8i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0431, 2.73022, -50.1317)
+visible = false
 
 [node name="cob_chipcob" parent="CanvasLayer/items" instance=ExtResource("10_hiqcj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4565, 3.78981, -50.1317)
@@ -621,15 +631,19 @@ visible = false
 
 [node name="cob_chips" parent="CanvasLayer/items" instance=ExtResource("11_6cyas")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.6496, 2.73022, -50.1317)
+visible = false
 
 [node name="cob_redsauce" parent="CanvasLayer/items" instance=ExtResource("12_jrgxj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4565, 2.73022, -49.4976)
+visible = false
 
 [node name="tea_milk" parent="CanvasLayer/items" instance=ExtResource("8_ye3pd")]
 transform = Transform3D(0.888689, 0.45851, 0, -0.45851, 0.888689, 0, 0, 0, 1, 23.9997, 2.94254, -51.9771)
+visible = false
 
 [node name="tea_sugar" parent="CanvasLayer/items" instance=ExtResource("9_0tmta")]
 transform = Transform3D(0.901998, 0.431739, 0, -0.431739, 0.901998, 0, 0, 0, 1, 24.6703, 2.69001, -52.5992)
+visible = false
 
 [node name="tea_tea" parent="CanvasLayer/items" instance=ExtResource("10_mfcds")]
 transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 24.1705, 4.53564, -52.5992)
@@ -637,12 +651,15 @@ visible = false
 
 [node name="tea_teabox" parent="CanvasLayer/items" instance=ExtResource("11_fc27v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8552, 2.8598, -52.5992)
+visible = false
 
 [node name="pizza_base" parent="CanvasLayer/items" instance=ExtResource("8_k47vj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8517, 2.83018, -50.7454)
+visible = false
 
 [node name="pizza_cheese" parent="CanvasLayer/items" instance=ExtResource("9_43tkm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.0832, 2.73674, -48.974)
+visible = false
 
 [node name="pizza_pizza" parent="CanvasLayer/items" instance=ExtResource("10_fuvwj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8517, 3.82804, -48.974)
@@ -650,6 +667,7 @@ visible = false
 
 [node name="pizza_tomatos" parent="CanvasLayer/items" instance=ExtResource("11_dvkbv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.8517, 2.73674, -49.3539)
+visible = false
 
 [node name="kebab_kebab" parent="CanvasLayer/items" instance=ExtResource("8_2ydcp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6912, 4.40668, -53.4875)
@@ -657,18 +675,23 @@ visible = false
 
 [node name="kebab_lamb" parent="CanvasLayer/items" instance=ExtResource("9_f5qks")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6912, 2.94096, -54.79)
+visible = false
 
 [node name="kebab_onion" parent="CanvasLayer/items" instance=ExtResource("10_blri3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7804, 2.94096, -54.2471)
+visible = false
 
 [node name="kebab_sauce" parent="CanvasLayer/items" instance=ExtResource("11_udl1x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.6167, 2.94096, -53.4875)
+visible = false
 
 [node name="kebab_tomato" parent="CanvasLayer/items" instance=ExtResource("12_51sq4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0716, 2.94096, -54.2732)
+visible = false
 
 [node name="kebab_wrap" parent="CanvasLayer/items" instance=ExtResource("13_3okll")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.6912, 2.94096, -53.4875)
+visible = false
 
 [node name="pie_mustard" parent="CanvasLayer/items" instance=ExtResource("8_xvciq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.3242, 2.71067, -54.2573)
@@ -720,6 +743,7 @@ visible = false
 
 [node name="drinks_cola" parent="CanvasLayer/items" instance=ExtResource("30_ebvi8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7908, 2.88348, -51.3745)
+visible = false
 
 [node name="drinks_drinks" parent="CanvasLayer/items" instance=ExtResource("31_rxdd4")]
 transform = Transform3D(1.5, 0, 0, 0, 1.39371, -0.554596, 0, 0.554596, 1.39371, 17.7908, 4.51052, -52.6378)
@@ -727,13 +751,11 @@ visible = false
 
 [node name="drinks_lemon" parent="CanvasLayer/items" instance=ExtResource("32_3l6se")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9685, 2.87918, -51.3745)
+visible = false
 
 [node name="drinks_orange" parent="CanvasLayer/items" instance=ExtResource("33_5fji1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.7908, 2.89823, -52.3987)
-
-[node name="winning_item_Timer" type="Timer" parent="CanvasLayer/items"]
-wait_time = 5.0
-one_shot = true
+visible = false
 
 [node name="random_engine" type="Node3D" parent="CanvasLayer"]
 script = ExtResource("12_yxmj5")
@@ -810,7 +832,6 @@ one_shot = true
 [connection signal="value_changed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/volume_HSlider" to="CanvasLayer/menu" method="_on_volume_h_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/volume_HSlider2" to="CanvasLayer/menu" method="_on_volume_h_slider_2_value_changed"]
 [connection signal="pressed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/close_options" to="CanvasLayer/menu" method="_on_close_options_pressed"]
-[connection signal="timeout" from="CanvasLayer/items/winning_item_Timer" to="CanvasLayer/items/cob" method="_on_winning_item_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/random_engine/random_engine_timer" to="CanvasLayer/random_engine" method="_on_random_engine_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/game_over_Timer" to="CanvasLayer/menu" method="_on_game_over_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/enemy_chase_Timer" to="CanvasLayer/enemy_main" method="_on_enemy_chase_timer_timeout"]
