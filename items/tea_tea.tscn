@@ -15,5 +15,6 @@ transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
 [node name="collection_effect_1" parent="." index="1" instance=ExtResource("3_7mt8j")]
 
 [node name="winning_item_Timer" parent="." index="2" instance=ExtResource("4_8drfc")]
+one_shot = false
 
 [connection signal="timeout" from="winning_item_Timer" to="." method="_on_winning_item_timer_timeout"]

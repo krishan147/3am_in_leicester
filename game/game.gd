@@ -49,7 +49,7 @@ extends Node3D
 		},
 	6:{
 		"item_names":["MILK","SUGAR","TEA"],
-		"items":["tea_milk","tea_sugar","tea_tea"],
+		"items":["tea_milk","tea_sugar","tea_teabox"],
 		"winning_item":"tea_tea",
 		"winning_item_name":"TEA"
 		},
@@ -85,16 +85,15 @@ func _levelCompleted():
 	save_data["player_position_z"] = player.position.z
 	GlobalOptions._saveGame(save_data)
 	
-	if level >= 11:
+	if level >= 10:
 		_completedGame()
 	else:
-		print (level)
-		print (dict_levels[level]["winning_item_name"])
-		
-		if dict_levels[level]["winning_item_name"] == "PANDA POPS":
+		if dict_levels[int(level)]["winning_item_name"] == "PANDA POPS":
 			player._startMessages(["GET PANDA POPS"])
+		elif dict_levels[int(level)]["winning_item_name"] == "CRISPS":
+			player._startMessages(["GET CRISPS"])
 		else:
-			player._startMessages(["MAKE " + dict_levels[level]["winning_item_name"]])
+			player._startMessages(["MAKE " + dict_levels[int(level)]["winning_item_name"]])
 		list_items_collected = []
 		_changeLevel(level)
 
@@ -150,32 +149,21 @@ func _itemCollectedCheck(item_collected): # tick box, message to pop up, check i
 	for item in dict_levels[int(level)]["items"]:
 		
 		if item_collected == item:
-			
 			list_items_collected.append(item)
-			
 			var collected_item_checkout = list_checkboxes[item_num]
 			collected_item_checkout.button_pressed = true
-			_itemSetCollected()
+			list_items_collected.sort()
+			if list_items_collected == dict_levels[int(level)]["items"]:
+				_itemSetCollected()
 			return 0
 		else:
 			item_num = item_num + 1
 	
 func _itemSetCollected():
-	list_items_collected.sort()
-	
-	if list_items_collected == dict_levels[int(level)]["items"]:
 		var winning_item_name = dict_levels[int(level)]["winning_item_name"]
 		player._startMessages(["YOU HAVE A " +  str(winning_item_name)])
 		var winning_item = dict_levels[int(level)]["winning_item"]
 		get_node("CanvasLayer/items/" + winning_item)._activate()
-
-
-
-
-
-
-
-
 
 
 

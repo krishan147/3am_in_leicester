@@ -103,8 +103,7 @@ var x_messages = 0
 func _startMessages(messages):
 	list_messages = messages
 	messages_timer.start()
-	
-	player_messages.text = list_messages[x_messages]
+	player_messages.text = list_messages[x_messages] # error here too when you have too many meseages
 	x_messages = x_messages + 1
 	
 func _on_messages_timer_timeout():
@@ -114,7 +113,6 @@ func _on_messages_timer_timeout():
 		list_messages = []
 		player_messages.text = ""
 	else:
-		print ("byebye")
 		_startMessages(list_messages)
 
 func _fallOver(): # GAME OVER

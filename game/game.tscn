@@ -511,57 +511,69 @@ visible = false
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -200.0
+offset_left = -320.0
 offset_bottom = 180.0
 grow_horizontal = 0
 
 [node name="SubViewport" type="SubViewport" parent="CanvasLayer/menu_ingame/SubViewportContainer"]
 transparent_bg = true
 handle_input_locally = false
-size = Vector2i(200, 180)
+size = Vector2i(420, 180)
 render_target_update_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/menu_ingame/SubViewportContainer/SubViewport"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -118.0
+offset_right = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CheckBox_1" type="CheckBox" parent="CanvasLayer/menu_ingame/SubViewportContainer/SubViewport/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("4_8c7no")
 theme_override_font_sizes/font_size = 25
 button_mask = 0
-text = "sandwich"
+text = "SANDWICH"
+alignment = 2
 
 [node name="CheckBox_2" type="CheckBox" parent="CanvasLayer/menu_ingame/SubViewportContainer/SubViewport/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("4_8c7no")
 theme_override_font_sizes/font_size = 25
 button_mask = 0
 text = "sandwich"
+alignment = 2
 
 [node name="CheckBox_3" type="CheckBox" parent="CanvasLayer/menu_ingame/SubViewportContainer/SubViewport/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("4_8c7no")
 theme_override_font_sizes/font_size = 25
 button_mask = 0
 text = "sandwich"
+alignment = 2
 
 [node name="CheckBox_4" type="CheckBox" parent="CanvasLayer/menu_ingame/SubViewportContainer/SubViewport/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("4_8c7no")
 theme_override_font_sizes/font_size = 25
 button_mask = 0
 text = "sandwich"
+alignment = 2
 
 [node name="CheckBox_5" type="CheckBox" parent="CanvasLayer/menu_ingame/SubViewportContainer/SubViewport/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
 theme_override_fonts/font = ExtResource("4_8c7no")
 theme_override_font_sizes/font_size = 25
 button_mask = 0
 text = "sandwich"
+alignment = 2
 
 [node name="enemy_main" parent="CanvasLayer" instance=ExtResource("6_njk3j")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 26.074, 2.59216, -58.8168)
@@ -625,6 +637,9 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.0431, 2.73022, -50.1317)
 visible = false
 
+[node name="tea_tea" parent="CanvasLayer/items" instance=ExtResource("10_mfcds")]
+visible = false
+
 [node name="cob_chipcob" parent="CanvasLayer/items" instance=ExtResource("10_hiqcj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.4565, 3.78981, -50.1317)
 visible = false
@@ -645,12 +660,8 @@ visible = false
 transform = Transform3D(0.901998, 0.431739, 0, -0.431739, 0.901998, 0, 0, 0, 1, 24.6703, 2.69001, -52.5992)
 visible = false
 
-[node name="tea_tea" parent="CanvasLayer/items" instance=ExtResource("10_mfcds")]
-transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, 24.1705, 4.53564, -52.5992)
-visible = false
-
 [node name="tea_teabox" parent="CanvasLayer/items" instance=ExtResource("11_fc27v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8552, 2.8598, -52.5992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.8552, 2.8598, -52.8522)
 visible = false
 
 [node name="pizza_base" parent="CanvasLayer/items" instance=ExtResource("8_k47vj")]

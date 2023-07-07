@@ -44,6 +44,5 @@ func _deactivate():
 
 func _on_winning_item_timer_timeout():
 	winning_item_timer.stop()
-	print ("ooop ", self.name)
 	_deactivate()
 	game._levelCompleted()

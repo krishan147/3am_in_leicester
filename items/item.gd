@@ -20,8 +20,3 @@ func _deactivate():
 	collisionshape.set_deferred("disabled", true)
 	self.visible = false
 	rotation_activate = false
-
-
-
-func _on_winning_item_timer_timeout():
-	pass # Replace with function body.

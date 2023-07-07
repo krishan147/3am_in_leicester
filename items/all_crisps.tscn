@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://br5can0seho1s"]
+[gd_scene load_steps=13 format=3 uid="uid://br5can0seho1s"]
 
 [ext_resource type="PackedScene" uid="uid://dply7j1pgt5pa" path="res://items_raw/uploads_files_1000330_chips_bags (1).FBX" id="1_3fdad"]
 [ext_resource type="Texture2D" uid="uid://dmhty2056npuo" path="res://items_texture/chips_bag_spicy_Diffuse.jpg" id="2_3r78c"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxtuan3faf0ae" path="res://effects/collection_effect_1.tscn" id="3_si0r4"]
 [ext_resource type="Texture2D" uid="uid://bro28hnsimx2e" path="res://items_texture/chips_bag_barbecue_Diffuse.jpg" id="4_j177g"]
 [ext_resource type="Texture2D" uid="uid://dc3utj6aebol" path="res://items_texture/chips_bag_classic_Diffuse.jpg" id="5_y155u"]
+[ext_resource type="PackedScene" uid="uid://bth6ca65spwm1" path="res://item_player_pickup/winning_item_timer.tscn" id="8_ig3i6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h14ga"]
 albedo_texture = ExtResource("2_3r78c")
@@ -44,3 +45,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_5vlgx")
 
 [node name="chips_bag_classic" parent="RootNode" index="3"]
 surface_material_override/0 = SubResource("StandardMaterial3D_0l88t")
+
+[node name="winning_item_Timer" parent="." index="2" instance=ExtResource("8_ig3i6")]
+
+[connection signal="timeout" from="winning_item_Timer" to="." method="_on_winning_item_timer_timeout"]
