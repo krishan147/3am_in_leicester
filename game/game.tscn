@@ -118,6 +118,8 @@ sky_material = SubResource("PhysicalSkyMaterial_4hfuk")
 [sub_resource type="Environment" id="Environment_r8iv1"]
 background_mode = 2
 sky = SubResource("Sky_mbr8q")
+fog_enabled = true
+fog_density = 0.4
 volumetric_fog_density = 0.13
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y1q7c"]
@@ -239,7 +241,7 @@ outline_size = 8
 uppercase = true
 
 [node name="messages_Timer" type="Timer" parent="CanvasLayer/player_main"]
-wait_time = 2.0
+wait_time = 4.5
 one_shot = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer"]

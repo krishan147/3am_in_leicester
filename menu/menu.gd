@@ -77,6 +77,7 @@ func _on_new_game_button_down():
 		new_game_check = 0
 		random_engine_timer.start()
 		enemy_main._end()
+		game._resetFog()
 
 func _on_timer_load_timeout():
 	timer_load.stop()
@@ -116,6 +117,7 @@ func _on_continue_pressed():
 	player.position.x = save_data["player_position_x"]
 	player.position.y = save_data["player_position_y"]
 	player.position.z = save_data["player_position_z"]
+	game._changeFog(float(save_data["fog"]))
 	fade.play("fade_to_normal")
 	camera_menu.current = false
 	camera_player.current = true

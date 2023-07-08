@@ -23,6 +23,7 @@ const LERP_VAL = 0.5
 @onready var game_over_timer = $"../game_over_Timer"
 @onready var menu_ingame_container = $"../menu_ingame/SubViewportContainer"
 @onready var enemy = $"../enemy_main"
+@onready var is_jumping = false
 
 #func _ready():
 #	_startMessages(messages)
@@ -41,8 +42,19 @@ func _input(event):
 			spring_arm_pivot.rotate_y(-event.relative.x * .005)
 			spring_arm_3d.rotate_x(-event.relative.y * .005)
 			
-		if Input.is_action_just_pressed("jump"):
-			velocity.y = 3
+			if spring_arm_3d.rotation[0] >= 0.7:
+				spring_arm_3d.rotation[0] = 0.7
+
+			if spring_arm_3d.rotation[0] <= -1.4:
+				spring_arm_3d.rotation[0] = -1.4
+				
+		if is_jumping == false:
+			if Input.is_action_just_pressed("jump"):
+				var level = game._getLevel()
+				if level >= 10:
+					velocity.y = 6
+				else:
+					velocity.y = 3
 		
 		if Input.is_action_just_pressed("esc_menu"):
 			can_move = false
@@ -65,30 +77,50 @@ func _physics_process(delta):
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		direction = direction.rotated(Vector3.UP, spring_arm_pivot.rotation.y)
 		
-		#if not is_on_floor():
-		velocity.y -= gravity * delta
-		
-		if direction:
-			animation_player.play("slow_run")
-			velocity.x = direction.x * SPEED
-			velocity.z = direction.z * SPEED
-			
-			player.rotation.y = lerp_angle(player.rotation.y, atan2(velocity.x, velocity.z), LERP_VAL)
+		if not is_on_floor():
+			var level = game._getLevel()
+			is_jumping = true
+			if level >= 10:
+				animation_player.play("floating")
+			else:
+				animation_player.play("falling_idle")
 		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
-			velocity.z = move_toward(velocity.z, 0, SPEED)
-			animation_player.play("idle")
+			is_jumping = false
+			if direction:
+				animation_player.play("slow_run")
+				velocity.x = direction.x * SPEED
+				velocity.z = direction.z * SPEED
+				
+				player.rotation.y = lerp_angle(player.rotation.y, atan2(velocity.x, velocity.z), LERP_VAL)
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.z = move_toward(velocity.z, 0, SPEED)
+				animation_player.play("idle")
+			
+		velocity.y -= gravity * delta
 		move_and_slide()
 		
 func _playStandUp():
 	animation_player.play("standing_up")
+	
+func _playDancingRunningMan():
+	animation_player.play("dancing_running_man")
 
 func _on_animation_player_animation_finished(anim_name):
+
 	if anim_name == "standing_up":
 		_canMove(true)
-
+	elif anim_name == "dancing_running_man":
+		animation_player.play("dancing_step")
+	elif anim_name == "dancing_step":
+		animation_player.play("Breakdance")
+	elif anim_name == "Breakdance":
+		_canMove(true)
+		_startMessages(["YOU CAN NOW JUMP HIGHER"])
+	else:
+		pass
+		
 func _on_pickup_area_area_entered(area):
-	
 	game._itemCollectedCheck(area.get_parent().name)
 	area.get_parent()._deactivate()
 
@@ -103,7 +135,8 @@ var x_messages = 0
 func _startMessages(messages):
 	list_messages = messages
 	messages_timer.start()
-	player_messages.text = list_messages[x_messages] # error here too when you have too many meseages
+	
+	player_messages.text = list_messages[x_messages]
 	x_messages = x_messages + 1
 	
 func _on_messages_timer_timeout():

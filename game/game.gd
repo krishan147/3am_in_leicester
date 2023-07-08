@@ -9,6 +9,9 @@ extends Node3D
 @onready var checkout_5 = $CanvasLayer/menu_ingame/SubViewportContainer/SubViewport/VBoxContainer/CheckBox_5
 @onready var level = 0
 @onready var playing = false
+@onready var world_environment = $CanvasLayer/WorldEnvironment
+@onready var random_engine_timer = $CanvasLayer/random_engine/random_engine_timer
+@onready var fog_level = 0.4
 
 @onready var dict_levels = {
 	0:{
@@ -70,6 +73,12 @@ extends Node3D
 		"items":["all_barbecue","all_classic","all_onion","all_spicy"],
 		"winning_item":"all_crisps",
 		"winning_item_name":"CRISPS"
+		},
+	10:{
+		"item_names":[], 
+		"items":[],
+		"winning_item":"",
+		"winning_item_name":""
 		}
 }
 
@@ -79,23 +88,22 @@ var list_items_collected = []
 func _levelCompleted():
 	level = level + 1
 	save_data = GlobalOptions._loadGame()
+	
 	save_data["level"] = level
 	save_data["player_position_x"] = player.position.x
 	save_data["player_position_y"] = player.position.y
 	save_data["player_position_z"] = player.position.z
+	save_data["fog"] = world_environment.environment.fog_density
+	fog_level = float(world_environment.environment.fog_density)
 	GlobalOptions._saveGame(save_data)
 	
 	if level >= 10:
 		_completedGame()
 	else:
-		if dict_levels[int(level)]["winning_item_name"] == "PANDA POPS":
-			player._startMessages(["GET PANDA POPS"])
-		elif dict_levels[int(level)]["winning_item_name"] == "CRISPS":
-			player._startMessages(["GET CRISPS"])
-		else:
-			player._startMessages(["MAKE " + dict_levels[int(level)]["winning_item_name"]])
+		random_engine_timer.start()
 		list_items_collected = []
 		_changeLevel(level)
+		random_engine_timer.start()
 
 func _changeLevel(change):
 	level = change
@@ -105,9 +113,12 @@ func _changeLevel(change):
 	_changeCheckboxes(level)
 	_showItems(level)
 	
+func _getLevel():
+	return level
+	
 func _completedGame():
-	# dance, complete jump, no fog
-	pass
+	player._canMove(false)
+	player._playDancingRunningMan()
 
 func _ready():
 	fade.play("fade_to_normal")
@@ -160,12 +171,40 @@ func _itemCollectedCheck(item_collected): # tick box, message to pop up, check i
 			item_num = item_num + 1
 	
 func _itemSetCollected():
+	
+		print (level)
+	
 		var winning_item_name = dict_levels[int(level)]["winning_item_name"]
-		player._startMessages(["YOU HAVE A " +  str(winning_item_name)])
+		random_engine_timer.stop()
+		_reduceFog()
+		if level >= 9:
+			player._startMessages(["YOU HAVE A " +  str(winning_item_name), "FOD REDUCED", "YOU ARE NOW SOBER"])
+		else:
+			var next_winning_item_name =  dict_levels[int(level) + 1]["winning_item_name"]
+			var next_winning_item_name_sentence = null
+			if next_winning_item_name == "PANDA POPS":
+				next_winning_item_name_sentence = "GET PANDA POPS"
+			elif next_winning_item_name == "CRISPS":
+				next_winning_item_name_sentence = "GET CRISPS"
+			else:
+				next_winning_item_name_sentence = "MAKE " + next_winning_item_name
+			
+			player._startMessages(["YOU HAVE A " +  str(winning_item_name), "FOG REDUCED", next_winning_item_name_sentence])
+			
 		var winning_item = dict_levels[int(level)]["winning_item"]
 		get_node("CanvasLayer/items/" + winning_item)._activate()
 
 
+func _changeFog(change):
+	fog_level = level
+	world_environment.environment.fog_density = change
+
+
+func _resetFog():
+	world_environment.environment.fog_density = 0.4
+	
+func _reduceFog():
+	world_environment.environment.fog_density =  fog_level - 0.04
 
 
 

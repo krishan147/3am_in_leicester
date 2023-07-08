@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://bth6ca65spwm1"]
 
 [node name="winning_item_Timer" type="Timer"]
-wait_time = 5.0
+wait_time = 7.5
 one_shot = true

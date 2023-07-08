@@ -12,7 +12,7 @@ transform = Transform3D(1, 0, 0, 0, 0.929139, -0.36973, 0, 0.36973, 0.929139, 0,
 script = ExtResource("1_ym4oe")
 
 [node name="drinks" type="Node3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 1.49012e-08, 0, -1.49012e-08, 0.5, 0, 0, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 8.94072e-09, 0, -8.94072e-09, 0.3, 0, 0, 0)
 
 [node name="drinks_cola" parent="drinks" instance=ExtResource("2_peq81")]
 transform = Transform3D(1, 0, 0, 0, 1, 5.96046e-08, 0, -5.96046e-08, 1, -0.110335, 0, 0)
