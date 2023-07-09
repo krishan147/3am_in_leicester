@@ -17,7 +17,7 @@ transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 script = ExtResource("2_6k68f")
 
 [node name="RootNode" parent="." index="0"]
-transform = Transform3D(0.780048, -0.625719, 0, 0.625719, 0.780048, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(0.390024, -0.31286, 0, 0.31286, 0.390024, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="SM_Shawarma" parent="RootNode" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_raqw4")

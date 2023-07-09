@@ -171,14 +171,12 @@ func _itemCollectedCheck(item_collected): # tick box, message to pop up, check i
 			item_num = item_num + 1
 	
 func _itemSetCollected():
-	
-		print (level)
-	
+
 		var winning_item_name = dict_levels[int(level)]["winning_item_name"]
 		random_engine_timer.stop()
 		_reduceFog()
 		if level >= 9:
-			player._startMessages(["YOU HAVE A " +  str(winning_item_name), "FOD REDUCED", "YOU ARE NOW SOBER"])
+			player._startMessages(["YOU HAVE " +  str(winning_item_name), "FOG REDUCED", "YOU ARE NOW SOBER"])
 		else:
 			var next_winning_item_name =  dict_levels[int(level) + 1]["winning_item_name"]
 			var next_winning_item_name_sentence = null

@@ -24,8 +24,11 @@ const LERP_VAL = 0.5
 @onready var menu_ingame_container = $"../menu_ingame/SubViewportContainer"
 @onready var enemy = $"../enemy_main"
 @onready var is_jumping = false
+@onready var footsteps = $footsteps
 
-#func _ready():
+func _ready():
+	pass
+	#footsteps.play()
 #	_startMessages(messages)
 #	_start()
 
@@ -107,15 +110,16 @@ func _playDancingRunningMan():
 	animation_player.play("dancing_running_man")
 
 func _on_animation_player_animation_finished(anim_name):
-
 	if anim_name == "standing_up":
 		_canMove(true)
 	elif anim_name == "dancing_running_man":
-		animation_player.play("dancing_step")
-	elif anim_name == "dancing_step":
-		animation_player.play("Breakdance")
-	elif anim_name == "Breakdance":
+		animation_player.play("dancing step")
+	elif anim_name == "dancing step":
+		print ("here")
+		animation_player.play("breakdance_v2")
+	elif anim_name == "breakdance_v2":
 		_canMove(true)
+		animation_player.play("idle")
 		_startMessages(["YOU CAN NOW JUMP HIGHER"])
 	else:
 		pass
