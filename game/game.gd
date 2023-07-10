@@ -91,7 +91,7 @@ func _levelCompleted():
 	
 	save_data["level"] = level
 	save_data["player_position_x"] = player.position.x
-	save_data["player_position_y"] = player.position.y
+	save_data["player_position_y"] = player.position.y + 1
 	save_data["player_position_z"] = player.position.z
 	save_data["fog"] = world_environment.environment.fog_density
 	fog_level = float(world_environment.environment.fog_density)

@@ -125,8 +125,11 @@ func _on_animation_player_animation_finished(anim_name):
 		pass
 		
 func _on_pickup_area_area_entered(area):
-	game._itemCollectedCheck(area.get_parent().name)
-	area.get_parent()._deactivate()
+	if area.name == "play_too_much_ac":
+		_startMessages(["YOU PLAY TOO MUCH ASSASSINS CREED"])
+	else:
+		game._itemCollectedCheck(area.get_parent().name)
+		area.get_parent()._deactivate()
 
 func _on_pickup_area_area_exited(area):
 	pass # Replace with function body.
@@ -135,16 +138,20 @@ var list_messages = []
 var x_messages = 0
 @onready var player_messages = $player_messages
 @onready var messages_timer = $messages_Timer
+@onready var processing_messages = false
 
 func _startMessages(messages):
-	list_messages = messages
-	messages_timer.start()
-	
-	player_messages.text = list_messages[x_messages]
-	x_messages = x_messages + 1
+	if processing_messages == false:
+		processing_messages = true
+		list_messages = messages
+		messages_timer.start()
+		
+		player_messages.text = list_messages[x_messages]
+		x_messages = x_messages + 1
 	
 func _on_messages_timer_timeout():
 	if x_messages == len(list_messages):
+		processing_messages = false
 		messages_timer.stop()
 		x_messages = 0
 		list_messages = []
