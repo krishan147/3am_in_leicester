@@ -3,10 +3,10 @@
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_etnt6"]
 resource_name = "Reverb"
 room_size = 0.01
-damping = 0.24
-spread = 0.5
-dry = 0.22
-wet = 0.14
+damping = 0.05
+spread = 0.1
+dry = 0.1
+wet = 0.1
 
 [resource]
 bus/1/name = &"music"
