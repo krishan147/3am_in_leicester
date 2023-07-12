@@ -264,8 +264,6 @@ bus = &"footsteps"
 [node name="footsteps_Timer" type="Timer" parent="CanvasLayer/player_main/footsteps"]
 wait_time = 0.4
 
-[node name="footsteps_Timer2" type="Timer" parent="CanvasLayer/player_main/footsteps"]
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer"]
 environment = SubResource("Environment_r8iv1")
 
@@ -869,7 +867,6 @@ shape = SubResource("SphereShape3D_rqb05")
 [connection signal="animation_finished" from="CanvasLayer/player_main/player/AnimationPlayer" to="CanvasLayer/menu" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/player_main/messages_Timer" to="CanvasLayer/player_main" method="_on_messages_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/player_main/footsteps/footsteps_Timer" to="CanvasLayer/player_main" method="_on_footsteps_timer_timeout"]
-[connection signal="timeout" from="CanvasLayer/player_main/footsteps/footsteps_Timer2" to="CanvasLayer/player_main" method="_on_footsteps_timer_2_timeout"]
 [connection signal="timeout" from="CanvasLayer/menu/menu_Camera3D/Timer" to="CanvasLayer/menu/menu_Camera3D" method="_on_timer_timeout"]
 [connection signal="pressed" from="CanvasLayer/menu/menu_buttons/SubViewport/menu/continue" to="CanvasLayer/menu" method="_on_continue_pressed"]
 [connection signal="button_down" from="CanvasLayer/menu/menu_buttons/SubViewport/menu/new_game" to="CanvasLayer/menu" method="_on_new_game_button_down"]

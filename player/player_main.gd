@@ -36,8 +36,6 @@ const LERP_VAL = 0.5
 @onready var footsteps10 = $footsteps/footsteps10
 @onready var footsteps_timer = $footsteps/footsteps_Timer
 
-func _ready():
-	footsteps1.play()
 #	_startMessages(messages)
 #	_start()
 
@@ -191,7 +189,9 @@ func _on_pickup_area_body_entered(body):
 		enemy._stop()
 		
 func _on_footsteps_timer_timeout():
-	footsteps1.play()
+	var list_steps = [footsteps1,footsteps2,footsteps3,footsteps4,footsteps5,footsteps6,footsteps7,footsteps8,footsteps9,footsteps10]
+	list_steps.shuffle()
+	list_steps.play()
 		
 #func _on_footsteps_timer_2_timeout():
 #	footsteps1.play()
