@@ -12,6 +12,7 @@ extends Node3D
 @onready var world_environment = $CanvasLayer/WorldEnvironment
 @onready var random_engine_timer = $CanvasLayer/random_engine/random_engine_timer
 @onready var fog_level = 0.4
+@onready var wind_sound = $CanvasLayer/wind_sound
 
 @onready var dict_levels = {
 	0:{
@@ -84,6 +85,12 @@ extends Node3D
 
 var save_data = null
 var list_items_collected = []
+
+func _startGame():
+	wind_sound.play()
+	
+func _stopGame():
+	wind_sound.stop()
 
 func _levelCompleted():
 	level = level + 1
@@ -209,3 +216,7 @@ func _reduceFog():
 
 
 
+
+
+func _on_wind_sound_finished():
+	wind_sound.play()

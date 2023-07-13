@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://diqmr355cu1re"]
+[gd_scene load_steps=86 format=3 uid="uid://diqmr355cu1re"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -68,6 +68,7 @@
 [ext_resource type="PackedScene" uid="uid://0bhnw153inb2" path="res://items/drinks_lemon.tscn" id="32_3l6se"]
 [ext_resource type="PackedScene" uid="uid://d0uu7c7lyiqpy" path="res://items/drinks_orange.tscn" id="33_5fji1"]
 [ext_resource type="Script" path="res://game/funny_stuff.gd" id="68_6jcda"]
+[ext_resource type="AudioStream" uid="uid://bxjgb228xlm7b" path="res://wind/Wind Loop 1.wav" id="69_bs375"]
 
 [sub_resource type="Animation" id="Animation_qlohe"]
 length = 0.001
@@ -861,6 +862,9 @@ script = ExtResource("68_6jcda")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CanvasLayer/funny_stuff/play_too_much_ac"]
 shape = SubResource("SphereShape3D_rqb05")
 
+[node name="wind_sound" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("69_bs375")
+
 [connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/Timer_load" to="CanvasLayer/menu" method="_on_timer_load_timeout"]
 [connection signal="timeout" from="CanvasLayer/Timer_intro" to="CanvasLayer/menu" method="_on_timer_intro_timeout"]
@@ -878,6 +882,7 @@ shape = SubResource("SphereShape3D_rqb05")
 [connection signal="timeout" from="CanvasLayer/random_engine/random_engine_timer" to="CanvasLayer/random_engine" method="_on_random_engine_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/game_over_Timer" to="CanvasLayer/menu" method="_on_game_over_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/enemy_chase_Timer" to="CanvasLayer/enemy_main" method="_on_enemy_chase_timer_timeout"]
+[connection signal="finished" from="CanvasLayer/wind_sound" to="." method="_on_wind_sound_finished"]
 
 [editable path="CanvasLayer/player_main"]
 [editable path="CanvasLayer/player_main/player"]

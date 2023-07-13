@@ -78,6 +78,7 @@ func _on_new_game_button_down():
 		random_engine_timer.start()
 		enemy_main._end()
 		game._resetFog()
+		game._startGame()
 
 func _on_timer_load_timeout():
 	timer_load.stop()
@@ -127,6 +128,7 @@ func _on_continue_pressed():
 	game._changeLevel(save_data["level"])
 	random_engine_timer.start()
 	enemy_main._end()
+	game._startGame()
 
 func _disableMenu():
 	self.visible = false
