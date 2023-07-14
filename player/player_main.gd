@@ -67,12 +67,16 @@ func _input(event):
 					velocity.y = 3
 					
 		if Input.is_action_just_pressed("forward"):
+			_playFootstep()
 			footsteps_timer.start()
 		elif Input.is_action_just_pressed("backward"):
+			_playFootstep()
 			footsteps_timer.start()
 		elif Input.is_action_just_pressed("left"):
+			_playFootstep()
 			footsteps_timer.start()
 		elif Input.is_action_just_pressed("right"):
+			_playFootstep()
 			footsteps_timer.start()
 		
 		if Input.is_action_just_pressed("esc_menu"):
@@ -189,9 +193,12 @@ func _on_pickup_area_body_entered(body):
 		enemy._stop()
 		
 func _on_footsteps_timer_timeout():
+	_playFootstep()
+	
+func _playFootstep():
 	var list_steps = [footsteps1,footsteps2,footsteps3,footsteps4,footsteps5,footsteps6,footsteps7,footsteps8,footsteps9,footsteps10]
 	list_steps.shuffle()
-	list_steps.play()
+	list_steps[0].play()
 		
 #func _on_footsteps_timer_2_timeout():
 #	footsteps1.play()

@@ -89,7 +89,7 @@ var list_items_collected = []
 
 func _startGame():
 	wind_fadein_anim.play("fadein")
-	#wind_sound.play()
+	wind_sound.play()
 	
 func _stopGame():
 	wind_sound.stop()
@@ -213,12 +213,6 @@ func _resetFog():
 func _reduceFog():
 	world_environment.environment.fog_density =  fog_level - 0.04
 
-
-
-
-
-
-
-
 func _on_wind_sound_finished():
+	wind_fadein_anim.stop()
 	wind_sound.play()

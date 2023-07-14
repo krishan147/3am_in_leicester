@@ -162,22 +162,6 @@ agent_max_climb = 2.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_rqb05"]
 radius = 0.3
 
-[sub_resource type="Animation" id="Animation_ubca3"]
-resource_name = "fadein"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-80.0, 0.0]
-}
-
 [sub_resource type="Animation" id="Animation_fvc0n"]
 length = 0.001
 tracks/0/type = "value"
@@ -191,6 +175,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [-80.0]
+}
+
+[sub_resource type="Animation" id="Animation_ubca3"]
+resource_name = "fadein"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-80.0, -15.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sosgc"]
@@ -840,7 +840,7 @@ script = ExtResource("12_yxmj5")
 [node name="random_effect_4" parent="CanvasLayer/random_engine" instance=ExtResource("20_q8pw0")]
 
 [node name="random_engine_timer" type="Timer" parent="CanvasLayer/random_engine"]
-wait_time = 90.0
+wait_time = 30.0
 
 [node name="game_over" type="SubViewportContainer" parent="CanvasLayer"]
 visible = false

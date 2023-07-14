@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b4qk0ggui4x60"
+path="res://.godot/imported/Heavy Armor Walking 3_09.wav-b58340fb1602159b406f436ba7b968b5.sample"
+
+[deps]
+
+source_file="res://enemy/footsteps/Heavy Armor Walking 3_09.wav"
+dest_files=["res://.godot/imported/Heavy Armor Walking 3_09.wav-b58340fb1602159b406f436ba7b968b5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,7 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://0vdon2h1kexd"]
+[gd_scene load_steps=14 format=3 uid="uid://0vdon2h1kexd"]
 
 [ext_resource type="Script" path="res://enemy/enemy_main.gd" id="1_dhsrh"]
 [ext_resource type="PackedScene" uid="uid://d0is2e3hish5f" path="res://enemy/enemy.tscn" id="1_dt0u7"]
+[ext_resource type="AudioStream" uid="uid://5pq3m3fuv5nh" path="res://enemy/footsteps/Heavy Armor Walking 3_01.wav" id="3_bb843"]
+[ext_resource type="AudioStream" uid="uid://b8ywpiai156jm" path="res://enemy/footsteps/Heavy Armor Walking 3_02.wav" id="4_lojln"]
+[ext_resource type="AudioStream" uid="uid://degbn3y6k7758" path="res://enemy/footsteps/Heavy Armor Walking 3_03.wav" id="5_1k1yj"]
+[ext_resource type="AudioStream" uid="uid://0u3mxdlionex" path="res://enemy/footsteps/Heavy Armor Walking 3_04.wav" id="6_sap65"]
+[ext_resource type="AudioStream" uid="uid://drsqw5m3quyw4" path="res://enemy/footsteps/Heavy Armor Walking 3_05.wav" id="7_dcgl7"]
+[ext_resource type="AudioStream" uid="uid://bagri0ee13moe" path="res://enemy/footsteps/Heavy Armor Walking 3_06.wav" id="8_r0ibc"]
+[ext_resource type="AudioStream" uid="uid://fmiu2k1tigi4" path="res://enemy/footsteps/Heavy Armor Walking 3_07.wav" id="9_vv6rt"]
+[ext_resource type="AudioStream" uid="uid://bxsm16sgurxfi" path="res://enemy/footsteps/Heavy Armor Walking 3_08.wav" id="10_1teg7"]
+[ext_resource type="AudioStream" uid="uid://b4qk0ggui4x60" path="res://enemy/footsteps/Heavy Armor Walking 3_09.wav" id="11_1rcvm"]
+[ext_resource type="AudioStream" uid="uid://blquheksl5ieo" path="res://enemy/footsteps/Heavy Armor Walking 3_10.wav" id="12_pdsba"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yeveo"]
 
@@ -43,5 +53,62 @@ bones/65/rotation = Quaternion(0.364969, -0.0174884, -0.00545645, 0.930839)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 agent_height_offset = 0.5
+
+[node name="footsteps" type="Node3D" parent="."]
+
+[node name="footsteps1" type="AudioStreamPlayer3D" parent="footsteps"]
+stream = ExtResource("3_bb843")
+volume_db = -10.0
+bus = &"footsteps_enemy"
+
+[node name="footsteps2" type="AudioStreamPlayer3D" parent="footsteps"]
+stream = ExtResource("4_lojln")
+volume_db = -10.0
+bus = &"footsteps_enemy"
+
+[node name="footsteps3" type="AudioStreamPlayer3D" parent="footsteps"]
+stream = ExtResource("5_1k1yj")
+volume_db = -10.0
+bus = &"footsteps_enemy"
+
+[node name="footsteps4" type="AudioStreamPlayer3D" parent="footsteps"]
+stream = ExtResource("6_sap65")
+volume_db = -10.0
+bus = &"footsteps_enemy"
+
+[node name="footsteps5" type="AudioStreamPlayer3D" parent="footsteps"]
+stream = ExtResource("7_dcgl7")
+volume_db = -10.0
+bus = &"footsteps_enemy"
+
+[node name="footsteps6" type="AudioStreamPlayer3D" parent="footsteps"]
+stream = ExtResource("8_r0ibc")
+volume_db = -10.0
+bus = &"footsteps_enemy"
+
+[node name="footsteps7" type="AudioStreamPlayer3D" parent="footsteps"]
+stream = ExtResource("9_vv6rt")
+volume_db = -10.0
+bus = &"footsteps_enemy"
+
+[node name="footsteps8" type="AudioStreamPlayer3D" parent="footsteps"]
+stream = ExtResource("10_1teg7")
+volume_db = -10.0
+bus = &"footsteps_enemy"
+
+[node name="footsteps9" type="AudioStreamPlayer3D" parent="footsteps"]
+stream = ExtResource("11_1rcvm")
+volume_db = -10.0
+bus = &"footsteps_enemy"
+
+[node name="footsteps10" type="AudioStreamPlayer3D" parent="footsteps"]
+stream = ExtResource("12_pdsba")
+volume_db = -10.0
+bus = &"footsteps_enemy"
+
+[node name="footsteps_Timer" type="Timer" parent="footsteps"]
+wait_time = 0.5
+
+[connection signal="timeout" from="footsteps/footsteps_Timer" to="." method="_on_footsteps_timer_timeout"]
 
 [editable path="enemy"]
