@@ -13,6 +13,7 @@ extends Node3D
 @onready var random_engine_timer = $CanvasLayer/random_engine/random_engine_timer
 @onready var fog_level = 0.4
 @onready var wind_sound = $CanvasLayer/wind_sound
+@onready var wind_fadein_anim = $CanvasLayer/wind_sound/fadein
 
 @onready var dict_levels = {
 	0:{
@@ -87,7 +88,8 @@ var save_data = null
 var list_items_collected = []
 
 func _startGame():
-	wind_sound.play()
+	wind_fadein_anim.play("fadein")
+	#wind_sound.play()
 	
 func _stopGame():
 	wind_sound.stop()
