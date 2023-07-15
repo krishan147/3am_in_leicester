@@ -15,6 +15,8 @@ extends Node3D
 @onready var wind_sound = $CanvasLayer/wind_sound
 @onready var wind_fadein_anim = $CanvasLayer/wind_sound/fadein
 
+# menu.gd newgame _on_timer_intro_timeout > game startgame.gd > 
+
 @onready var dict_levels = {
 	0:{
 		"item_names":["BACON","COB","RED SAUCE"],

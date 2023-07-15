@@ -35,6 +35,7 @@ const LERP_VAL = 0.5
 @onready var footsteps9 = $footsteps/footsteps9
 @onready var footsteps10 = $footsteps/footsteps10
 @onready var footsteps_timer = $footsteps/footsteps_Timer
+@onready var jump_sound = $jump
 
 #	_startMessages(messages)
 #	_start()
@@ -60,6 +61,7 @@ func _input(event):
 				
 		if is_jumping == false:
 			if Input.is_action_just_pressed("jump"):
+				jump_sound.play()
 				var level = game._getLevel()
 				if level >= 10:
 					velocity.y = 6
@@ -108,6 +110,10 @@ func _physics_process(delta):
 			else:
 				animation_player.play("falling_idle")
 		else:
+			
+			for each_footstep in [footsteps1,footsteps2,footsteps3,footsteps4,footsteps5,footsteps6,footsteps7,footsteps8,footsteps9,footsteps10]:
+				each_footstep.stop()
+			
 			is_jumping = false
 			if direction:
 				animation_player.play("slow_run")
@@ -170,13 +176,15 @@ func _startMessages(messages):
 		x_messages = x_messages + 1
 	
 func _on_messages_timer_timeout():
+	
 	if x_messages == len(list_messages):
 		processing_messages = false
-		messages_timer.stop()
+		#messages_timer.stop()
 		x_messages = 0
 		list_messages = []
 		player_messages.text = ""
 	else:
+		processing_messages = false
 		_startMessages(list_messages)
 
 func _fallOver(): # GAME OVER

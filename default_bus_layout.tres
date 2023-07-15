@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://c781bf6wd88us"]
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://c781bf6wd88us"]
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_etnt6"]
 resource_name = "Reverb"
@@ -9,6 +9,14 @@ dry = 0.1
 wet = 0.1
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_qbyp4"]
+resource_name = "Reverb"
+room_size = 0.01
+damping = 0.01
+spread = 0.05
+dry = 0.1
+wet = 0.1
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_sygnq"]
 resource_name = "Reverb"
 room_size = 0.01
 damping = 0.01
@@ -39,3 +47,11 @@ bus/3/volume_db = 0.0
 bus/3/send = &"footsteps_enemy 2"
 bus/3/effect/0/effect = SubResource("AudioEffectReverb_qbyp4")
 bus/3/effect/0/enabled = true
+bus/4/name = &"jump_sound"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -9.2092
+bus/4/send = &"jump_sound 2"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_sygnq")
+bus/4/effect/0/enabled = true

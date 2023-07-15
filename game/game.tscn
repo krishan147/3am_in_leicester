@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://diqmr355cu1re"]
+[gd_scene load_steps=90 format=3 uid="uid://diqmr355cu1re"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -58,6 +58,7 @@
 [ext_resource type="AudioStream" uid="uid://ysdble7x88wh" path="res://player/footsteps/Footstep Concrete Running 1_10.wav" id="13_mgkr6"]
 [ext_resource type="PackedScene" uid="uid://b1i0c7x8xpxc0" path="res://effects/random_effect_1.tscn" id="13_s4y37"]
 [ext_resource type="PackedScene" uid="uid://r0phk82t4iy" path="res://items/botc_cheese.tscn" id="13_temwc"]
+[ext_resource type="AudioStream" uid="uid://bsf1i5qvoa1u0" path="res://player/jump_sound/jump_sound.wav" id="14_inaw4"]
 [ext_resource type="PackedScene" uid="uid://x3241p62x50m" path="res://items/botc_toast.tscn" id="14_q461m"]
 [ext_resource type="PackedScene" uid="uid://jvidtijpokyi" path="res://items/botc.tscn" id="15_wr4as"]
 [ext_resource type="PackedScene" uid="uid://bd6hysxy64ljb" path="res://effects/random_effect_2.tscn" id="18_d0k5u"]
@@ -254,7 +255,7 @@ outline_size = 8
 uppercase = true
 
 [node name="messages_Timer" type="Timer" parent="CanvasLayer/player_main"]
-wait_time = 4.5
+wait_time = 4.0
 one_shot = true
 
 [node name="footsteps" type="Node3D" parent="CanvasLayer/player_main"]
@@ -301,6 +302,11 @@ bus = &"footsteps"
 
 [node name="footsteps_Timer" type="Timer" parent="CanvasLayer/player_main/footsteps"]
 wait_time = 0.4
+
+[node name="jump" type="AudioStreamPlayer" parent="CanvasLayer/player_main"]
+stream = ExtResource("14_inaw4")
+volume_db = -10.0
+bus = &"jump_sound"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer"]
 environment = SubResource("Environment_r8iv1")
@@ -840,7 +846,7 @@ script = ExtResource("12_yxmj5")
 [node name="random_effect_4" parent="CanvasLayer/random_engine" instance=ExtResource("20_q8pw0")]
 
 [node name="random_engine_timer" type="Timer" parent="CanvasLayer/random_engine"]
-wait_time = 30.0
+wait_time = 90.0
 
 [node name="game_over" type="SubViewportContainer" parent="CanvasLayer"]
 visible = false
