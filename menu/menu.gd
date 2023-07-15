@@ -20,24 +20,35 @@ extends Node3D
 @onready var game_over = $"../game_over"
 @onready var random_engine_timer = $"../random_engine/random_engine_timer"
 @onready var enemy_main = $"../enemy_main"
+@onready var menu_sound = $menu_sound
+@onready var horror_sound = $horror_sound
 
 func _process(delta):
 	pass
+	
+func _ready():
+	_continueCheck()
+	var save_data = GlobalOptions._loadGame()
 
 func _on_options_pressed():
+	menu_sound.play()
 	options.visible = true
 
 func _on_close_options_pressed():
+	menu_sound.play()
 	options.visible = false
 
 func _on_exit_pressed():
+	menu_sound.play()
 	get_tree().quit()
 
 func _on_volume_h_slider_value_changed(value): # all
+	menu_sound.play()
 	vol_num = _volumeLookup(value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), vol_num)
 
 func _on_volume_h_slider_2_value_changed(value): # music
+	menu_sound.play()
 	vol_num = _volumeLookup(value)
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("music"), vol_num)
 
@@ -63,11 +74,12 @@ var new_game_check = 0
 @onready var click_again = $menu_buttons/SubViewport/click_again
 
 func _on_new_game_button_down():
-	
+	menu_sound.play()
 	if new_game_check == 0:
 		new_game_check = 1
 		click_again.visible = true
 	else:
+		horror_sound.play() 
 		var save_data_template = GlobalOptions._saveGameTemplate()
 		GlobalOptions._saveGame(save_data_template)
 		fade.play("fade_to_black")
@@ -129,6 +141,15 @@ func _on_continue_pressed():
 	random_engine_timer.start()
 	enemy_main._end()
 	game._startGame()
+	
+func _continueCheck():
+	var save_data = GlobalOptions._loadGame()
+	
+	if save_data["player_position_x"] == 1:
+		continue_btn.disabled = true
+		continue_btn.visible = false
+	else:
+		pass
 
 func _disableMenu():
 	self.visible = false
@@ -152,3 +173,7 @@ func _enableMenu():
 func _on_game_over_timer_timeout():
 	game_over.visible = false
 	_enableMenu()
+
+
+func _on_menu_sound_finished():
+	pass # Replace with function body.

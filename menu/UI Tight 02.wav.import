@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ccsm4rtqrr50e"
+path="res://.godot/imported/UI Tight 02.wav-c6266fa0f32352bdc7c56886ff5ec012.sample"
+
+[deps]
+
+source_file="res://menu/UI Tight 02.wav"
+dest_files=["res://.godot/imported/UI Tight 02.wav-c6266fa0f32352bdc7c56886ff5ec012.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

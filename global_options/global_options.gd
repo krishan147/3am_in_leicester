@@ -7,6 +7,8 @@ func _ready():
 		pass
 	else:
 		FileAccess.open(file_location, FileAccess.WRITE_READ)
+		var save_data = _saveGameTemplate()
+		_saveGame(save_data)
 		
 func _saveGame(data):
 	var file = FileAccess.open(file_location, FileAccess.WRITE)

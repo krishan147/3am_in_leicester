@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://diqmr355cu1re"]
+[gd_scene load_steps=92 format=3 uid="uid://diqmr355cu1re"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -61,6 +61,8 @@
 [ext_resource type="AudioStream" uid="uid://bsf1i5qvoa1u0" path="res://player/jump_sound/jump_sound.wav" id="14_inaw4"]
 [ext_resource type="PackedScene" uid="uid://x3241p62x50m" path="res://items/botc_toast.tscn" id="14_q461m"]
 [ext_resource type="PackedScene" uid="uid://jvidtijpokyi" path="res://items/botc.tscn" id="15_wr4as"]
+[ext_resource type="AudioStream" uid="uid://ccsm4rtqrr50e" path="res://menu/UI Tight 02.wav" id="17_op1t4"]
+[ext_resource type="AudioStream" uid="uid://cgg4tntu5di1m" path="res://menu/AC_Horror_Comedy_Stinger_02.wav" id="18_cmw2d"]
 [ext_resource type="PackedScene" uid="uid://bd6hysxy64ljb" path="res://effects/random_effect_2.tscn" id="18_d0k5u"]
 [ext_resource type="PackedScene" uid="uid://bsot7gqp585jq" path="res://effects/random_effect_3.tscn" id="19_ipogl"]
 [ext_resource type="PackedScene" uid="uid://dlk1dkiwdt85x" path="res://effects/random_effect_4.tscn" id="20_q8pw0"]
@@ -570,6 +572,12 @@ text = "3AM IN LEICESTER"
 horizontal_alignment = 1
 vertical_alignment = 2
 
+[node name="menu_sound" type="AudioStreamPlayer" parent="CanvasLayer/menu"]
+stream = ExtResource("17_op1t4")
+
+[node name="horror_sound" type="AudioStreamPlayer" parent="CanvasLayer/menu"]
+stream = ExtResource("18_cmw2d")
+
 [node name="menu_ingame" type="Node3D" parent="CanvasLayer"]
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/menu_ingame"]
@@ -928,6 +936,7 @@ libraries = {
 [connection signal="value_changed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/volume_HSlider" to="CanvasLayer/menu" method="_on_volume_h_slider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/volume_HSlider2" to="CanvasLayer/menu" method="_on_volume_h_slider_2_value_changed"]
 [connection signal="pressed" from="CanvasLayer/menu/menu_buttons/SubViewport/options/close_options" to="CanvasLayer/menu" method="_on_close_options_pressed"]
+[connection signal="finished" from="CanvasLayer/menu/menu_sound" to="CanvasLayer/menu" method="_on_menu_sound_finished"]
 [connection signal="timeout" from="CanvasLayer/random_engine/random_engine_timer" to="CanvasLayer/random_engine" method="_on_random_engine_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/game_over_Timer" to="CanvasLayer/menu" method="_on_game_over_timer_timeout"]
 [connection signal="timeout" from="CanvasLayer/enemy_chase_Timer" to="CanvasLayer/enemy_main" method="_on_enemy_chase_timer_timeout"]
