@@ -36,6 +36,8 @@ const LERP_VAL = 0.5
 @onready var footsteps10 = $footsteps/footsteps10
 @onready var footsteps_timer = $footsteps/footsteps_Timer
 @onready var jump_sound = $jump
+@onready var gameover_sound_1 = $gameover_sound
+@onready var gameover_sound_2 = $gameover_sound_2
 
 #	_startMessages(messages)
 #	_start()
@@ -67,7 +69,6 @@ func _input(event):
 					velocity.y = 6
 				else:
 					velocity.y = 3
-					
 		if Input.is_action_just_pressed("forward"):
 			_playFootstep()
 			footsteps_timer.start()
@@ -110,10 +111,6 @@ func _physics_process(delta):
 			else:
 				animation_player.play("falling_idle")
 		else:
-			
-			for each_footstep in [footsteps1,footsteps2,footsteps3,footsteps4,footsteps5,footsteps6,footsteps7,footsteps8,footsteps9,footsteps10]:
-				each_footstep.stop()
-			
 			is_jumping = false
 			if direction:
 				animation_player.play("slow_run")
@@ -197,6 +194,8 @@ func _fallOver(): # GAME OVER
 	
 func _on_pickup_area_body_entered(body):
 	if body.name == "enemy_main":
+		gameover_sound_1.play()
+		gameover_sound_2.play()
 		_fallOver()
 		enemy._stop()
 		
@@ -204,9 +203,10 @@ func _on_footsteps_timer_timeout():
 	_playFootstep()
 	
 func _playFootstep():
-	var list_steps = [footsteps1,footsteps2,footsteps3,footsteps4,footsteps5,footsteps6,footsteps7,footsteps8,footsteps9,footsteps10]
-	list_steps.shuffle()
-	list_steps[0].play()
+	if is_jumping == false:
+		var list_steps = [footsteps1,footsteps2,footsteps3,footsteps4,footsteps5,footsteps6,footsteps7,footsteps8,footsteps9,footsteps10]
+		list_steps.shuffle()
+		list_steps[0].play()
 		
 #func _on_footsteps_timer_2_timeout():
 #	footsteps1.play()

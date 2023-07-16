@@ -14,6 +14,10 @@ extends Node3D
 @onready var fog_level = 0.4
 @onready var wind_sound = $CanvasLayer/wind_sound
 @onready var wind_fadein_anim = $CanvasLayer/wind_sound/fadein
+@onready var music1 = $CanvasLayer/music/music1
+@onready var set_picked_up_sound = $CanvasLayer/set_picked_up
+@onready var eating_sound = $CanvasLayer/eating_sound
+@onready var collect_sound = $CanvasLayer/collect_sound
 
 # menu.gd newgame _on_timer_intro_timeout > game startgame.gd > 
 
@@ -22,61 +26,71 @@ extends Node3D
 		"item_names":["BACON","COB","RED SAUCE"],
 		"items":["bacon","cob_cobs","red_sauce"],
 		"winning_item":"cob",
-		"winning_item_name":"BACON COB"
+		"winning_item_name":"BACON COB",
+		"music":"music1"
 	},
 	1:{
 		"item_names":["BEANS","CHEESE","TOAST"],
 		"items":["botc_beans","botc_cheese","botc_toast"],
 		"winning_item":"botc",
-		"winning_item_name":"BEANS ON TOAST WITH CHEESE"
+		"winning_item_name":"BEANS ON TOAST WITH CHEESE",
+		"music":"music2"
 	},
 	2:{
 		"item_names":["MUSTARD","PASTRY","PORK"],
 		"items":["pie_mustard","pie_pastry","pie_pork"],
 		"winning_item":"pie_pie",
-		"winning_item_name":"PORK PIE & MUSTARD"
+		"winning_item_name":"PORK PIE & MUSTARD",
+		"music":"music3"
 	},
 	3:{
 		"item_names":["LAMB","ONION","SAUCE","TOMATOS","WRAP"],
 		"items":["kebab_lamb","kebab_onion","kebab_sauce","kebab_tomato","kebab_wrap"],
 		"winning_item":"kebab_kebab",
-		"winning_item_name":"KEBAB"
+		"winning_item_name":"KEBAB",
+		"music":"music4"
 	},
 	4:{
 		"item_names":["BASE","CHEESE","TOMATOS"],
 		"items":["pizza_base","pizza_cheese","pizza_tomatos"],
 		"winning_item":"pizza_pizza",
-		"winning_item_name":"PIZZA"
+		"winning_item_name":"PIZZA",
+		"music":"music5"
 		},
 	5:{
 		"item_names":["COLA","LEMON","ORANGE"],
 		"items":["drinks_cola","drinks_lemon","drinks_orange"],
 		"winning_item":"drinks_drinks",
-		"winning_item_name":"PANDA POPS"
+		"winning_item_name":"PANDA POPS",
+		"music":"music6"
 		},
 	6:{
 		"item_names":["MILK","SUGAR","TEA"],
 		"items":["tea_milk","tea_sugar","tea_teabox"],
 		"winning_item":"tea_tea",
-		"winning_item_name":"TEA"
+		"winning_item_name":"TEA",
+		"music":"music7"
 		},
 	7:{
 		"item_names":["COB","BUTTER","CHIPS","RED SAUCE"], 
 		"items":["cob_bread","cob_butter","cob_chips","cob_redsauce"],
 		"winning_item":"cob_chipcob",
-		"winning_item_name":"CHIP COB"
+		"winning_item_name":"CHIP COB",
+		"music":"music8"
 		},
 	8:{
 		"item_names":["BACON","EGG","SAUSAGE","TOMATO"], 
 		"items":["full_bacon","full_friedegg","full_sausage","full_tomatoes"],
 		"winning_item":"full_english",
-		"winning_item_name":"FULL ENGLISH"
+		"winning_item_name":"FULL ENGLISH",
+		"music":"music9"
 		},
 	9:{
 		"item_names":["BARBECUE","SALTED","CHEESE & ONION","SPICY"], 
 		"items":["all_barbecue","all_classic","all_onion","all_spicy"],
 		"winning_item":"all_crisps",
-		"winning_item_name":"CRISPS"
+		"winning_item_name":"CRISPS",
+		"music":"music10"
 		},
 	10:{
 		"item_names":[], 
@@ -98,15 +112,6 @@ func _stopGame():
 
 func _levelCompleted():
 	level = level + 1
-	save_data = GlobalOptions._loadGame()
-	
-	save_data["level"] = level
-	save_data["player_position_x"] = player.position.x
-	save_data["player_position_y"] = player.position.y + 1
-	save_data["player_position_z"] = player.position.z
-	save_data["fog"] = world_environment.environment.fog_density
-	fog_level = float(world_environment.environment.fog_density)
-	GlobalOptions._saveGame(save_data)
 	
 	if level >= 10:
 		_completedGame()
@@ -117,6 +122,18 @@ func _levelCompleted():
 		random_engine_timer.start()
 
 func _changeLevel(change):
+	
+	save_data = GlobalOptions._loadGame()
+	save_data["level"] = level
+	save_data["player_position_x"] = player.position.x
+	save_data["player_position_y"] = player.position.y + 1
+	save_data["player_position_z"] = player.position.z
+	save_data["fog"] = world_environment.environment.fog_density
+	fog_level = float(world_environment.environment.fog_density)
+	_changeFog(fog_level)
+	
+	GlobalOptions._saveGame(save_data)
+	
 	level = change
 	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
 	for checkbox in list_checkboxes:
@@ -171,6 +188,7 @@ func _itemCollectedCheck(item_collected): # tick box, message to pop up, check i
 	for item in dict_levels[int(level)]["items"]:
 		
 		if item_collected == item:
+			collect_sound.play()
 			list_items_collected.append(item)
 			var collected_item_checkout = list_checkboxes[item_num]
 			collected_item_checkout.button_pressed = true
@@ -182,13 +200,18 @@ func _itemCollectedCheck(item_collected): # tick box, message to pop up, check i
 			item_num = item_num + 1
 	
 func _itemSetCollected():
-
+		set_picked_up_sound.play()
+		eating_sound.play()
 		var winning_item_name = dict_levels[int(level)]["winning_item_name"]
 		random_engine_timer.stop()
-		_reduceFog()
+		
+		fog_level =  world_environment.environment.fog_density - 0.04
+		_changeFog(fog_level)
+		
 		if level >= 9:
 			player._startMessages(["YOU HAVE " +  str(winning_item_name), "FOG REDUCED", "YOU ARE NOW SOBER"])
 		else:
+			get_node("CanvasLayer/music/" + dict_levels[int(level)]["music"]).play()
 			var next_winning_item_name =  dict_levels[int(level) + 1]["winning_item_name"]
 			var next_winning_item_name_sentence = null
 			if next_winning_item_name == "PANDA POPS":
@@ -205,16 +228,12 @@ func _itemSetCollected():
 
 
 func _changeFog(change):
-	fog_level = level
+	fog_level = change
 	world_environment.environment.fog_density = change
-
 
 func _resetFog():
 	world_environment.environment.fog_density = 0.4
 	
-func _reduceFog():
-	world_environment.environment.fog_density =  fog_level - 0.04
-
 func _on_wind_sound_finished():
 	wind_fadein_anim.stop()
 	wind_sound.play()

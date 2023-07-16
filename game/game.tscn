@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://diqmr355cu1re"]
+[gd_scene load_steps=107 format=3 uid="uid://diqmr355cu1re"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -60,7 +60,9 @@
 [ext_resource type="PackedScene" uid="uid://r0phk82t4iy" path="res://items/botc_cheese.tscn" id="13_temwc"]
 [ext_resource type="AudioStream" uid="uid://bsf1i5qvoa1u0" path="res://player/jump_sound/jump_sound.wav" id="14_inaw4"]
 [ext_resource type="PackedScene" uid="uid://x3241p62x50m" path="res://items/botc_toast.tscn" id="14_q461m"]
+[ext_resource type="AudioStream" uid="uid://2g66vvwyxgh6" path="res://effects/Special Click 02.wav" id="15_80qow"]
 [ext_resource type="PackedScene" uid="uid://jvidtijpokyi" path="res://items/botc.tscn" id="15_wr4as"]
+[ext_resource type="AudioStream" uid="uid://cjripreubej21" path="res://effects/Blunt Weapon 1_3.wav" id="16_s3h12"]
 [ext_resource type="AudioStream" uid="uid://ccsm4rtqrr50e" path="res://menu/UI Tight 02.wav" id="17_op1t4"]
 [ext_resource type="AudioStream" uid="uid://cgg4tntu5di1m" path="res://menu/AC_Horror_Comedy_Stinger_02.wav" id="18_cmw2d"]
 [ext_resource type="PackedScene" uid="uid://bd6hysxy64ljb" path="res://effects/random_effect_2.tscn" id="18_d0k5u"]
@@ -72,6 +74,19 @@
 [ext_resource type="PackedScene" uid="uid://d0uu7c7lyiqpy" path="res://items/drinks_orange.tscn" id="33_5fji1"]
 [ext_resource type="Script" path="res://game/funny_stuff.gd" id="68_6jcda"]
 [ext_resource type="AudioStream" uid="uid://bxjgb228xlm7b" path="res://wind/Wind Loop 1.wav" id="69_bs375"]
+[ext_resource type="AudioStream" uid="uid://ddc3l3fqm888a" path="res://music/Breath_Of_The_Wasteland.wav" id="73_rsj42"]
+[ext_resource type="AudioStream" uid="uid://0ich4pdse7qq" path="res://music/Ceasefire.wav" id="74_ta2d0"]
+[ext_resource type="AudioStream" uid="uid://dawxplyswawa" path="res://music/Dawn_Of_Destruction.wav" id="75_tndrm"]
+[ext_resource type="AudioStream" uid="uid://c006j7542yi5a" path="res://music/Hell_Machine.wav" id="76_0gy20"]
+[ext_resource type="AudioStream" uid="uid://dyylnbp88ocmk" path="res://music/Reactor_Meltdown.wav" id="77_bbjdg"]
+[ext_resource type="AudioStream" uid="uid://bbqg0anh1pbmh" path="res://music/Silence.wav" id="78_s87vr"]
+[ext_resource type="AudioStream" uid="uid://b73pgg1vp4nwv" path="res://music/Sonar_Of_Destruction.wav" id="79_pkvca"]
+[ext_resource type="AudioStream" uid="uid://bw1kqa7hthxk3" path="res://music/The_Dead_Of_Night.wav" id="80_7k152"]
+[ext_resource type="AudioStream" uid="uid://cwjhbukp1krsx" path="res://music/To_The_Wind.wav" id="81_sp4ob"]
+[ext_resource type="AudioStream" uid="uid://bokh1vlken0ki" path="res://music/While_The_War_Rages_On.wav" id="82_iv4gu"]
+[ext_resource type="AudioStream" uid="uid://cluq67hpi0a0r" path="res://effects/Special & Powerup (12).wav" id="83_vswy3"]
+[ext_resource type="AudioStream" uid="uid://2vtrr6mwffoe" path="res://effects/Pig Eating 02.wav" id="84_x6glr"]
+[ext_resource type="AudioStream" uid="uid://dm216onqamknd" path="res://effects/Bag 01.wav" id="85_bavm0"]
 
 [sub_resource type="Animation" id="Animation_qlohe"]
 length = 0.001
@@ -309,6 +324,12 @@ wait_time = 0.4
 stream = ExtResource("14_inaw4")
 volume_db = -10.0
 bus = &"jump_sound"
+
+[node name="gameover_sound" type="AudioStreamPlayer" parent="CanvasLayer/player_main"]
+stream = ExtResource("15_80qow")
+
+[node name="gameover_sound_2" type="AudioStreamPlayer" parent="CanvasLayer/player_main"]
+stream = ExtResource("16_s3h12")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer"]
 environment = SubResource("Environment_r8iv1")
@@ -657,10 +678,6 @@ navigation_mesh = SubResource("NavigationMesh_m7fv5")
 
 [node name="leic" parent="CanvasLayer/NavigationRegion3D" instance=ExtResource("1_baub8")]
 
-[node name="music" type="AudioStreamPlayer" parent="CanvasLayer"]
-
-[node name="ambience" type="AudioStreamPlayer" parent="CanvasLayer"]
-
 [node name="items" type="Node3D" parent="CanvasLayer"]
 
 [node name="all_barbecue" parent="CanvasLayer/items" instance=ExtResource("8_tgh5s")]
@@ -854,7 +871,7 @@ script = ExtResource("12_yxmj5")
 [node name="random_effect_4" parent="CanvasLayer/random_engine" instance=ExtResource("20_q8pw0")]
 
 [node name="random_engine_timer" type="Timer" parent="CanvasLayer/random_engine"]
-wait_time = 90.0
+wait_time = 65.0
 
 [node name="game_over" type="SubViewportContainer" parent="CanvasLayer"]
 visible = false
@@ -921,6 +938,57 @@ volume_db = -80.0
 libraries = {
 "": SubResource("AnimationLibrary_sosgc")
 }
+
+[node name="music" type="Node3D" parent="CanvasLayer"]
+
+[node name="music1" type="AudioStreamPlayer" parent="CanvasLayer/music"]
+stream = ExtResource("73_rsj42")
+bus = &"music"
+
+[node name="music2" type="AudioStreamPlayer" parent="CanvasLayer/music"]
+stream = ExtResource("74_ta2d0")
+bus = &"music"
+
+[node name="music3" type="AudioStreamPlayer" parent="CanvasLayer/music"]
+stream = ExtResource("75_tndrm")
+bus = &"music"
+
+[node name="music4" type="AudioStreamPlayer" parent="CanvasLayer/music"]
+stream = ExtResource("76_0gy20")
+bus = &"music"
+
+[node name="music5" type="AudioStreamPlayer" parent="CanvasLayer/music"]
+stream = ExtResource("77_bbjdg")
+bus = &"music"
+
+[node name="music6" type="AudioStreamPlayer" parent="CanvasLayer/music"]
+stream = ExtResource("78_s87vr")
+bus = &"music"
+
+[node name="music7" type="AudioStreamPlayer" parent="CanvasLayer/music"]
+stream = ExtResource("79_pkvca")
+bus = &"music"
+
+[node name="music8" type="AudioStreamPlayer" parent="CanvasLayer/music"]
+stream = ExtResource("80_7k152")
+bus = &"music"
+
+[node name="music9" type="AudioStreamPlayer" parent="CanvasLayer/music"]
+stream = ExtResource("81_sp4ob")
+bus = &"music"
+
+[node name="music10" type="AudioStreamPlayer" parent="CanvasLayer/music"]
+stream = ExtResource("82_iv4gu")
+bus = &"music"
+
+[node name="set_picked_up" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("83_vswy3")
+
+[node name="eating_sound" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("84_x6glr")
+
+[node name="collect_sound" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("85_bavm0")
 
 [connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/Timer_load" to="CanvasLayer/menu" method="_on_timer_load_timeout"]
