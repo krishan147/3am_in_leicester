@@ -14,10 +14,11 @@ extends Node3D
 @onready var fog_level = 0.4
 @onready var wind_sound = $CanvasLayer/wind_sound
 @onready var wind_fadein_anim = $CanvasLayer/wind_sound/fadein
-@onready var music1 = $CanvasLayer/music/music1
+@onready var music = $CanvasLayer/music
 @onready var set_picked_up_sound = $CanvasLayer/set_picked_up
 @onready var eating_sound = $CanvasLayer/eating_sound
 @onready var collect_sound = $CanvasLayer/collect_sound
+@onready var ending_music = $CanvasLayer/ending_music
 
 # menu.gd newgame _on_timer_intro_timeout > game startgame.gd > 
 
@@ -124,6 +125,9 @@ func _levelCompleted():
 func _changeLevel(change):
 	
 	save_data = GlobalOptions._loadGame()
+	
+	print (save_data)
+	
 	save_data["level"] = level
 	save_data["player_position_x"] = player.position.x
 	save_data["player_position_y"] = player.position.y + 1
@@ -131,8 +135,9 @@ func _changeLevel(change):
 	save_data["fog"] = world_environment.environment.fog_density
 	fog_level = float(world_environment.environment.fog_density)
 	_changeFog(fog_level)
-	
 	GlobalOptions._saveGame(save_data)
+	
+	print (save_data)
 	
 	level = change
 	var list_checkboxes = [checkout_1, checkout_2, checkout_3, checkout_4, checkout_5]
@@ -144,7 +149,12 @@ func _changeLevel(change):
 func _getLevel():
 	return level
 	
+func _stopMusic():
+	for item in music.get_children():
+		item.stop()
+	
 func _completedGame():
+	ending_music.play()
 	player._canMove(false)
 	player._playDancingRunningMan()
 
@@ -153,6 +163,8 @@ func _ready():
 
 func _physics_process(delta):
 	get_tree().call_group("enemies", "_updateTargetLocation", player)
+	
+	#print (world_environment.environment.fog_density)
 	
 func _changeCheckboxes(level):
 	_untickCheckBoxes()
@@ -211,6 +223,9 @@ func _itemSetCollected():
 		if level >= 9:
 			player._startMessages(["YOU HAVE " +  str(winning_item_name), "FOG REDUCED", "YOU ARE NOW SOBER"])
 		else:
+			
+			_stopMusic()
+			
 			get_node("CanvasLayer/music/" + dict_levels[int(level)]["music"]).play()
 			var next_winning_item_name =  dict_levels[int(level) + 1]["winning_item_name"]
 			var next_winning_item_name_sentence = null

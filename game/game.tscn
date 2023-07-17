@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://diqmr355cu1re"]
+[gd_scene load_steps=108 format=3 uid="uid://diqmr355cu1re"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -87,6 +87,7 @@
 [ext_resource type="AudioStream" uid="uid://cluq67hpi0a0r" path="res://effects/Special & Powerup (12).wav" id="83_vswy3"]
 [ext_resource type="AudioStream" uid="uid://2vtrr6mwffoe" path="res://effects/Pig Eating 02.wav" id="84_x6glr"]
 [ext_resource type="AudioStream" uid="uid://dm216onqamknd" path="res://effects/Bag 01.wav" id="85_bavm0"]
+[ext_resource type="AudioStream" uid="uid://coitumkmyqt8" path="res://music/SC_Dancing_Cats_Short_Loop.wav" id="88_65pg1"]
 
 [sub_resource type="Animation" id="Animation_qlohe"]
 length = 0.001
@@ -223,8 +224,8 @@ script = ExtResource("1_q42yk")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_right = 1155.0
-offset_bottom = 650.0
+offset_right = 1980.0
+offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 
 [node name="fade" type="AnimationPlayer" parent="CanvasLayer"]
@@ -989,6 +990,10 @@ stream = ExtResource("84_x6glr")
 
 [node name="collect_sound" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource("85_bavm0")
+
+[node name="ending_music" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("88_65pg1")
+volume_db = -5.0
 
 [connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/Timer_load" to="CanvasLayer/menu" method="_on_timer_load_timeout"]
