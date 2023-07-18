@@ -995,6 +995,58 @@ stream = ExtResource("85_bavm0")
 stream = ExtResource("88_65pg1")
 volume_db = -5.0
 
+[node name="lights" type="Node3D" parent="CanvasLayer"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CanvasLayer/lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 23.1319, 6.85155, -51.2043)
+light_color = Color(0.156863, 0.192157, 1, 1)
+light_energy = 9.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="CanvasLayer/lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 48.762, 6.85155, 12.1091)
+light_color = Color(1, 0.0666667, 0.133333, 1)
+light_energy = 9.0
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="CanvasLayer/lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 49.9191, 6.85155, -49.9494)
+light_color = Color(0.360784, 1, 0.290196, 1)
+light_energy = 9.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="CanvasLayer/lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 68.5017, 6.85155, -60.7051)
+light_color = Color(1, 0.298039, 0.988235, 1)
+light_energy = 9.0
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="CanvasLayer/lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 59.2991, 6.85155, -94.6494)
+light_color = Color(0.431373, 0.992157, 1, 1)
+light_energy = 9.0
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="CanvasLayer/lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21.4139, 6.85155, -81.7692)
+light_color = Color(0.956863, 1, 0, 1)
+light_energy = 9.0
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="CanvasLayer/lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 1.55503, 6.85155, -24.1017)
+light_color = Color(1, 0.780392, 0.290196, 1)
+light_energy = 9.0
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="CanvasLayer/lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 55.7572, 6.85155, -24.1017)
+light_color = Color(0.682353, 0.67451, 0.67451, 1)
+light_energy = 9.0
+
+[node name="SpotLight3D9" type="SpotLight3D" parent="CanvasLayer/lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.79797, 6.85155, -57.7862)
+light_color = Color(0.682353, 0.231373, 0.458824, 1)
+light_energy = 9.0
+
+[node name="SpotLight3D10" type="SpotLight3D" parent="CanvasLayer/lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 31.2631, 6.85155, -5.02748)
+light_color = Color(0.576471, 0.682353, 0.345098, 1)
+light_energy = 9.0
+
 [connection signal="animation_finished" from="CanvasLayer/fade" to="." method="_on_fade_animation_finished"]
 [connection signal="timeout" from="CanvasLayer/Timer_load" to="CanvasLayer/menu" method="_on_timer_load_timeout"]
 [connection signal="timeout" from="CanvasLayer/Timer_intro" to="CanvasLayer/menu" method="_on_timer_intro_timeout"]
