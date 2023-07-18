@@ -89,7 +89,7 @@ func _on_new_game_button_down():
 		new_game_check = 0
 		random_engine_timer.start()
 		enemy_main._end()
-		game._resetFog()
+		game._changeFog(0.5)
 		game._startGame()
 
 func _on_timer_load_timeout():
@@ -103,15 +103,19 @@ func _on_timer_load_timeout():
 
 func _on_timer_intro_timeout():
 	if x_intro == 0:
+		player._playStartMessagesSounds()
 		player_messages.text = "GET UP!"
 		timer_intro.start()
 	elif x_intro == 1:
+		player._playStartMessagesSounds()
 		player_messages.text = "HURRY!"
 		timer_intro.start()
 	elif x_intro == 2:
+		player._playStartMessagesSounds()
 		player_messages.text = "YOU'RE HUNGOVER!"
 		timer_intro.start()
 	elif x_intro == 3:
+		player._playStartMessagesSounds()
 		player_messages.text = "MAKE A BACON COB!"
 		timer_intro.start()
 	else:

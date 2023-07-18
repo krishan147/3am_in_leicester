@@ -39,6 +39,16 @@ const LERP_VAL = 0.5
 @onready var gameover_sound_1 = $gameover_sound
 @onready var gameover_sound_2 = $gameover_sound_2
 
+@onready var message_sound_1 = $messages_sound/message_sound_1
+@onready var message_sound_2 = $messages_sound/message_sound_2
+@onready var message_sound_3 = $messages_sound/message_sound_3
+@onready var message_sound_4 = $messages_sound/message_sound_4
+@onready var message_sound_5 = $messages_sound/message_sound_5
+@onready var message_sound_6 = $messages_sound/message_sound_6
+@onready var message_sound_7 = $messages_sound/message_sound_7
+@onready var message_sound_8 = $messages_sound/message_sound_8
+@onready var message_sound_9 = $messages_sound/message_sound_9
+
 #	_startMessages(messages)
 #	_start()
 
@@ -165,12 +175,18 @@ var x_messages = 0
 
 func _startMessages(messages):
 	if processing_messages == false:
+		_playStartMessagesSounds()
 		processing_messages = true
 		list_messages = messages
 		messages_timer.start()
 		
 		player_messages.text = list_messages[x_messages]
 		x_messages = x_messages + 1
+		
+func _playStartMessagesSounds():
+	var list_messages_sound = [message_sound_1,message_sound_2,message_sound_3,message_sound_4,message_sound_5,message_sound_6,message_sound_7,message_sound_8,message_sound_9]
+	list_messages_sound.shuffle()
+	list_messages_sound[0].play()
 	
 func _on_messages_timer_timeout():
 	

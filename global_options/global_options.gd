@@ -3,6 +3,9 @@ extends Node
 var file_location = OS.get_user_data_dir() + "/save.save"
 
 func _ready():
+	
+	print (_loadGame())
+	
 	if FileAccess.file_exists(file_location):
 		pass
 	else:
@@ -27,7 +30,6 @@ func _saveGameTemplate():
 		"player_position_y": 1,
 		"player_position_z": 1,
 		"level":0,
-		"jump_power_unlocked":0,
-		"fog":0.4
+		"jump_power_unlocked":0
 		}
 	return save_dict

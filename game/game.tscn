@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://diqmr355cu1re"]
+[gd_scene load_steps=117 format=3 uid="uid://diqmr355cu1re"]
 
 [ext_resource type="PackedScene" uid="uid://coq7qbcm5sweh" path="res://map4/leic.tscn" id="1_baub8"]
 [ext_resource type="Script" path="res://game/game.gd" id="1_q42yk"]
@@ -63,11 +63,20 @@
 [ext_resource type="AudioStream" uid="uid://2g66vvwyxgh6" path="res://effects/Special Click 02.wav" id="15_80qow"]
 [ext_resource type="PackedScene" uid="uid://jvidtijpokyi" path="res://items/botc.tscn" id="15_wr4as"]
 [ext_resource type="AudioStream" uid="uid://cjripreubej21" path="res://effects/Blunt Weapon 1_3.wav" id="16_s3h12"]
+[ext_resource type="AudioStream" uid="uid://cvve5irgcqxcs" path="res://player/messages_sounds/11.wav" id="17_cr3g0"]
 [ext_resource type="AudioStream" uid="uid://ccsm4rtqrr50e" path="res://menu/UI Tight 02.wav" id="17_op1t4"]
+[ext_resource type="AudioStream" uid="uid://djgr4cms45wio" path="res://player/messages_sounds/22.wav" id="18_38ssc"]
 [ext_resource type="AudioStream" uid="uid://cgg4tntu5di1m" path="res://menu/AC_Horror_Comedy_Stinger_02.wav" id="18_cmw2d"]
 [ext_resource type="PackedScene" uid="uid://bd6hysxy64ljb" path="res://effects/random_effect_2.tscn" id="18_d0k5u"]
+[ext_resource type="AudioStream" uid="uid://b7m8834s833ue" path="res://player/messages_sounds/33.wav" id="19_07kd5"]
 [ext_resource type="PackedScene" uid="uid://bsot7gqp585jq" path="res://effects/random_effect_3.tscn" id="19_ipogl"]
+[ext_resource type="AudioStream" uid="uid://dincx8llayud8" path="res://player/messages_sounds/44.wav" id="20_e0a60"]
 [ext_resource type="PackedScene" uid="uid://dlk1dkiwdt85x" path="res://effects/random_effect_4.tscn" id="20_q8pw0"]
+[ext_resource type="AudioStream" uid="uid://bhexh12p5o886" path="res://player/messages_sounds/55.wav" id="21_rrdn2"]
+[ext_resource type="AudioStream" uid="uid://dhgvrer54lcfq" path="res://player/messages_sounds/66.wav" id="22_76nx2"]
+[ext_resource type="AudioStream" uid="uid://bkjh3pmy0adki" path="res://player/messages_sounds/77.wav" id="23_22p0p"]
+[ext_resource type="AudioStream" uid="uid://dyaldah7641do" path="res://player/messages_sounds/88.wav" id="24_60gik"]
+[ext_resource type="AudioStream" uid="uid://ckysmh5i7xo7d" path="res://player/messages_sounds/99.wav" id="25_4vdvu"]
 [ext_resource type="PackedScene" uid="uid://cwycb51dr8p0i" path="res://items/drinks_cola.tscn" id="30_ebvi8"]
 [ext_resource type="PackedScene" uid="uid://62pa37kxyrpn" path="res://items/drinks_drinks.tscn" id="31_rxdd4"]
 [ext_resource type="PackedScene" uid="uid://0bhnw153inb2" path="res://items/drinks_lemon.tscn" id="32_3l6se"]
@@ -150,7 +159,7 @@ sky_material = SubResource("PhysicalSkyMaterial_4hfuk")
 background_mode = 2
 sky = SubResource("Sky_mbr8q")
 fog_enabled = true
-fog_density = 0.4
+fog_density = 0.5
 volumetric_fog_density = 0.13
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_y1q7c"]
@@ -331,6 +340,36 @@ stream = ExtResource("15_80qow")
 
 [node name="gameover_sound_2" type="AudioStreamPlayer" parent="CanvasLayer/player_main"]
 stream = ExtResource("16_s3h12")
+
+[node name="messages_sound" type="Node3D" parent="CanvasLayer/player_main"]
+transform = Transform3D(1.33333, 0, 0, 0, 1.33333, 0, 0, 0, 1.33333, -33.3333, -3.472, 68)
+
+[node name="message_sound_1" type="AudioStreamPlayer" parent="CanvasLayer/player_main/messages_sound"]
+stream = ExtResource("17_cr3g0")
+
+[node name="message_sound_2" type="AudioStreamPlayer" parent="CanvasLayer/player_main/messages_sound"]
+stream = ExtResource("18_38ssc")
+
+[node name="message_sound_3" type="AudioStreamPlayer" parent="CanvasLayer/player_main/messages_sound"]
+stream = ExtResource("19_07kd5")
+
+[node name="message_sound_4" type="AudioStreamPlayer" parent="CanvasLayer/player_main/messages_sound"]
+stream = ExtResource("20_e0a60")
+
+[node name="message_sound_5" type="AudioStreamPlayer" parent="CanvasLayer/player_main/messages_sound"]
+stream = ExtResource("21_rrdn2")
+
+[node name="message_sound_6" type="AudioStreamPlayer" parent="CanvasLayer/player_main/messages_sound"]
+stream = ExtResource("22_76nx2")
+
+[node name="message_sound_7" type="AudioStreamPlayer" parent="CanvasLayer/player_main/messages_sound"]
+stream = ExtResource("23_22p0p")
+
+[node name="message_sound_8" type="AudioStreamPlayer" parent="CanvasLayer/player_main/messages_sound"]
+stream = ExtResource("24_60gik")
+
+[node name="message_sound_9" type="AudioStreamPlayer" parent="CanvasLayer/player_main/messages_sound"]
+stream = ExtResource("25_4vdvu")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="CanvasLayer"]
 environment = SubResource("Environment_r8iv1")
