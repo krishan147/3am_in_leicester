@@ -4,8 +4,6 @@ var file_location = OS.get_user_data_dir() + "/save.save"
 
 func _ready():
 	
-	print (_loadGame())
-	
 	if FileAccess.file_exists(file_location):
 		pass
 	else:

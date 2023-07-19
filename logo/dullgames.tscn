@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8vw0ruhv3tve"]
+
+[ext_resource type="FontFile" uid="uid://bwl0pbae4hryj" path="res://style/font/FFFFORWA.TTF" id="1"]
+[ext_resource type="Texture2D" uid="uid://c1tmu43hw3k0n" path="res://logo/titlescreen_background.png" id="2"]
+[ext_resource type="Script" path="res://logo/dullgames.gd" id="3"]
+[ext_resource type="AudioStream" uid="uid://embbmcf7jla" path="res://logo/dullgamessound.wav" id="4"]
+
+[node name="dullgames" type="Node2D"]
+script = ExtResource("3")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(510, 300)
+scale = Vector2(2, 1.905)
+texture = ExtResource("2")
+
+[node name="dull" type="Label" parent="."]
+visible = false
+offset_left = 100.0
+offset_top = 150.0
+offset_right = 1300.0
+offset_bottom = 796.0
+theme_override_colors/font_color = Color(0.270588, 0.270588, 0.270588, 1)
+theme_override_constants/outline_size = -18
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 300
+text = "krish"
+
+[node name="games" type="Label" parent="dull"]
+visible = false
+layout_mode = 0
+offset_left = 535.0
+offset_top = 280.0
+offset_right = 702.0
+offset_bottom = 332.0
+theme_override_fonts/font = ExtResource("1")
+theme_override_font_sizes/font_size = 35
+text = "GAMES"
+
+[node name="timergames" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="timerdull" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4")
+
+[node name="timersound" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="timerfadeout" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="timergames" to="." method="_on_timergames_timeout"]
+[connection signal="timeout" from="timerdull" to="." method="_on_timerdull_timeout"]
+[connection signal="timeout" from="timersound" to="." method="_on_timersound_timeout"]
+[connection signal="timeout" from="timerfadeout" to="." method="_on_timerfadeout_timeout"]

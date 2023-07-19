@@ -164,7 +164,7 @@ func _completedGame():
 	player._canMove(false)
 	player._playDancingRunningMan()
 
-func _ready():
+func _startGameMenu():
 	fade.play("fade_to_normal")
 
 func _physics_process(delta):
