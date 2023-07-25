@@ -246,7 +246,6 @@ func _itemSetCollected():
 
 func _changeFog(change):
 	world_environment.environment.fog_density = change
-
 	
 func _on_wind_sound_finished():
 	wind_fadein_anim.stop()
