@@ -61,15 +61,28 @@ func _start():
 	
 func _input(event):
 	if game._getPlayingState() == true:
+		
+		if Input.is_action_pressed("camera_up"):
+			spring_arm_3d.rotate_x(-2 * .005)
+		elif Input.is_action_pressed("camera_down"):
+			spring_arm_3d.rotate_x(2 * .005)
+		elif Input.is_action_pressed("camera_right"):
+			spring_arm_pivot.rotate_y(2 * .005)
+		elif Input.is_action_pressed("camera_left"):
+			spring_arm_pivot.rotate_y(-2 * .005)
+		else:
+			pass
+		
+		
 		if event is InputEventMouseMotion:
 			spring_arm_pivot.rotate_y(-event.relative.x * .005)
 			spring_arm_3d.rotate_x(-event.relative.y * .005)
 			
-			if spring_arm_3d.rotation[0] >= 0.7:
-				spring_arm_3d.rotation[0] = 0.7
+		if spring_arm_3d.rotation[0] >= 0.7:
+			spring_arm_3d.rotation[0] = 0.7
 
-			if spring_arm_3d.rotation[0] <= -1.4:
-				spring_arm_3d.rotation[0] = -1.4
+		if spring_arm_3d.rotation[0] <= -1.4:
+			spring_arm_3d.rotation[0] = -1.4
 				
 		if is_jumping == false:
 			if Input.is_action_just_pressed("jump"):
