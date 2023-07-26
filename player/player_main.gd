@@ -64,15 +64,12 @@ func _input(event):
 		
 		if Input.is_action_pressed("camera_up"):
 			spring_arm_3d.rotate_x(-2 * .005)
-		elif Input.is_action_pressed("camera_down"):
+		if Input.is_action_pressed("camera_down"):
 			spring_arm_3d.rotate_x(2 * .005)
-		elif Input.is_action_pressed("camera_right"):
+		if Input.is_action_pressed("camera_right"):
 			spring_arm_pivot.rotate_y(2 * .005)
-		elif Input.is_action_pressed("camera_left"):
+		if Input.is_action_pressed("camera_left"):
 			spring_arm_pivot.rotate_y(-2 * .005)
-		else:
-			pass
-		
 		
 		if event is InputEventMouseMotion:
 			spring_arm_pivot.rotate_y(-event.relative.x * .005)
@@ -124,7 +121,7 @@ func _physics_process(delta):
 	
 		var input_dir = Input.get_vector("left", "right", "forward", "backward")
 		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-		direction = direction.rotated(Vector3.UP, spring_arm_pivot.rotation.y)
+		direction = direction.rotated(Vector3.UP, spring_arm_pivot.rotation.y) # for controller. if movement then rotate else
 		
 		if not is_on_floor():
 			var level = game._getLevel()
