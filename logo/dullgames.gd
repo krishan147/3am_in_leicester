@@ -15,7 +15,6 @@ func _process(delta):
 		if dull_color <= 0:
 			fade_out = false
 			canvas.visible = true
-			print ("herere")
 			self.visible = false
 			game._startGameMenu()
 			buttons.visible = true

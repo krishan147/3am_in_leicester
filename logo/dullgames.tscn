@@ -10,7 +10,7 @@ script = ExtResource("3")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(510, 300)
-scale = Vector2(2, 1.905)
+scale = Vector2(5, 4.763)
 texture = ExtResource("2")
 
 [node name="dull" type="Label" parent="."]
