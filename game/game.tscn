@@ -159,7 +159,6 @@ sky_material = SubResource("PhysicalSkyMaterial_4hfuk")
 [sub_resource type="Environment" id="Environment_r8iv1"]
 background_mode = 2
 sky = SubResource("Sky_mbr8q")
-fog_enabled = true
 fog_density = 0.5
 volumetric_fog_density = 0.13
 
@@ -765,26 +764,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.823, 3.24969, -60.7177)
 visible = false
 
 [node name="cob_bread" parent="CanvasLayer/items" instance=ExtResource("8_vl4tu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.431, 3.03972, -106.957)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.3763, 3.0883, -68.7639)
 visible = false
 
 [node name="cob_butter" parent="CanvasLayer/items" instance=ExtResource("9_8or8i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.6583, 2.94025, -103.504)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.2406, 3.19322, -69.989)
 visible = false
 
 [node name="tea_tea" parent="CanvasLayer/items" instance=ExtResource("10_mfcds")]
 visible = false
 
 [node name="cob_chipcob" parent="CanvasLayer/items" instance=ExtResource("10_hiqcj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.0297, 11.0615, -94.6977)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0843, 9.65853, -62.7208)
 visible = false
 
 [node name="cob_chips" parent="CanvasLayer/items" instance=ExtResource("11_6cyas")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.7035, 3.096, -95.8833)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.3746, 3.05568, -70.6197)
 visible = false
 
 [node name="cob_redsauce" parent="CanvasLayer/items" instance=ExtResource("12_jrgxj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.0297, 3.08985, -93.445)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.541, 3.2575, -71.8607)
 visible = false
 
 [node name="tea_milk" parent="CanvasLayer/items" instance=ExtResource("8_ye3pd")]
@@ -872,19 +871,19 @@ transform = Transform3D(0.884092, 0.467313, 0, -0.467313, 0.884092, 0, 0, 0, 1, 
 visible = false
 
 [node name="botc" parent="CanvasLayer/items" instance=ExtResource("15_wr4as")]
-transform = Transform3D(2.75521, -0.526078, -1.06397, 0, 2.68923, -1.32968, 1.18693, 1.22119, 2.4698, 54.4316, 5.91649, -64.7856)
+transform = Transform3D(2.75521, -0.526078, -1.06397, 0, 2.68923, -1.32968, 1.18693, 1.22119, 2.4698, 42.4754, 7.54027, -84.5436)
 visible = false
 
 [node name="botc_beans" parent="CanvasLayer/items" instance=ExtResource("12_d0ebn")]
-transform = Transform3D(1, 0, 0, 0, 0.899176, 0.437587, 0, -0.437587, 0.899176, 56.5494, 3.23488, -70.3693)
+transform = Transform3D(1, 0, 0, 0, 0.899176, 0.437587, 0, -0.437587, 0.899176, 44.5932, 2.87075, -88.6152)
 visible = false
 
 [node name="botc_cheese" parent="CanvasLayer/items" instance=ExtResource("13_temwc")]
-transform = Transform3D(0.940229, -0.128005, -0.31557, 0, 0.926666, -0.375885, 0.340544, 0.353418, 0.871278, 54.7903, 2.94821, -68.7945)
+transform = Transform3D(0.940229, -0.128005, -0.31557, 0, 0.926666, -0.375885, 0.340544, 0.353418, 0.871278, 51.7359, 2.99957, -90.3853)
 visible = false
 
 [node name="botc_toast" parent="CanvasLayer/items" instance=ExtResource("14_q461m")]
-transform = Transform3D(0.784582, -0.251633, -0.566668, 0, 0.913943, -0.405844, 0.620026, 0.318417, 0.717063, 60.1733, 3.14658, -72.5764)
+transform = Transform3D(0.784582, -0.251633, -0.566668, 0, 0.913943, -0.405844, 0.620026, 0.318417, 0.717063, 60.6572, 2.99721, -95.0018)
 visible = false
 
 [node name="drinks_cola" parent="CanvasLayer/items" instance=ExtResource("30_ebvi8")]
